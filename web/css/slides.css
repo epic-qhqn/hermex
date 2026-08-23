@@ -46,7 +46,7 @@
   gap: 8px;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 1.02rem;
+  font-size: 1.16rem;
   color: #FFFFFF;
   border: 1.5px solid rgba(6, 182, 212, 0.5);
   border-radius: 999px;
@@ -56,6 +56,11 @@
   box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
   opacity: 0;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  /* ghi đè width:100% mặc định từ ".slide > *" để nút bo sát nội dung, không kéo giãn hết chiều ngang */
+  width: fit-content;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cover-cta:hover {
@@ -70,7 +75,7 @@
   border: 1px solid rgba(103, 232, 249, 0.4);
   border-radius: 6px;
   padding: 2px 9px;
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 700;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -86,7 +91,7 @@
 
 .cover-tags .tag {
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.87rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   border: 1px solid rgba(103, 232, 249, 0.2);
@@ -129,7 +134,7 @@
   gap: 8px;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 1.2rem;
   color: var(--accent-deep);
   background: rgba(6, 182, 212, 0.12);
   border: 1.5px solid var(--accent);
@@ -175,13 +180,13 @@
 .thanks-caption-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.08rem;
+  font-size: 1.23rem;
   color: var(--accent-deep);
   margin-bottom: 4px;
 }
 
 .thanks-caption-sub {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--ink-mute);
   line-height: 1.5;
 }
@@ -208,7 +213,7 @@
   grid-template-columns: 1.1fr 1fr;
   gap: 16px;
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -232,7 +237,7 @@
   gap: 16px;
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.48;
 }
 
@@ -284,7 +289,7 @@
   border: 1px solid var(--accent);
   color: var(--accent-deep);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   padding: 5px 12px;
@@ -317,7 +322,7 @@
   display: inline-block;
   margin-top: 14px;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.89rem;
   color: var(--accent-deep);
   background: rgba(6, 182, 212, 0.12);
   border: 1px solid rgba(103, 232, 249, 0.25);
@@ -343,3 +348,95 @@
   height: auto;
   display: block;
 }
+
+/* ==========================================================================
+   CÂN CHỈNH KHOẢNG CÁCH RIÊNG CHO TỪNG SLIDE
+   (giãn nội dung cho vừa khung hình, giảm khoảng trống thừa trên/dưới —
+   chỉ áp dụng cho những slide có ít thành phần; slide đã cân đối được giữ nguyên)
+   ========================================================================== */
+
+/* Ghi chú: chỉ chỉnh margin/padding/gap theo chiều DỌC (top/bottom, row-gap).
+   Chiều ngang (trái/phải, column-gap) không bị đụng tới — giữ nguyên mặc định
+   từ components.css (.card: 26px | .callout/.safe-box/.warn-box: 24px |
+   .keylist li: 20px | .keylist-grid column-gap: 18px). */
+
+/* Slide 2 — Vấn đề & động lực (keylist-grid 3 mục, 2 hàng) */
+#deck > .slide:nth-child(2) p.lead { margin-bottom: 40px; }
+#deck > .slide:nth-child(2) .keylist-grid { row-gap: 26px; }
+#deck > .slide:nth-child(2) .keylist-grid li { padding-top: 26px; padding-bottom: 26px; }
+
+/* Slide 3 — Mục tiêu & câu hỏi nghiên cứu (grid-2 + callout) */
+#deck > .slide:nth-child(3) .card { padding-top: 32px; padding-bottom: 32px; }
+#deck > .slide:nth-child(3) .callout { margin-top: 40px !important; padding-top: 26px; padding-bottom: 26px; }
+
+/* Slide 4 — Chồng chất lượng tử (lead + grid-2 + callout) */
+#deck > .slide:nth-child(4) p.lead { margin-bottom: 36px; }
+#deck > .slide:nth-child(4) .card { padding-top: 30px; padding-bottom: 30px; }
+#deck > .slide:nth-child(4) .callout { margin-top: 32px; padding-top: 24px; padding-bottom: 24px; }
+
+/* Slide 5 — Đo lường làm sụp đổ trạng thái (lead + keylist-grid 2 mục 1 hàng + callout) */
+#deck > .slide:nth-child(5) p.lead { margin-bottom: 34px; }
+#deck > .slide:nth-child(5) .keylist-grid li { padding-top: 24px; padding-bottom: 24px; }
+#deck > .slide:nth-child(5) .callout { margin-top: 30px; padding-top: 24px; padding-bottom: 24px; }
+
+/* Slide 6 — Định lý không nhân bản (lead + grid-2 + callout) */
+#deck > .slide:nth-child(6) p.lead { margin-bottom: 36px; }
+#deck > .slide:nth-child(6) .card { padding-top: 30px; padding-bottom: 30px; }
+#deck > .slide:nth-child(6) .callout { margin-top: 32px; padding-top: 24px; padding-bottom: 24px; }
+
+/* Slide 7 — Bốn góc, bốn trạng thái phân cực (lead + grid-4 + callout) */
+#deck > .slide:nth-child(7) p.lead { margin-bottom: 32px; }
+#deck > .slide:nth-child(7) .card { padding-top: 34px; padding-bottom: 34px; }
+#deck > .slide:nth-child(7) .callout { margin-top: 36px !important; padding-top: 24px; padding-bottom: 24px; }
+
+/* Slide 13 — Bước 1/6: Alice sinh ngẫu nhiên (chỉ lead + callout, trống nhiều nhất) */
+#deck > .slide:nth-child(13) .eyebrow { margin-bottom: 30px; }
+#deck > .slide:nth-child(13) h2.slide-title { margin-bottom: 30px; }
+#deck > .slide:nth-child(13) p.lead { margin-bottom: 36px; }
+#deck > .slide:nth-child(13) .callout { margin-top: 20px; padding-top: 72px; padding-bottom: 72px; }
+
+/* Slide 14 — Bước 2/6: Servo mã hoá góc (lead + grid-4) */
+#deck > .slide:nth-child(14) .eyebrow { margin-bottom: 26px; }
+#deck > .slide:nth-child(14) p.lead { margin-bottom: 60px; }
+#deck > .slide:nth-child(14) .card { padding-top: 52px; padding-bottom: 52px; }
+
+/* Slide 15 — Bước 3/6: Ánh sáng truyền qua kênh quang (chỉ lead + callout) */
+#deck > .slide:nth-child(15) .eyebrow { margin-bottom: 30px; }
+#deck > .slide:nth-child(15) h2.slide-title { margin-bottom: 30px; }
+#deck > .slide:nth-child(15) p.lead { margin-bottom: 36px; }
+#deck > .slide:nth-child(15) .callout { margin-top: 20px; padding-top: 72px; padding-bottom: 72px; }
+
+/* Slide 16 — Bước 4/6: Bob tự đo (lead + keylist-grid 2 mục 1 hàng) */
+#deck > .slide:nth-child(16) .eyebrow { margin-bottom: 28px; }
+#deck > .slide:nth-child(16) h2.slide-title { margin-bottom: 26px; }
+#deck > .slide:nth-child(16) p.lead { margin-bottom: 40px; }
+#deck > .slide:nth-child(16) .keylist-grid li { padding-top: 70px; padding-bottom: 70px; }
+
+/* Slide 17 — Bước 5/6: So sánh basis / sifting (chỉ lead + callout) */
+#deck > .slide:nth-child(17) .eyebrow { margin-bottom: 30px; }
+#deck > .slide:nth-child(17) h2.slide-title { margin-bottom: 30px; }
+#deck > .slide:nth-child(17) p.lead { margin-bottom: 36px; }
+#deck > .slide:nth-child(17) .callout { margin-top: 20px; padding-top: 72px; padding-bottom: 72px; }
+
+/* Slide 18 — Bước 6/6: Tính QBER (lead + grid-2 safe/warn box) */
+#deck > .slide:nth-child(18) .eyebrow { margin-bottom: 26px; }
+#deck > .slide:nth-child(18) h2.slide-title { margin-bottom: 28px; }
+#deck > .slide:nth-child(18) p.lead { margin-bottom: 36px; }
+#deck > .slide:nth-child(18) .safe-box,
+#deck > .slide:nth-child(18) .warn-box { padding-top: 60px; padding-bottom: 60px; }
+
+/* Slide 20 — Dùng khoá mã hoá ảnh (lead + keylist-grid 2 mục 1 hàng) */
+#deck > .slide:nth-child(20) .eyebrow { margin-bottom: 26px; }
+#deck > .slide:nth-child(20) h2.slide-title { margin-bottom: 28px; }
+#deck > .slide:nth-child(20) p.lead { margin-bottom: 36px; }
+#deck > .slide:nth-child(20) .keylist-grid li { padding-top: 60px; padding-bottom: 60px; }
+
+/* Slide 23 — Giới hạn hiện tại & hướng mở rộng (giảm nhẹ để không tràn khung sau khi tăng cỡ chữ) */
+#deck > .slide:nth-child(23) p.lead { margin-bottom: 8px; }
+#deck > .slide:nth-child(23) .grid-2 { margin-bottom: -4px; }
+
+/* Slide 22 — Kết luận (keylist-grid 3 mục, 2 hàng, không có lead) */
+#deck > .slide:nth-child(22) .eyebrow { margin-bottom: 26px; }
+#deck > .slide:nth-child(22) h2.slide-title { margin-bottom: 44px; }
+#deck > .slide:nth-child(22) .keylist-grid { row-gap: 34px; margin-top: 6px; }
+#deck > .slide:nth-child(22) .keylist-grid li { padding-top: 40px; padding-bottom: 40px; }

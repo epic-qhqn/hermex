@@ -8,7 +8,7 @@
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono);
-  font-size: 0.84rem;
+  font-size: 0.96rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -35,7 +35,7 @@
   color: #080D1A;
   font-family: var(--font-mono);
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   padding: 2px 8px;
   border-radius: 999px;
   letter-spacing: 0.06em;
@@ -44,7 +44,7 @@
 h2.slide-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+  font-size: clamp(2.39rem, 4.1vw, 3.65rem);
   line-height: 1.2;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -60,7 +60,7 @@ h2.slide-title em {
 }
 
 p.lead {
-  font-size: clamp(1.05rem, 1.3vw, 1.2rem);
+  font-size: clamp(1.2rem, 1.48vw, 1.37rem);
   line-height: 1.72;
   color: var(--ink-soft);
   max-width: 940px;
@@ -98,7 +98,7 @@ p.lead {
 }
 
 .keylist li {
-  font-size: 1.02rem;
+  font-size: 1.16rem;
   line-height: 1.6;
   color: var(--ink);
   background: var(--bg-card);
@@ -127,7 +127,7 @@ p.lead {
 
 .keylist-grid li strong {
   display: block;
-  font-size: 1.08rem;
+  font-size: 1.23rem;
   color: var(--accent-deep);
 }
 
@@ -142,7 +142,7 @@ p.lead {
   content: "›";
   color: var(--accent);
   font-family: var(--font-display);
-  font-size: 1.3rem;
+  font-size: 1.48rem;
   font-weight: 700;
   line-height: 1;
   flex-shrink: 0;
@@ -160,7 +160,7 @@ p.lead {
   border-left: 4px solid var(--accent);
   border-radius: 0 14px 14px 0;
   padding: 18px 24px;
-  font-size: 1.04rem;
+  font-size: 1.19rem;
   line-height: 1.68;
   color: var(--ink);
   max-width: 100%;
@@ -196,7 +196,7 @@ p.lead {
 
 .card h3 {
   font-family: var(--font-display);
-  font-size: 1.2rem;
+  font-size: 1.37rem;
   font-weight: 700;
   color: var(--accent-deep);
   margin-bottom: 8px;
@@ -204,7 +204,7 @@ p.lead {
 }
 
 .card p {
-  font-size: 0.98rem;
+  font-size: 1.12rem;
   line-height: 1.62;
   color: var(--ink-soft);
 }
@@ -217,7 +217,7 @@ p.lead {
 
 .stat .num {
   font-family: var(--font-mono);
-  font-size: 2.5rem;
+  font-size: 2.85rem;
   font-weight: 700;
   color: var(--accent-deep);
   text-shadow: 0 0 16px rgba(6, 182, 212, 0.35);
@@ -225,7 +225,7 @@ p.lead {
 }
 
 .stat .label {
-  font-size: 0.88rem;
+  font-size: 1rem;
   color: var(--ink-mute);
   margin-top: 6px;
   line-height: 1.4;
@@ -245,7 +245,7 @@ p.lead {
   border: 1px solid rgba(6, 182, 212, 0.28);
   padding: 22px 32px;
   font-family: var(--font-mono);
-  font-size: 1.22rem;
+  font-size: 1.39rem;
   text-align: center;
   max-width: 620px;
   margin: 18px auto 20px;
@@ -261,7 +261,7 @@ p.lead {
 
 .formula-box .note {
   font-family: var(--font-body);
-  font-size: 0.86rem;
+  font-size: 0.98rem;
   color: var(--ink-mute);
   margin-top: 8px;
 }
@@ -288,7 +288,7 @@ p.lead {
   font-weight: 600;
   color: #FDA4AF;
   margin-bottom: 6px;
-  font-size: 1.02rem;
+  font-size: 1.16rem;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -305,7 +305,7 @@ p.lead {
 }
 
 .warn-box p {
-  font-size: 0.95rem;
+  font-size: 1.08rem;
   line-height: 1.6;
   color: #FECDD3;
 }
@@ -317,7 +317,7 @@ p.lead {
   padding: 18px 24px;
   max-width: 100%;
   width: 100%;
-  font-size: 0.98rem;
+  font-size: 1.12rem;
   color: #A7F3D0;
   line-height: 1.6;
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.1);
