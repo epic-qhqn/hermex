@@ -98,11 +98,11 @@ Hermex/
 │   ├── hardware/                   
 │   ├── gui/                        
 │   └── utils/                     
-├── web/                            # Giao diện web mô phỏng
-│   ├── favicon.svg                
-│   ├── index.html                  
-│   ├── script.js                   
-│   └── style.css                   
+├── web/                            # Giao diện web mô phỏng             
+│   ├── assets/                   
+│   ├── js/
+│   ├── css/                 
+│   └── index.html               
 ├── .gitignore                      # Cấu hình bỏ qua tệp tin khi đẩy lên Git
 ├── LICENSE                         
 ├── README.md                       
@@ -259,11 +259,11 @@ Hermex/
 │   ├── hardware/                   
 │   ├── gui/                        
 │   └── utils/                      
-├── web/                            # Web interface simulation
-│   ├── favicon.svg                 
-│   ├── index.html                  
-│   ├── script.js                   
-│   └── style.css                   
+├── web/                            # Web interface simulation             
+│   ├── assets/                   
+│   ├── js/
+│   ├── css/                 
+│   └── index.html                     
 ├── .gitignore                      # Configuration to ignore files when pushing to Git
 ├── LICENSE                         
 ├── README.md                       
