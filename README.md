@@ -1,6 +1,6 @@
 <div align="center">
 
-# Dự án Hermex
+# DỰ ÁN HERMEX
 
 **Simulation testbed for a Quantum Key Distribution system.**  
 *Sa bàn mô phỏng hệ thống Quantum Key Distribution theo giao thức BB84.*
