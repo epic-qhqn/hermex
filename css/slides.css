@@ -1,0 +1,345 @@
+/* ==========================================================================
+   CÁC THÀNH PHẦN ĐẶC THÙ CHO TỪNG DẠNG SLIDE (KEYNOTE SHOWCASE)
+   ========================================================================== */
+
+/* ============================== SLIDE BÌA (COVER HERO SLIDE) ============================== */
+.slide-cover {
+  align-items: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(6, 182, 212, 0.12) 0%, transparent 80%),
+    radial-gradient(circle at 85% 10%, rgba(14, 116, 144, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(14, 116, 144, 0.10) 0%, transparent 50%),
+    var(--bg);
+}
+
+.cover-icon {
+  margin-bottom: 12px;
+  opacity: 0;
+  filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.4));
+}
+
+.cover-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  opacity: 0.85;
+}
+
+.cover-bg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cover-needle {
+  transform-origin: 100px 100px;
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.9));
+  animation: needleGlow 2.4s ease-in-out infinite 0.9s;
+}
+
+.cover-cta {
+  margin-top: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: #FFFFFF;
+  border: 1.5px solid rgba(6, 182, 212, 0.5);
+  border-radius: 999px;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+  opacity: 0;
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.cover-cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 40px rgba(6, 182, 212, 0.45);
+}
+
+.cover-cta kbd {
+  font-family: var(--font-mono);
+  background: rgba(6, 182, 212, 0.25);
+  color: var(--accent-deep);
+  border: 1px solid rgba(103, 232, 249, 0.4);
+  border-radius: 6px;
+  padding: 2px 9px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cover-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  opacity: 0;
+}
+
+.cover-tags .tag {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  border-radius: 999px;
+  padding: 6px 16px;
+  color: var(--ink-soft);
+  background: rgba(17, 27, 46, 0.7);
+  backdrop-filter: blur(8px);
+}
+
+.slide-cover .eyebrow,
+.slide-cover h2.slide-title,
+.slide-cover p.lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================== SLIDE HƯỚNG PHÁT TRIỂN ============================== */
+.roadmap-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.roadmap-icon {
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--line);
+}
+
+/* ============================== SLIDE LỜI CẢM ƠN ============================== */
+.thanks-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--accent-deep);
+  background: rgba(6, 182, 212, 0.12);
+  border: 1.5px solid var(--accent);
+  border-radius: 999px;
+  padding: 14px 28px;
+  box-shadow: 0 10px 28px rgba(6, 182, 212, 0.15);
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.thanks-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(6, 182, 212, 0.3);
+}
+
+.thanks-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 36px 24px 0;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.thanks-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.2);
+}
+
+.thanks-caption {
+  background: #0B0F19;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  padding: 18px 24px 22px;
+  margin-top: 12px;
+  margin-left: -24px;
+  margin-right: -24px;
+}
+
+.thanks-caption-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.08rem;
+  color: var(--accent-deep);
+  margin-bottom: 4px;
+}
+
+.thanks-caption-sub {
+  font-size: 0.88rem;
+  color: var(--ink-mute);
+  line-height: 1.5;
+}
+
+/* ============================== BẢNG ÁNH XẠ SO SÁNH ============================== */
+.map-table-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 22px 26px;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  backdrop-filter: blur(14px);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.map-table-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.map-table-head {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+  border-bottom: 1.5px solid var(--line);
+}
+
+.map-table-head span:first-child {
+  color: var(--ink-soft);
+}
+
+.map-table-head span:last-child {
+  color: var(--accent-deep);
+}
+
+.map-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+
+.map-row:last-child {
+  border-bottom: none;
+}
+
+.map-row .real {
+  color: var(--ink-soft);
+}
+
+.map-row .model {
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+/* ============================== KHUNG ẢNH XOR THÍ NGHIỆM ============================== */
+.xor-frame {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  line-height: 0;
+  position: relative;
+  cursor: zoom-in;
+  background: #000;
+}
+
+.xor-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+
+.xor-frame:hover img {
+  transform: scale(1.06);
+}
+
+.xor-frame .inspect-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  background: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--accent);
+  color: var(--accent-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform: scale(0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.xor-frame:hover .inspect-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.xor-card {
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+}
+
+.xor-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.25);
+  border-color: var(--accent);
+}
+
+.xor-card .tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-deep);
+  background: rgba(6, 182, 212, 0.12);
+  border: 1px solid rgba(103, 232, 249, 0.25);
+  padding: 4px 14px;
+  border-radius: 999px;
+}
+
+/* ============================== KHUNG CHỨA SƠ ĐỒ VECTOR (DIAGRAM) ============================== */
+.diagram-frame {
+  background: linear-gradient(180deg, rgba(11, 16, 28, 0.9) 0%, rgba(6, 9, 16, 0.95) 100%);
+  border: 1px solid rgba(103, 232, 249, 0.18);
+  border-radius: 20px;
+  padding: 24px 28px 16px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto 20px;
+  backdrop-filter: blur(14px);
+}
+
+.diagram-frame svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}

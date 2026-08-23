@@ -1,0 +1,117 @@
+/* ==========================================================================
+   KHUNG SLIDE & HỆ THỐNG BỐ CỤC CHUẨN KEYNOTE (LAYOUT)
+   ========================================================================== */
+.deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 84px 6vw 74px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.97) translateY(12px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease), visibility 0s 0.55s;
+  background:
+    radial-gradient(ellipse 70% 50% at 85% 15%, rgba(6, 182, 212, 0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 45% at 10% 85%, rgba(14, 116, 144, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(11, 18, 32, 0.4) 0%, transparent 100%),
+    var(--bg);
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.slide::-webkit-scrollbar {
+  display: none;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1) translateY(0);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+  z-index: 5;
+}
+
+/* Container giới hạn bề rộng tiêu chuẩn để nội dung không bị bè ngang */
+.slide > * {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ============================== LAYOUT HELPERS ============================== */
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+  width: 100%;
+}
+
+.split.rev {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.split > .split-media {
+  order: 2;
+}
+
+.split.rev > .split-media {
+  order: 0;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .split, .split.rev {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .split > .split-media {
+    order: 0 !important;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .slide {
+    padding: 72px 5vw 64px;
+  }
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

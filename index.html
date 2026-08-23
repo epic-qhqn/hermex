@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hermex</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/slides.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/lightbox.css">
+</head>
+
+<body>
+
+  <div class="photon-field" aria-hidden="true">
+    <div class="photon"
+      style="width:90px; height:90px; left:8%; top:15%; --dx:60px; --dy:40px; animation-duration:14s;"></div>
+    <div class="photon"
+      style="width:60px; height:60px; left:85%; top:20%; --dx:-50px; --dy:70px; animation-duration:11s;"></div>
+    <div class="photon"
+      style="width:120px; height:120px; left:50%; top:75%; --dx:40px; --dy:-60px; animation-duration:17s;"></div>
+    <div class="photon"
+      style="width:50px; height:50px; left:20%; top:80%; --dx:-30px; --dy:-50px; animation-duration:9s;"></div>
+    <div class="photon"
+      style="width:75px; height:75px; left:70%; top:60%; --dx:55px; --dy:30px; animation-duration:13s;"></div>
+    <div class="photon"
+      style="width:45px; height:45px; left:35%; top:10%; --dx:-40px; --dy:60px; animation-duration:10s;"></div>
+  </div>
+
+  <div class="top-bar">
+    <div class="logo"><svg class="dial" viewBox="0 0 20 20">
+        <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <line x1="10" y1="10" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      </svg>Hermex</div>
+    <div class="section-hint" id="sectionHint">Mở đầu</div>
+    <div class="top-controls">
+      <button class="ctrl-btn active" id="soundBtn">Âm thanh: Bật</button>
+      <button class="ctrl-btn" id="presentBtn">Trình chiếu</button>
+    </div>
+  </div>
+
+  <div class="deck" id="deck">
+    <!-- ===== SLIDE 1 — BÌA ===== -->
+    <section class="slide slide-cover active" data-section="Mở đầu" data-cover>
+      <div class="cover-bg" aria-hidden="true">
+        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <marker id="cbArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5"
+              orient="auto-start-reverse">
+              <path d="M1 1L8 5L1 9" fill="none" stroke="var(--swatch-2)" stroke-width="1.6" stroke-linecap="round" />
+            </marker>
+          </defs>
+          <!-- lưới kính phân cực mờ -->
+          <g stroke="var(--swatch-3)" stroke-width="1" opacity=".22">
+            <line x1="0" y1="120" x2="1440" y2="120" transform="rotate(45 720 450)" />
+            <line x1="0" y1="220" x2="1440" y2="220" transform="rotate(45 720 450)" />
+            <line x1="0" y1="320" x2="1440" y2="320" transform="rotate(45 720 450)" />
+            <line x1="0" y1="420" x2="1440" y2="420" transform="rotate(45 720 450)" />
+            <line x1="0" y1="520" x2="1440" y2="520" transform="rotate(45 720 450)" />
+            <line x1="0" y1="620" x2="1440" y2="620" transform="rotate(45 720 450)" />
+            <line x1="0" y1="720" x2="1440" y2="720" transform="rotate(45 720 450)" />
+            <line x1="0" y1="820" x2="1440" y2="820" transform="rotate(45 720 450)" />
+          </g>
+          <!-- hai vòng la bàn phân cực lớn -->
+          <g opacity=".28">
+            <circle cx="150" cy="150" r="270" fill="none" stroke="var(--swatch-1)" stroke-width="1.4" />
+            <circle cx="150" cy="150" r="270" fill="none" stroke="var(--swatch-2)" stroke-width="1"
+              stroke-dasharray="2 10" />
+            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4" />
+            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4"
+              transform="rotate(45 150 150)" />
+            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4"
+              transform="rotate(90 150 150)" />
+            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4"
+              transform="rotate(135 150 150)" />
+          </g>
+          <g opacity=".24">
+            <circle cx="1310" cy="760" r="330" fill="none" stroke="var(--swatch-1)" stroke-width="1.4" />
+            <circle cx="1310" cy="760" r="330" fill="none" stroke="var(--swatch-2)" stroke-width="1"
+              stroke-dasharray="2 10" />
+            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
+              transform="rotate(20 1310 760)" />
+            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
+              transform="rotate(65 1310 760)" />
+            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
+              transform="rotate(110 1310 760)" />
+            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
+              transform="rotate(155 1310 760)" />
+          </g>
+          <!-- tia photon truyền qua kính lọc, mang theo bit ngẫu nhiên -->
+          <g opacity=".4">
+            <line x1="60" y1="470" x2="1380" y2="470" stroke="var(--swatch-2)" stroke-width="1.3" stroke-dasharray="1 9"
+              marker-end="url(#cbArrow)" />
+          </g>
+          <g class="svg-mono" fill="var(--swatch-2)" font-size="15" opacity=".5">
+            <text x="230" y="455">0</text>
+            <text x="410" y="455">1</text>
+            <text x="590" y="455">1</text>
+            <text x="770" y="455">0</text>
+            <text x="950" y="455">1</text>
+            <text x="1130" y="455">0</text>
+          </g>
+        </svg>
+      </div>
+      <div class="cover-icon">
+        <svg viewBox="0 0 200 200" width="108" height="108">
+          <circle cx="100" cy="100" r="86" fill="var(--bg-card)" stroke="var(--accent-deep)" stroke-width="2" />
+          <circle cx="100" cy="100" r="86" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 6" />
+          <line x1="100" y1="100" x2="100" y2="22" stroke="var(--line)" stroke-width="2.5" />
+          <line x1="100" y1="100" x2="100" y2="22" stroke="var(--line)" stroke-width="2.5"
+            transform="rotate(90 100 100)" />
+          <line x1="100" y1="100" x2="100" y2="22" stroke="var(--line)" stroke-width="2.5"
+            transform="rotate(135 100 100)" />
+          <line class="cover-needle" x1="100" y1="100" x2="100" y2="22" stroke="var(--accent)" stroke-width="4"
+            stroke-linecap="round" transform="rotate(45 100 100)" />
+          <circle cx="100" cy="100" r="7" fill="var(--accent-deep)" />
+          <text x="100" y="46" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--ink-mute)">0°</text>
+          <text x="163" y="105" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--ink-mute)">90°</text>
+          <text x="145" y="52" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--accent-deep)"
+            font-weight="700">45°</text>
+          <text x="140" y="150" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--ink-mute)">135°</text>
+        </svg>
+      </div>
+      <div class="eyebrow" style="justify-content:center; font-size:1rem; letter-spacing:.2em;">Dự án khoa học kỹ thuật
+        — mô phỏng QKD BB84</div>
+      <h2 class="slide-title"
+        style="font-size:clamp(4.8rem,14vw,11rem); line-height:1; margin-bottom:14px; text-align:center; max-width:100%;">
+        HERMEX</h2>
+      <p class="lead"
+        style="font-size:clamp(1.55rem,2.7vw,2.3rem); color:var(--accent-deep); font-weight:600; text-align:center; max-width:100%; margin-bottom:16px;">
+        Một góc quay servo giữ bí mật của một bit.</p>
+      <p class="lead"
+        style="font-size:clamp(1.12rem,1.6vw,1.35rem); text-align:center; max-width:720px; margin-left:auto; margin-right:auto;">
+        Sa bàn mô phỏng giao thức phân phối khoá lượng tử BB84 bằng phần cứng thật — ESP32, Servo, cảm biến LDR — kết
+        hợp mạng TCP/IP và mã hoá ảnh XOR.</p>
+      <div class="cover-tags">
+        <span class="tag">BB84</span>
+        <span class="tag">ESP32 + Servo + LDR</span>
+        <span class="tag">TCP Socket</span>
+        <span class="tag">Mã hoá ảnh XOR</span>
+      </div>
+      <div class="cover-cta">→ Nhấn phím <kbd>Space</kbd> hoặc mũi tên <kbd>→</kbd> để bắt đầu</div>
+    </section>
+
+    <!-- ===== SLIDE 2 — VẤN ĐỀ & ĐỘNG LỰC ===== -->
+    <section class="slide" data-section="Mở đầu">
+      <div class="eyebrow">Vấn đề & động lực</div>
+      <h2 class="slide-title">Mật mã cổ điển đang chạy đua với <em>máy tính lượng tử</em></h2>
+      <p class="lead">Các thuật toán như RSA dựa vào việc phân tích thừa số nguyên tố lớn là bài toán khó với máy tính
+        thông thường. Máy tính lượng tử — thông qua thuật toán Shor — có khả năng phá vỡ giả định đó trong tương lai
+        không xa.</p>
+      <ul class="keylist keylist-grid">
+        <li><strong>Rủi ro:</strong> khoá trao đổi qua kênh cổ điển (Diffie-Hellman, RSA) có thể bị "thu thập ngay, giải
+          mã sau" khi máy tính lượng tử đủ mạnh xuất hiện.</li>
+        <li><strong>Hướng giải quyết:</strong> phân phối khoá lượng tử (QKD) không dựa vào độ khó toán học, mà dựa vào
+          định luật vật lý — mọi phép đo trộm đều để lại dấu vết.</li>
+        <li><strong>Giao thức BB84</strong> (Bennett & Brassard, 1984) là giao thức QKD đầu tiên và được nghiên cứu
+          nhiều nhất, phù hợp để mô phỏng lại bằng phần cứng phổ thông.</li>
+      </ul>
+    </section>
+
+    <!-- ===== SLIDE 3 — MỤC TIÊU & CÂU HỎI NGHIÊN CỨU ===== -->
+    <section class="slide" data-section="Mở đầu">
+      <div class="eyebrow">Mục tiêu & câu hỏi nghiên cứu</div>
+      <h2 class="slide-title">Xây dựng một sa bàn <em>chứng minh được</em> nguyên lý, không chỉ mô phỏng phần mềm</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Mục tiêu</h3>
+          <p>Chế tạo mô hình cơ – điện tái hiện đúng logic toán học của BB84: góc quay servo mã hoá bit, cảm biến LDR
+            đọc lại tín hiệu, phần mềm tự động sifting và tính QBER.</p>
+        </div>
+        <div class="card">
+          <h3>Câu hỏi nghiên cứu</h3>
+          <p>Hệ thống có thể phân biệt đáng tin cậy giữa một kênh truyền bị suy hao tự nhiên (thời tiết) và một kênh bị
+            nghe lén chủ động (tấn công) hay không?</p>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:20px;">Giả thuyết: nếu phép đo của kẻ nghe lén luôn làm xáo trộn góc phân
+        cực (theo định lý không nhân bản), thì tỷ lệ lỗi QBER — chứ không phải cường độ tín hiệu — mới là chỉ số đáng
+        tin cậy để phát hiện tấn công.</div>
+    </section>
+
+    <!-- ===== SLIDE 4 — CHỒNG CHẤT LƯỢNG TỬ ===== -->
+    <section class="slide" data-section="Cơ sở lý thuyết">
+      <div class="eyebrow">Cơ sở lý thuyết — 1 / 4</div>
+      <h2 class="slide-title">Chồng chất lượng tử <em>(superposition)</em></h2>
+      <p class="lead">Một photon phân cực không tồn tại ở một hướng cố định cho tới khi bị đo. Trạng thái phân cực ban đầu là một chồng chập đồng thời của các trạng thái khả dĩ, được mô tả bằng biên độ xác suất xác định.</p>
+      <div class="grid-2" style="margin-bottom:18px;">
+        <div class="card">
+          <h3>Trước thời điểm đo</h3>
+          <p>Photon tồn tại đồng thời ở cả hai trạng thái khả dĩ. Không một thiết bị nào có thể xác định trước hướng phân cực mà không can thiệp vào hệ thống.</p>
+        </div>
+        <div class="card">
+          <h3>Khi thực hiện phép đo</h3>
+          <p>Hệ thống bị sụp đổ (wavefunction collapse) về một trạng thái phân cực duy nhất tương ứng với góc của kính lọc đo lường.</p>
+        </div>
+      </div>
+      <div class="callout">Bản chất lượng tử: câu hỏi "photon đang phân cực theo hướng nào" chỉ có câu trả lời xác định sau khi phép đo thực tế diễn ra.</div>
+    </section>
+
+    <!-- ===== SLIDE 5 — ĐO LƯỜNG LÀM SỤP ĐỔ TRẠNG THÁI ===== -->
+    <section class="slide" data-section="Cơ sở lý thuyết">
+      <div class="eyebrow">Cơ sở lý thuyết — 2 / 4</div>
+      <h2 class="slide-title">Đo lường làm <em>sụp đổ</em> trạng thái</h2>
+      <p class="lead">Khi đo một photon bằng một kính lọc phân cực (basis), trạng thái superposition sụp đổ (collapse)
+        về một trong hai kết quả khả dĩ của basis đó.</p>
+      <ul class="keylist keylist-grid">
+        <li><strong>Đo đúng basis:</strong> kết quả luôn khớp với giá trị Alice đã gửi.</li>
+        <li><strong>Đo sai basis</strong> (ví dụ Alice dùng basis ngang/dọc nhưng Bob đo bằng basis chéo): kết quả
+          collapse về một trong hai giá trị với xác suất 50/50, hoàn toàn độc lập với giá trị Alice đã chuẩn bị ban đầu.
+        </li>
+      </ul>
+      <div class="callout">Đây chính là cơ sở vật lý cho bước sifting: chỉ những lần basis trùng nhau mới cho kết quả
+        đáng tin cậy.</div>
+    </section>
+
+    <!-- ===== SLIDE 6 — ĐỊNH LÝ KHÔNG NHÂN BẢN ===== -->
+    <section class="slide" data-section="Cơ sở lý thuyết">
+      <div class="side-glyph" style="--rot:-16deg;" aria-hidden="true"><svg viewBox="0 0 200 200" width="300"
+          height="300">
+          <circle cx="100" cy="100" r="86" fill="none" stroke="var(--accent-deep)" stroke-width="1.4" />
+          <circle cx="100" cy="100" r="86" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 7" />
+          <line x1="100" y1="100" x2="100" y2="20" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" />
+          <line x1="100" y1="100" x2="100" y2="20" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"
+            transform="rotate(45 100 100)" />
+          <line x1="100" y1="100" x2="100" y2="20" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"
+            transform="rotate(90 100 100)" />
+          <line x1="100" y1="100" x2="100" y2="20" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round"
+            transform="rotate(135 100 100)" />
+          <circle cx="100" cy="100" r="7" fill="var(--accent-deep)" />
+        </svg></div>
+      <div class="eyebrow">Cơ sở lý thuyết — 3 / 4</div>
+      <h2 class="slide-title">Định lý <em>không nhân bản</em> (No-Cloning)</h2>
+      <p class="lead">Nền tảng bảo mật của QKD bắt nguồn từ định lý No-Cloning (Wootters &amp; Zurek, 1982): không một quy luật vật lý nào cho phép sao chép hoàn hảo một trạng thái lượng tử chưa biết trước mà không phá huỷ bản gốc.</p>
+      <div class="grid-2" style="margin-bottom:18px;">
+        <div class="card">
+          <h3>Truyền tin cổ điển (Classical)</h3>
+          <p>Kẻ nghe lén (Eve) dễ dàng sao chép luồng bit 0/1 trên dây dẫn hoặc sóng vô tuyến mà không làm suy chuyển bản tin gốc. Người nhận hoàn toàn không thể phát hiện.</p>
+        </div>
+        <div class="card">
+          <h3>Kênh lượng tử (Quantum)</h3>
+          <p>Eve không thể "nhân bản" photon để giữ lại 1 bản rồi gửi tiếp 1 bản. Muốn biết thông tin, Eve buộc phải đo trực tiếp — và phép đo này sẽ làm thay đổi trạng thái photon tới Bob.</p>
+        </div>
+      </div>
+      <div class="callout">Hệ quả cốt lõi: Trong thế giới lượng tử, <strong>kẻ nghe lén không thể tàng hình</strong> — mọi nỗ lực trộm thông tin đều tự động để lại dấu vết sai số QBER.</div>
+    </section>
+
+    <!-- ===== SLIDE 7 — BỐN GÓC, BỐN TRẠNG THÁI PHÂN CỰC ===== -->
+    <section class="slide" data-section="Cơ sở lý thuyết">
+      <div class="eyebrow">Cơ sở lý thuyết — 4 / 4</div>
+      <h2 class="slide-title">Bốn góc, <em>bốn trạng thái</em> phân cực</h2>
+      <p class="lead">Trong BB84 nguyên bản, hai basis được dùng là basis ngang/dọc (0°/90°) và basis chéo (45°/135°) —
+        bốn hướng phân cực cụ thể mà một nguồn sáng phân cực tuyến tính có thể tạo ra.</p>
+      <div class="grid-4">
+        <div class="stat card">
+          <div class="num">0°</div>
+          <div class="label">basis ngang/dọc — bit 0</div>
+        </div>
+        <div class="stat card">
+          <div class="num">45°</div>
+          <div class="label">basis chéo — bit 0</div>
+        </div>
+        <div class="stat card">
+          <div class="num">90°</div>
+          <div class="label">basis ngang/dọc — bit 1</div>
+        </div>
+        <div class="stat card">
+          <div class="num">135°</div>
+          <div class="label">basis chéo — bit 1</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:20px;">Đây chính là lý do Hermex chọn đúng bốn góc servo 0°/45°/90°/135°:
+        không phải con số tuỳ ý, mà là ánh xạ trực tiếp từ bốn trạng thái phân cực mà giao thức BB84 gốc sử dụng.</div>
+    </section>
+
+    <!-- ===== SLIDE 8 — SƠ ĐỒ TỔNG THỂ DỰ ÁN ===== -->
+    <section class="slide" data-section="Sơ đồ kỹ thuật">
+      <div class="eyebrow">Sơ đồ kỹ thuật — tổng thể dự án</div>
+      <h2 class="slide-title">Từ một <em>định luật vật lý</em> đến một tấm ảnh được bảo vệ</h2>
+      <div class="split">
+        <div>
+          <p class="lead" style="margin-bottom:14px;">Bốn mảnh ghép của Hermex nối liền theo một trục duy nhất — từ
+            nguyên lý vật lý tới một tấm ảnh được bảo vệ.</p>
+          <ul class="keylist">
+            <li><strong>Nguyên lý vật lý:</strong> định luật Malus & định lý không nhân bản.</li>
+            <li><strong>Phần cứng:</strong> ESP32 + servo + LDR ở hai trạm Alice/Bob.</li>
+            <li><strong>Phần mềm:</strong> sifting, tính QBER, mã hoá/giải mã XOR.</li>
+            <li><strong>Kết quả:</strong> phân biệt kênh sạch, nhiễu và bị nghe lén.</li>
+          </ul>
+        </div>
+        <div class="split-media">
+          <div class="map-table-card">
+            <div class="map-table-head"><span>BB84 thật</span><span>Hermex tái hiện</span></div>
+            <div class="map-row"><span class="real">Photon đơn lẻ</span><span class="model">Xung tín hiệu từ nguồn sáng
+                thường</span></div>
+            <div class="map-row"><span class="real">Hướng phân cực photon</span><span class="model">Góc quay servo
+                (0°/45°/90°/135°)</span></div>
+            <div class="map-row"><span class="real">Kính lọc phân cực của Bob</span><span class="model">Góc "kỳ vọng"
+                khi phần mềm đọc cảm biến LDR</span></div>
+            <div class="map-row"><span class="real">Đo đúng basis → thu đúng bit</span><span class="model">Servo & LDR
+                cùng góc → đọc đúng giá trị đã gửi</span></div>
+            <div class="map-row"><span class="real">Đo sai basis → ngẫu nhiên (định lý không nhân bản)</span><span
+                class="model">Phần mềm chủ động sinh số ngẫu nhiên khi basis không khớp</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 9 — SƠ ĐỒ 1: NGUYÊN LÝ QUANG HỌC & MALUS ===== -->
+    <section class="slide" data-section="Sơ đồ kỹ thuật">
+      <div class="eyebrow">Sơ đồ kỹ thuật 1 / 4</div>
+      <h2 class="slide-title">Nguyên lý quang học & <em>định luật Malus</em></h2>
+      <div class="diagram-frame">
+        <svg viewBox="0 0 680 260" style="width:100%; max-width:640px; display:block; margin:0 auto;">
+          <defs>
+            <marker id="a9" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+              orient="auto-start-reverse">
+              <path d="M2 1L8 5L2 9" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" />
+            </marker>
+          </defs>
+          <rect x="40" y="70" width="34" height="20" rx="3" fill="var(--bg-deep)" stroke="var(--line)"
+            stroke-width="1" />
+          <text class="svg-mono" x="57" y="112" text-anchor="middle" font-size="15" fill="var(--ink-mute)">laser</text>
+          <line x1="74" y1="80" x2="158" y2="80" stroke="var(--accent)" stroke-width="2" marker-end="url(#a9)" />
+          <line x1="172" y1="48" x2="172" y2="112" stroke="var(--accent-deep)" stroke-width="4"
+            transform="rotate(20 172 80)" />
+          <text class="svg-mono" x="172" y="140" text-anchor="middle" font-size="15" fill="var(--ink-soft)">kính Alice
+            (θA)</text>
+          <rect x="190" y="60" width="130" height="40" rx="6" fill="none" stroke="var(--line)" stroke-width="1"
+            stroke-dasharray="3 3" />
+          <text class="svg-mono" x="255" y="46" text-anchor="middle" font-size="13" fill="var(--ink-mute)">kênh truyền
+            không gian</text>
+          <line x1="182" y1="80" x2="398" y2="80" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#a9)" />
+          <line x1="402" y1="48" x2="402" y2="112" stroke="var(--accent-deep)" stroke-width="4"
+            transform="rotate(-15 402 80)" />
+          <text class="svg-mono" x="402" y="140" text-anchor="middle" font-size="15" fill="var(--ink-soft)">kính Bob
+            (θB)</text>
+          <line x1="412" y1="80" x2="498" y2="80" stroke="var(--accent)" stroke-width="1" marker-end="url(#a9)" />
+          <rect x="500" y="58" width="95" height="44" rx="8" fill="var(--safe-bg)" stroke="var(--safe)" />
+          <text class="svg-th" x="547" y="85" text-anchor="middle" font-size="16" fill="#6EE7B7">LDR</text>
+          <rect x="100" y="178" width="480" height="66" rx="8" fill="var(--bg-deep)" stroke="var(--line)"
+            stroke-width="1" />
+          <text class="svg-mono" x="340" y="205" text-anchor="middle" font-size="19" fill="var(--ink)">I = I₀ · cos²(θA
+            − θB)</text>
+          <text class="svg-mono" x="340" y="230" text-anchor="middle" font-size="12" fill="var(--ink-mute)">θA = θB → I
+            lớn nhất | θA − θB = 90° → I ≈ 0</text>
+        </svg>
+      </div>
+      <div class="callout">Đây là công thức duy nhất giải thích được <strong>tại sao</strong> góc lệch quyết định cường
+        độ ánh sáng còn lại, chứ không phải quy luật kiểu "bật/tắt" — góc lệch càng lớn, ánh sáng lọt qua càng giảm dần
+        liên tục theo hàm cos², không phải nhảy đột ngột từ 100% xuống 0%.</div>
+    </section>
+
+    <!-- ===== SLIDE 10 — SƠ ĐỒ 2: ĐỒ THỊ MALUS & GIỚI HẠN LDR ===== -->
+    <section class="slide" data-section="Sơ đồ kỹ thuật">
+      <div class="eyebrow">Sơ đồ kỹ thuật 2 / 4</div>
+      <h2 class="slide-title">Đồ thị Malus và <em>giới hạn cảm biến LDR</em></h2>
+
+      <div class="diagram-frame" style="max-width:560px; padding:14px 20px 6px; margin:0 auto 12px;">
+        <svg viewBox="0 0 680 250" style="width:100%; max-width:520px; display:block; margin:0 auto;">
+          <line x1="90" y1="50" x2="90" y2="195" stroke="var(--ink-mute)" stroke-width="1" />
+          <line x1="90" y1="195" x2="610" y2="195" stroke="var(--ink-mute)" stroke-width="1" />
+          <text class="svg-mono" x="50" y="42" font-size="13" fill="var(--ink-mute)">I/I₀</text>
+          <text class="svg-mono" x="80" y="59" text-anchor="end" font-size="13" fill="var(--ink-mute)">1.0</text>
+          <text class="svg-mono" x="80" y="130" text-anchor="end" font-size="13" fill="var(--ink-mute)">0.5</text>
+          <text class="svg-mono" x="80" y="199" text-anchor="end" font-size="13" fill="var(--ink-mute)">0</text>
+          <text class="svg-mono" x="90" y="216" text-anchor="middle" font-size="13" fill="var(--ink-mute)">0°</text>
+          <text class="svg-mono" x="345" y="216" text-anchor="middle" font-size="13" fill="var(--ink-mute)">45°</text>
+          <text class="svg-mono" x="610" y="216" text-anchor="middle" font-size="13" fill="var(--ink-mute)">90°</text>
+          <text class="svg-mono" x="345" y="238" text-anchor="middle" font-size="12" fill="var(--ink-mute)">lệch góc Δθ
+            giữa hai kính phân cực</text>
+
+          <path d="M90 55 L147 59 L203 72 L260 90 L317 113 L345 125 L373 138 L430 160 L487 179 L543 191 L600 195"
+            fill="none" stroke="var(--accent)" stroke-width="3" />
+
+          <circle cx="90" cy="55" r="5" fill="var(--accent-deep)" />
+          <text class="svg-mono" x="140" y="42" text-anchor="start" font-size="13" fill="var(--ink-soft)">trùng cơ
+            sở</text>
+
+          <circle cx="345" cy="125" r="5" fill="var(--accent-deep)" />
+          <text class="svg-mono" x="345" y="102" text-anchor="middle" font-size="13" fill="var(--ink-soft)">lệch cơ
+            sở</text>
+
+          <circle cx="600" cy="195" r="5" fill="var(--accent-deep)" />
+          <text class="svg-mono" x="592" y="174" text-anchor="end" font-size="13" fill="var(--ink-soft)">vuông
+            góc</text>
+        </svg>
+      </div>
+
+      <div class="formula-box" style="margin:10px auto 14px; max-width:540px; padding:14px 28px;">
+        R = A · E<sup style="font-size:.65em;">−γ</sup>
+        <div class="note">Đặc tính phi tuyến của LDR quang dẫn (A: hằng số vật liệu &nbsp;·&nbsp; γ ≈ 0.6 – 0.9)</div>
+      </div>
+
+      <div class="warn-box" style="max-width:820px; margin:0 auto;">
+        <div class="warn-title">Hệ quả: vùng 45° không cho ra giá trị ổn định</div>
+        <p>Mức sáng 50% tại 45° <strong>không</strong> tương đương 50% giá trị điện áp Analog — mà dao động ngẫu nhiên
+          quanh mốc thực nghiệm ~2000 điểm, do chính bản chất phi tuyến ở trên. Vùng ánh sáng lờ mờ này bị loại bỏ hoàn
+          toàn khi lọc khoá (sifting).</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 11 — SƠ ĐỒ 3: BẢNG SO SÁNH HACKER VS SƯƠNG MÙ ===== -->
+    <section class="slide" data-section="Sơ đồ kỹ thuật">
+      <div class="eyebrow">Sơ đồ kỹ thuật 3 / 4</div>
+      <h2 class="slide-title">Ba kịch bản: <em>bình thường, hacker, sương mù</em></h2>
+      <div class="diagram-frame">
+        <svg viewBox="0 0 680 270" style="width:100%; max-width:640px; display:block; margin:0 auto;">
+          <rect x="40" y="18" width="180" height="42" rx="8" fill="var(--safe-bg)" />
+          <text class="svg-th" x="130" y="43" text-anchor="middle" font-size="15" fill="#6EE7B7">bình thường</text>
+          <rect x="240" y="18" width="180" height="42" rx="8" fill="var(--danger-bg)" />
+          <text class="svg-th" x="330" y="43" text-anchor="middle" font-size="15" fill="#FCA5A5">có hacker (Eve)</text>
+          <rect x="440" y="18" width="180" height="42" rx="8" fill="var(--accent-pale)" />
+          <text class="svg-th" x="530" y="43" text-anchor="middle" font-size="14" fill="var(--accent-deep)">sương
+            mù</text>
+
+          <line x1="40" y1="82" x2="620" y2="82" stroke="var(--line)" />
+          <text class="svg-mono" x="40" y="77" font-size="13" fill="var(--ink-mute)">cường độ LDR</text>
+          <text x="130" y="106" text-anchor="middle" font-size="14" fill="var(--ink)">ổn định</text>
+          <text x="330" y="106" text-anchor="middle" font-size="14" fill="var(--ink)">ổn định</text>
+          <text x="530" y="106" text-anchor="middle" font-size="14" fill="var(--ink)">sụt giảm mạnh</text>
+
+          <line x1="40" y1="130" x2="620" y2="130" stroke="var(--line)" />
+          <text class="svg-mono" x="40" y="125" font-size="13" fill="var(--ink-mute)">góc phân cực</text>
+          <text x="130" y="154" text-anchor="middle" font-size="14" fill="var(--ink)">giữ nguyên</text>
+          <text x="330" y="154" text-anchor="middle" font-size="14" fill="var(--ink)">bị xáo trộn</text>
+          <text x="530" y="154" text-anchor="middle" font-size="14" fill="var(--ink)">mất phân cực</text>
+
+          <line x1="40" y1="178" x2="620" y2="178" stroke="var(--line)" />
+          <text class="svg-mono" x="40" y="173" font-size="13" fill="var(--ink-mute)">QBER</text>
+          <text x="130" y="202" text-anchor="middle" font-size="14" fill="var(--ink)">~0%</text>
+          <text x="330" y="202" text-anchor="middle" font-size="14" fill="var(--ink)">&gt; 11%</text>
+          <text x="530" y="202" text-anchor="middle" font-size="14" fill="var(--ink)">không tính được</text>
+
+          <line x1="40" y1="226" x2="620" y2="226" stroke="var(--line)" />
+          <text class="svg-mono" x="40" y="221" font-size="13" fill="var(--ink-mute)">phản ứng hệ thống</text>
+          <text x="130" y="250" text-anchor="middle" font-size="14" fill="var(--ink)">truyền ảnh</text>
+          <text x="330" y="250" text-anchor="middle" font-size="14" fill="var(--ink)">huỷ khoá</text>
+          <text x="530" y="250" text-anchor="middle" font-size="14" fill="var(--ink)">từ chối tín hiệu</text>
+        </svg>
+      </div>
+      <div class="callout">Hệ thống có <strong>hai lớp kiểm tra độc lập</strong>: cường độ tín hiệu (bắt lỗi thời tiết,
+        chạy trước) và QBER (bắt hành vi tấn công, chỉ chạy khi tín hiệu đủ mạnh). Eve không thể vừa đo trộm vừa giữ
+        nguyên góc phân cực — nên dù cường độ không đổi, QBER vẫn tố cáo được sự can thiệp.</div>
+    </section>
+
+    <!-- ===== SLIDE 12 — SƠ ĐỒ 4: KIẾN TRÚC HỆ THỐNG ALICE-BOB ===== -->
+    <section class="slide" data-section="Sơ đồ kỹ thuật">
+      <div class="eyebrow">Sơ đồ kỹ thuật 4 / 4</div>
+      <h2 class="slide-title">Kiến trúc hệ thống: <em>hai trạm, ba kênh</em></h2>
+      <div class="diagram-frame">
+        <svg viewBox="0 0 680 340" style="width:100%; max-width:640px; display:block; margin:0 auto;">
+          <text class="svg-th" x="145" y="30" text-anchor="middle" font-size="16" fill="var(--ink)">trạm Alice</text>
+          <text class="svg-th" x="535" y="30" text-anchor="middle" font-size="16" fill="var(--ink)">trạm Bob</text>
+          <rect x="50" y="44" width="190" height="58" rx="8" fill="var(--accent-pale)" />
+          <text class="svg-th" x="145" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">laptop
+            Alice</text>
+          <text class="svg-mono" x="145" y="88" text-anchor="middle" font-size="12" fill="var(--accent-deep)">GUI
+            PyQt6</text>
+          <rect x="440" y="44" width="190" height="58" rx="8" fill="var(--accent-pale)" />
+          <text class="svg-th" x="535" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">laptop
+            Bob</text>
+          <text class="svg-mono" x="535" y="88" text-anchor="middle" font-size="12" fill="var(--accent-deep)">GUI
+            PyQt6</text>
+          <line x1="240" y1="73" x2="440" y2="73" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="7 5" />
+          <text class="svg-mono" x="340" y="63" text-anchor="middle" font-size="12" fill="var(--ink-mute)">TCP/IP — kênh
+            cổ điển</text>
+
+          <line x1="145" y1="102" x2="145" y2="256" stroke="var(--ink-mute)" stroke-width="1" />
+          <line x1="535" y1="102" x2="535" y2="256" stroke="var(--ink-mute)" stroke-width="1" />
+          <text class="svg-mono" x="40" y="182" font-size="12" fill="var(--ink-mute)">Serial USB</text>
+          <text class="svg-mono" x="640" y="182" text-anchor="end" font-size="12" fill="var(--ink-mute)">Serial
+            USB</text>
+
+          <rect x="170" y="128" width="340" height="112" rx="10" fill="var(--danger-bg)" stroke="var(--danger)" />
+          <text class="svg-th" x="340" y="154" text-anchor="middle" font-size="14" fill="#FCA5A5">hai ESP32 không có kết
+            nối</text>
+          <text x="340" y="176" text-anchor="middle" font-size="13" fill="#FDA4AF">mạng hay dây dẫn điện tử nào</text>
+          <text x="340" y="196" text-anchor="middle" font-size="13" fill="#FDA4AF">với nhau — chỉ liên hệ qua</text>
+          <text x="340" y="216" text-anchor="middle" font-size="13" fill="#FDA4AF">ánh sáng xuyên không gian</text>
+
+          <rect x="70" y="258" width="150" height="46" rx="8" fill="var(--bg-card)" stroke="var(--line)" />
+          <text class="svg-th" x="145" y="285" text-anchor="middle" font-size="14" fill="var(--ink)">ESP32 Alice</text>
+          <rect x="460" y="258" width="150" height="46" rx="8" fill="var(--bg-card)" stroke="var(--line)" />
+          <text class="svg-th" x="535" y="285" text-anchor="middle" font-size="14" fill="var(--ink)">ESP32 Bob</text>
+          <line x1="220" y1="281" x2="460" y2="281" stroke="var(--danger)" stroke-width="3" />
+          <text class="svg-mono" x="340" y="325" text-anchor="middle" font-size="12" fill="var(--ink-mute)">kênh quang
+            học lượng tử — không gian tự do</text>
+        </svg>
+      </div>
+      <div class="callout">Ba đường nối mang ba vai trò khác nhau: Serial USB chỉ nội bộ từng trạm, TCP/IP mang dữ liệu
+        số công khai giữa hai laptop, còn kênh quang học là <strong>ánh sáng thật</strong> — không mang giao thức số
+        nào, không thể bị "hack" theo nghĩa mạng máy tính thông thường.</div>
+    </section>
+
+    <!-- ===== SLIDE 13 — BƯỚC 1: SINH BIT + BASIS ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
+          style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">1</span>
+      </div>
+      <div class="eyebrow"><span class="step-indicator">BƯỚC 01 / 06</span> Giao thức BB84</div>
+      <h2 class="slide-title">Alice <em>sinh ngẫu nhiên</em> bit và basis</h2>
+      <p class="lead">Với mỗi vòng truyền, Alice tự sinh độc lập một bit (0 hoặc 1) và một basis (ký hiệu "+" hoặc "×")
+        — hoàn toàn ngẫu nhiên, không phụ thuộc vào bất kỳ vòng nào trước đó hay bất kỳ điều gì phía Bob.</p>
+      <div class="callout">Yêu cầu bắt buộc: chuỗi ngẫu nhiên phải <strong>thật</strong> (không dùng seed cố định) và
+        phân bố đều gần 50/50. Nếu bit hoặc basis có quy luật dự đoán được, kẻ tấn công có thể khai thác để đoán trước
+        một phần khoá mà không cần đo trực tiếp.</div>
+    </section>
+
+    <!-- ===== SLIDE 14 — BƯỚC 2: SERVO MÃ HOÁ GÓC ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
+          style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">2</span>
+      </div>
+      <div class="eyebrow"><span class="step-indicator">BƯỚC 02 / 06</span> Giao thức BB84</div>
+      <h2 class="slide-title">Servo <em>mã hoá</em> cặp (basis, bit) thành một góc quay</h2>
+      <p class="lead">Cặp giá trị (basis, bit) vừa sinh được ánh xạ sang đúng một trong bốn góc servo cố định — đây là
+        bước duy nhất biến một bit trừu tượng thành một hành động cơ khí quan sát được bằng mắt thường.</p>
+      <div class="grid-4">
+        <div class="stat card">
+          <div class="num">0°</div>
+          <div class="label">basis + , bit 0</div>
+        </div>
+        <div class="stat card">
+          <div class="num">90°</div>
+          <div class="label">basis + , bit 1</div>
+        </div>
+        <div class="stat card">
+          <div class="num">45°</div>
+          <div class="label">basis × , bit 0</div>
+        </div>
+        <div class="stat card">
+          <div class="num">135°</div>
+          <div class="label">basis × , bit 1</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 15 — BƯỚC 3: TRUYỀN QUA KÊNH QUANG ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
+          style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">3</span>
+      </div>
+      <div class="eyebrow"><span class="step-indicator">BƯỚC 03 / 06</span> Giao thức BB84</div>
+      <h2 class="slide-title">Ánh sáng <em>truyền qua</em> kênh quang tự do</h2>
+      <p class="lead">Sau khi kính phân cực của Alice quay tới đúng góc, tia laser đi qua kính đó, băng qua khoảng không
+        (hoặc ống mica trong sa bàn thật), tới kính phân cực của Bob ở phía đối diện.</p>
+      <div class="callout">Độ chính xác cơ khí quyết định trực tiếp độ tin cậy phép đo: lệch góc lắp đặt chỉ 0.1° cũng
+        có thể khiến điểm sáng lệch cả chục centimet ở khoảng cách xa — đây là lý do bệ laser trong sa bàn thật cần cơ
+        cấu vi chỉnh 3 ốc thay vì gắn cố định.</div>
+    </section>
+
+    <!-- ===== SLIDE 16 — BƯỚC 4: BOB ĐO BẰNG LDR ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
+          style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">4</span>
+      </div>
+      <div class="eyebrow"><span class="step-indicator">BƯỚC 04 / 06</span> Giao thức BB84</div>
+      <h2 class="slide-title">Bob <em>tự đo</em> bằng basis của riêng mình</h2>
+      <p class="lead">Trước khi ánh sáng tới, Bob đã tự sinh sẵn một basis ngẫu nhiên của riêng mình — hoàn toàn độc lập
+        với basis Alice đã dùng. Kính phân cực của Bob quay tới góc tương ứng, rồi LDR đọc cường độ ánh sáng còn lại để
+        suy ra bit.</p>
+      <ul class="keylist keylist-grid">
+        <li><strong>Basis trùng nhau:</strong> theo định luật Malus, cường độ ánh sáng đạt giá trị lớn nhất — Bob đọc
+          được chính xác đúng bit Alice đã gửi.</li>
+        <li><strong>Basis lệch nhau:</strong> kết quả đo rơi vào vùng không đáng tin cậy, tương đương một lần tung đồng
+          xu 50/50.</li>
+      </ul>
+    </section>
+
+    <!-- ===== SLIDE 17 — BƯỚC 5: SO SÁNH BASIS (SIFTING) ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
+          style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">5</span>
+      </div>
+      <div class="eyebrow"><span class="step-indicator">BƯỚC 05 / 06</span> Giao thức BB84</div>
+      <h2 class="slide-title">So sánh basis công khai — <em>lọc khoá (sifting)</em></h2>
+      <p class="lead">Qua kênh mạng TCP/IP, Alice và Bob công khai gửi cho nhau danh sách basis đã dùng ở mỗi vòng —
+        <strong>không bao giờ</strong> gửi giá trị bit, vì bit mới là thứ cần giữ bí mật.
+      </p>
+      <div class="callout">Cả hai chỉ giữ lại đúng những vòng mà basis trùng nhau — theo lý thuyết xác suất, basis được
+        chọn độc lập ngẫu nhiên nên tỷ lệ trùng khớp trung bình xấp xỉ 50%. Đây chính là hàm <code
+          style="font-family:var(--font-mono); color:var(--accent-deep);">sift_keys()</code> trong module <code
+          style="font-family:var(--font-mono); color:var(--accent-deep);">qkd_logic.py</code>.</div>
+    </section>
+
+    <!-- ===== SLIDE 18 — BƯỚC 6: TÍNH QBER ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
+          style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">6</span>
+      </div>
+      <div class="eyebrow"><span class="step-indicator">BƯỚC 06 / 06</span> Giao thức BB84</div>
+      <h2 class="slide-title">Tính <em>QBER</em> — quyết định giữ hay huỷ khoá</h2>
+      <p class="lead">Một phần khoá đã sift được trích ra để công khai so sánh giữa hai bên, tính tỷ lệ lỗi bit lượng tử
+        (QBER). Phần đã công khai so sánh bị loại bỏ vĩnh viễn — chỉ phần còn lại mới trở thành khoá bí mật cuối cùng.
+      </p>
+      <div class="grid-2">
+        <div class="safe-box">
+          <div style="font-weight:600; font-size:1.02rem; margin-bottom:4px;">QBER ≤ 11%: Kênh an toàn</div>
+          <p style="margin:0; font-size:0.95rem; color:#A7F3D0;">Kênh được xác nhận an toàn, khoá lượng tử còn lại được
+            dùng để mã hoá ảnh XOR và gửi đi.</p>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">QBER &gt; 11%: Phát hiện nghe lén</div>
+          <p style="margin:0;">Nghi ngờ có sự can thiệp hoặc nghe lén từ Eve, toàn bộ phiên bị huỷ tức thì — không có dữ
+            liệu nào được gửi đi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 19 — KẾT QUẢ THỰC NGHIỆM ===== -->
+    <section class="slide" data-section="Kết quả & ứng dụng">
+      <div class="eyebrow">Kết quả thực nghiệm</div>
+      <h2 class="slide-title">Số liệu QBER đo được qua <em>nhiều lần chạy</em></h2>
+      <p class="lead">Chạy lặp lại kịch bản kiểm thử tích hợp toàn bộ pipeline (<code
+          style="font-family:var(--font-mono);">test_pipeline.py</code>), so sánh kênh sạch với kênh có Eve mô phỏng gây
+        nhiễu ~25% tại các vị trí basis trùng khớp.</p>
+      <div class="diagram-frame" style="max-width:560px;">
+        <svg viewBox="0 0 680 220" style="width:100%; max-width:520px; display:block; margin:0 auto;">
+          <line x1="100" y1="30" x2="100" y2="180" stroke="var(--ink-mute)" stroke-width="1" />
+          <line x1="100" y1="180" x2="580" y2="180" stroke="var(--ink-mute)" stroke-width="1" />
+          <line x1="100" y1="80" x2="580" y2="80" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="6 4" />
+          <text class="svg-mono" x="588" y="84" font-size="13" fill="var(--danger)">11% ngưỡng</text>
+          <rect x="200" y="176" width="90" height="4" fill="var(--safe)" />
+          <text class="svg-mono" x="245" y="200" text-anchor="middle" font-size="14" fill="var(--ink)">kênh sạch</text>
+          <text class="svg-mono" x="245" y="164" text-anchor="middle" font-size="15" fill="var(--safe)"
+            font-weight="700">~0.0%</text>
+          <rect x="390" y="45" width="90" height="135" fill="var(--danger)" />
+          <text class="svg-mono" x="435" y="200" text-anchor="middle" font-size="14" fill="var(--ink)">có Eve mô
+            phỏng</text>
+          <text class="svg-mono" x="435" y="36" text-anchor="middle" font-size="15" fill="#FCA5A5"
+            font-weight="700">~27%</text>
+        </svg>
+      </div>
+      <div class="callout">Chênh lệch rõ rệt và ổn định qua nhiều lần chạy độc lập: kênh sạch luôn cho QBER xấp xỉ 0%,
+        trong khi kênh có Eve luôn vượt xa ngưỡng 11% — xác nhận QBER là chỉ số phát hiện đáng tin cậy, không phải ngẫu
+        nhiên may rủi.</div>
+    </section>
+
+    <!-- ===== SLIDE 20 — GIỚI THIỆU MÃ HOÁ ẢNH XOR ===== -->
+    <section class="slide" data-section="Kết quả & ứng dụng">
+      <div class="eyebrow">Ứng dụng thực tế</div>
+      <h2 class="slide-title">Dùng khoá vừa tạo để <em>mã hoá một tấm ảnh</em></h2>
+      <p class="lead">Khoá bí mật sau bước sifting và kiểm tra QBER không chỉ nằm trên lý thuyết — Hermex dùng chính
+        chuỗi bit đó làm khoá cho phép mã hoá XOR, minh chứng trực quan rằng khoá lượng tử có thể bảo vệ dữ liệu thật.
+      </p>
+      <ul class="keylist keylist-grid">
+        <li><strong>XOR tự nghịch đảo:</strong> A ⊕ K ⊕ K = A — mã hoá và giải mã dùng chung một phép toán, chỉ cần đúng
+          khoá là khôi phục hoàn hảo.</li>
+        <li><strong>Khoá lặp lại (key-stream):</strong> vì khoá QKD thường ngắn hơn nhiều so với dung lượng ảnh, chuỗi
+          khoá được lặp lại tuần hoàn cho đủ phủ kín toàn bộ điểm ảnh.</li>
+      </ul>
+    </section>
+
+    <!-- ===== SLIDE 21 — ỨNG DỤNG XOR — MINH HOẠ ===== -->
+    <section class="slide" data-section="Kết quả & ứng dụng">
+      <div class="eyebrow">Ứng dụng thực tế — minh hoạ</div>
+      <h2 class="slide-title">Ảnh gốc → mã hoá → <em>giải mã</em></h2>
+      <div class="grid-3">
+        <div class="card xor-card" style="text-align:center;">
+          <div class="xor-frame" data-lightbox="true" data-caption="Ảnh gốc">
+            <img src="assets/images/xor-original.png" alt="Ảnh gốc" draggable="false">
+            <span class="inspect-badge">&#9974; Phóng to</span>
+          </div>
+          <span class="tag" style="margin-top:12px; display:inline-block;">Ảnh gốc</span>
+        </div>
+        <div class="card xor-card" style="text-align:center;">
+          <div class="xor-frame" data-lightbox="true" data-caption="Đã mã hoá bằng XOR">
+            <img src="assets/images/xor-encrypted.png" alt="Đã mã hoá bằng XOR" draggable="false">
+            <span class="inspect-badge">&#9974; Phóng to</span>
+          </div>
+          <span class="tag" style="margin-top:12px; display:inline-block;">Đã mã hoá</span>
+        </div>
+        <div class="card xor-card" style="text-align:center;">
+          <div class="xor-frame" data-lightbox="true" data-caption="Giải mã đúng khoá">
+            <img src="assets/images/xor-decrypted.png" alt="Giải mã đúng khoá" draggable="false">
+            <span class="inspect-badge">&#9974; Phóng to</span>
+          </div>
+          <span class="tag" style="margin-top:12px; display:inline-block;">Giải mã đúng khoá</span>
+        </div>
+      </div>
+      <div class="warn-box" style="margin-top:18px;">
+        <div class="warn-title">Chỉ cần lệch khoá vài bit, ảnh vỡ vụn gần như hoàn toàn</div>
+        <p>Đây chính là bằng chứng trực quan cho lý do khoá phải khớp tuyệt đối — không có khái niệm "gần đúng" trong
+          XOR, khác hẳn cách con người thường hình dung về "đoán gần trúng mật khẩu".</p>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 22 — KẾT LUẬN ===== -->
+    <section class="slide" data-section="Kết thúc">
+      <div class="eyebrow">Kết luận</div>
+      <h2 class="slide-title">Ba đóng góp chính của <em>Hermex</em></h2>
+      <ul class="keylist keylist-grid">
+        <li><strong>Tái hiện đúng logic BB84</strong> bằng phần cứng thật — servo mã hoá góc, LDR đọc lại tín hiệu,
+          không chỉ dừng ở mô phỏng phần mềm thuần tuý.</li>
+        <li><strong>Chứng minh QBER phân biệt được</strong> nghe lén chủ động với nhiễu tự nhiên (thời tiết/vật cản) —
+          hai lớp kiểm tra độc lập, đúng nguyên lý bảo mật vật lý của QKD.</li>
+        <li><strong>Xây dựng trọn vẹn một pipeline phần mềm</strong> — từ sinh khoá, sifting, tính QBER, tới mã hoá/giải
+          mã ảnh thật, đã kiểm thử tự động qua nhiều kịch bản.</li>
+      </ul>
+    </section>
+
+    <!-- ===== SLIDE 23 — HƯỚNG PHÁT TRIỂN ===== -->
+    <section class="slide" data-section="Kết thúc">
+      <div class="eyebrow">Hướng phát triển</div>
+      <h2 class="slide-title">Giới hạn hiện tại & <em>hướng mở rộng</em></h2>
+      <p class="lead">Hai mặt của cùng một lộ trình: những gì sa bàn hiện tại chưa làm được, và những bước tiếp theo để
+        tiến gần hơn một hệ QKD hoàn chỉnh.</p>
+      <div class="grid-2">
+        <div class="card roadmap-card">
+          <div class="roadmap-icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="38" height="38">
+              <rect x="4" y="24" width="7" height="12" rx="2" fill="var(--danger)" />
+              <rect x="17" y="15" width="7" height="21" rx="2" fill="var(--danger)" opacity=".55" />
+              <rect x="30" y="7" width="7" height="29" rx="2" fill="var(--line)" />
+            </svg></div>
+          <h3>Hạn chế còn lại</h3>
+          <p>Mô phỏng bằng cơ-điện (servo + LDR), chưa dùng photon đơn lẻ thật; số bit khoá thô còn nhỏ so với ứng dụng
+            thực tế.</p>
+        </div>
+        <div class="card roadmap-card">
+          <div class="roadmap-icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="38" height="38">
+              <rect x="4" y="28" width="7" height="8" rx="2" fill="var(--line)" />
+              <rect x="17" y="18" width="7" height="18" rx="2" fill="var(--safe)" opacity=".6" />
+              <rect x="30" y="6" width="7" height="30" rx="2" fill="var(--safe)" />
+            </svg></div>
+          <h3>Hướng mở rộng</h3>
+          <p>Tăng số bit khoá thô mỗi phiên; thử nghiệm ngoài trời với khoảng cách truyền xa hơn để kiểm chứng độ bền
+            của hệ thống.</p>
+        </div>
+      </div>
+      <div class="diagram-frame" style="margin-top:20px; padding:30px 34px 26px;">
+        <svg viewBox="0 0 900 240" style="width:100%; max-width:860px; display:block; margin:0 auto;">
+          <path d="M90 190 Q 320 190 450 125 T 800 60" fill="none" stroke="var(--line)" stroke-width="3"
+            stroke-dasharray="1 10" stroke-linecap="round" />
+          <circle cx="90" cy="190" r="12" fill="var(--ink-mute)" />
+          <text class="svg-th" x="90" y="222" text-anchor="middle" font-size="20" fill="var(--ink)">Hiện tại</text>
+          <text x="90" y="36" text-anchor="middle" font-size="15" fill="var(--ink-soft)">Mô phỏng cơ – điện</text>
+          <text x="90" y="58" text-anchor="middle" font-size="15" fill="var(--ink-soft)">(servo + LDR)</text>
+
+          <circle cx="450" cy="125" r="13" fill="var(--accent)" />
+          <text class="svg-th" x="450" y="158" text-anchor="middle" font-size="20" fill="var(--ink)">Bước tiếp
+            theo</text>
+          <text x="450" y="28" text-anchor="middle" font-size="15" fill="var(--ink-soft)">Tăng bit khoá · thử
+            nghiệm</text>
+          <text x="450" y="50" text-anchor="middle" font-size="15" fill="var(--ink-soft)">ngoài trời, khoảng cách xa
+            hơn</text>
+
+          <circle cx="800" cy="60" r="14" fill="var(--accent-deep)" />
+          <text class="svg-th" x="800" y="94" text-anchor="middle" font-size="20" fill="var(--ink)">Tầm nhìn xa</text>
+          <text x="800" y="132" text-anchor="middle" font-size="15" fill="var(--ink-soft)">Hướng tới nguồn phát</text>
+          <text x="800" y="154" text-anchor="middle" font-size="15" fill="var(--ink-soft)">photon đơn lẻ thật</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 24 — LỜI CẢM ƠN ===== -->
+    <section class="slide" data-section="Kết thúc">
+      <div class="split">
+        <div>
+          <div class="eyebrow">Lời kết</div>
+          <h2 class="slide-title">Cảm ơn hội đồng đã <em>lắng nghe</em></h2>
+          <div class="callout" style="margin-bottom:20px;">Nhóm xin gửi lời cảm ơn chân thành tới hội đồng giám khảo,
+            giáo viên hướng dẫn, và nhà trường đã đồng hành cùng dự án Hermex trong suốt quá trình nghiên cứu và chế
+            tạo.</div>
+          <div class="thanks-badge"><svg viewBox="0 0 24 24" width="18" height="18" fill="var(--accent-deep)"
+              aria-hidden="true">
+              <path
+                d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+            </svg>&nbsp; Q&amp;A — Mời Hội đồng đặt câu hỏi &amp; đóng góp ý kiến</div>
+        </div>
+        <div class="split-media">
+          <div class="thanks-card">
+            <svg viewBox="0 0 320 320" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+              <circle cx="160" cy="150" r="128" fill="var(--bg)" stroke="var(--accent-deep)" stroke-width="2.5" />
+              <circle cx="160" cy="150" r="128" fill="none" stroke="var(--line)" stroke-width="1"
+                stroke-dasharray="2 8" />
+              <line x1="160" y1="150" x2="160" y2="30" stroke="var(--line)" stroke-width="3" />
+              <line x1="160" y1="150" x2="160" y2="30" stroke="var(--line)" stroke-width="3"
+                transform="rotate(90 160 150)" />
+              <line x1="160" y1="150" x2="160" y2="30" stroke="var(--line)" stroke-width="3"
+                transform="rotate(135 160 150)" />
+              <line x1="160" y1="150" x2="160" y2="30" stroke="var(--accent)" stroke-width="5" stroke-linecap="round"
+                transform="rotate(45 160 150)" />
+              <circle cx="160" cy="150" r="9" fill="var(--accent-deep)" />
+              <text x="160" y="66" text-anchor="middle" class="svg-mono" font-size="12" fill="var(--ink-mute)">0°</text>
+              <text x="238" y="155" text-anchor="middle" class="svg-mono" font-size="12"
+                fill="var(--ink-mute)">90°</text>
+              <text x="213" y="74" text-anchor="middle" class="svg-mono" font-size="12" fill="var(--accent-deep)"
+                font-weight="700">45°</text>
+              <text x="205" y="222" text-anchor="middle" class="svg-mono" font-size="12"
+                fill="var(--ink-mute)">135°</text>
+            </svg>
+            <div class="thanks-caption">
+              <div class="thanks-caption-title">Một góc quay, một bit an toàn</div>
+              <div class="thanks-caption-sub">Biểu tượng xuyên suốt hành trình nghiên cứu của Hermex.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="bottom-bar">
+    <div class="slide-count" id="slideCount">SLIDE 01 / 24</div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressFill" style="width: 4.1667%;"></div>
+    </div>
+    <div class="nav-arrows">
+      <button class="arrow-btn" id="prevBtn">&#8592;</button>
+      <button class="arrow-btn" id="nextBtn">&#8594;</button>
+    </div>
+  </div>
+  <div class="kbd-hint">&#8592; &#8594; hoặc Space để chuyển slide &nbsp;|&nbsp; F11 toàn màn hình</div>
+
+  <div class="img-lightbox" id="imgLightbox">
+    <button class="lb-close" id="lbClose" aria-label="Đóng">&times;</button>
+    <img id="lbImg" src="" alt="">
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+
+  <script src="js/audio.js"></script>
+  <script src="js/deck.js"></script>
+  <script src="js/controls.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

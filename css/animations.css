@@ -1,0 +1,192 @@
+/* ==========================================================================
+   HỆ THỐNG HIỆU ỨNG CHUYỂN ĐỘNG & HOẠT HOÁ TINH TẾ (ANIMATIONS)
+   ========================================================================== */
+
+/* ============================== NỀN HẠT SÁNG TRÔI (PHOTON AMBIENT DRIFT) ============================== */
+.photon-field {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.photon {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.45) 0%, rgba(14, 116, 144, 0.15) 50%, transparent 75%);
+  animation: driftPhoton linear infinite;
+  filter: blur(1px);
+}
+
+@keyframes driftPhoton {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(calc(var(--dx) * 0.5), calc(var(--dy) * 0.5)) scale(1.1);
+  }
+  100% {
+    transform: translate(var(--dx), var(--dy)) scale(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes photonPulse {
+  0%, 100% {
+    box-shadow: 0 0 10px 2px rgba(103, 232, 249, 0.7), 0 0 3px 1px #FFFFFF;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    box-shadow: 0 0 18px 6px rgba(103, 232, 249, 1), 0 0 6px 2px #FFFFFF;
+    transform: translateY(-50%) scale(1.15);
+  }
+}
+
+/* ============================== HIỆU ỨNG XUẤT HIỆN THEO NHỊP KEYNOTE ============================== */
+.slide .eyebrow,
+.slide h2.slide-title,
+.slide p.lead,
+.slide .keylist li,
+.slide .callout,
+.slide .card,
+.slide .warn-box,
+.slide .safe-box,
+.slide .formula-box,
+.slide .diagram-frame,
+.slide .media-slot,
+.slide .stat {
+  opacity: 0;
+  will-change: opacity, transform, filter;
+}
+
+.slide.active .eyebrow {
+  animation: dropIn 0.6s var(--ease) forwards 0.05s;
+}
+
+.slide.active h2.slide-title {
+  animation: riseIn 0.65s var(--ease) forwards 0.15s;
+}
+
+.slide.active p.lead {
+  animation: riseIn 0.6s var(--ease) forwards 0.25s;
+}
+
+.slide.active .callout {
+  animation: riseIn 0.6s var(--ease) forwards 0.38s;
+}
+
+.slide.active .warn-box {
+  animation: riseIn 0.6s var(--ease) forwards 0.42s;
+}
+
+.slide.active .safe-box {
+  animation: riseIn 0.6s var(--ease) forwards 0.42s;
+}
+
+.slide.active .formula-box {
+  animation: popIn 0.65s var(--ease) forwards 0.32s;
+}
+
+.slide.active .diagram-frame {
+  animation: popIn 0.7s var(--ease) forwards 0.28s;
+}
+
+.slide.active .media-slot {
+  animation: popIn 0.7s var(--ease) forwards 0.3s;
+}
+
+.slide.active .keylist li:nth-child(1) { animation: riseIn 0.55s var(--ease) forwards 0.28s; }
+.slide.active .keylist li:nth-child(2) { animation: riseIn 0.55s var(--ease) forwards 0.38s; }
+.slide.active .keylist li:nth-child(3) { animation: riseIn 0.55s var(--ease) forwards 0.48s; }
+.slide.active .keylist li:nth-child(4) { animation: riseIn 0.55s var(--ease) forwards 0.58s; }
+.slide.active .keylist li:nth-child(5) { animation: riseIn 0.55s var(--ease) forwards 0.68s; }
+
+.slide.active .card:nth-child(1) { animation: riseIn 0.55s var(--ease) forwards 0.30s; }
+.slide.active .card:nth-child(2) { animation: riseIn 0.55s var(--ease) forwards 0.42s; }
+.slide.active .card:nth-child(3) { animation: riseIn 0.55s var(--ease) forwards 0.54s; }
+.slide.active .card:nth-child(4) { animation: riseIn 0.55s var(--ease) forwards 0.66s; }
+
+.slide.active .stat:nth-child(1) { animation: popIn 0.5s var(--ease) forwards 0.30s; }
+.slide.active .stat:nth-child(2) { animation: popIn 0.5s var(--ease) forwards 0.40s; }
+.slide.active .stat:nth-child(3) { animation: popIn 0.5s var(--ease) forwards 0.50s; }
+.slide.active .stat:nth-child(4) { animation: popIn 0.5s var(--ease) forwards 0.60s; }
+
+/* Slide bìa: icon và cta */
+.slide.active .cover-icon {
+  animation: popIn 0.8s var(--ease) forwards 0s;
+}
+
+.slide.active .cover-cta {
+  animation: riseIn 0.65s var(--ease) forwards 0.75s;
+}
+
+.slide.active .cover-tags {
+  animation: riseIn 0.65s var(--ease) forwards 0.65s;
+}
+
+/* Slide bìa: icon la bàn phát sáng nhấp nháy */
+.slide[data-cover] .eyebrow .dial {
+  animation: pulseDial 2.6s ease-in-out infinite 0.8s;
+}
+
+@keyframes dropIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-14px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes riseIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes pulseDial {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.6));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(103, 232, 249, 1));
+    transform: scale(1.12);
+  }
+}
+
+@keyframes needleGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.5));
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(103, 232, 249, 1));
+  }
+}

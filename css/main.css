@@ -1,0 +1,13 @@
+/* ==========================================================================
+   HERMEX WEB — MASTER STYLESHEET
+   Tổng hợp toàn bộ các modules giao diện theo thứ tự ưu tiên chuẩn
+   ========================================================================== */
+
+@import "variables.css";
+@import "base.css";
+@import "layout.css";
+@import "components.css";
+@import "slides.css";
+@import "navigation.css";
+@import "animations.css";
+@import "lightbox.css";
