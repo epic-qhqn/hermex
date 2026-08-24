@@ -21,6 +21,10 @@
   <link rel="stylesheet" href="css/navigation.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/lightbox.css">
+  <link rel="stylesheet" href="css/malus-demo.css">
+  <link rel="stylesheet" href="css/sim-demo.css">
+  <link rel="stylesheet" href="css/xor-demo.css">
+  <link rel="stylesheet" href="css/arch-device.css">
 </head>
 
 <body>
@@ -321,7 +325,7 @@
 
     <!-- ===== SLIDE 9 — SƠ ĐỒ 1: NGUYÊN LÝ QUANG HỌC & MALUS ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
-      <div class="eyebrow">Sơ đồ kỹ thuật 1 / 4</div>
+      <div class="eyebrow">Sơ đồ kỹ thuật 1 / 5</div>
       <h2 class="slide-title">Nguyên lý quang học & <em>định luật Malus</em></h2>
       <div class="diagram-frame">
         <svg viewBox="0 0 680 260" style="width:100%; max-width:640px; display:block; margin:0 auto;">
@@ -364,9 +368,57 @@
         liên tục theo hàm cos², không phải nhảy đột ngột từ 100% xuống 0%.</div>
     </section>
 
-    <!-- ===== SLIDE 10 — SƠ ĐỒ 2: ĐỒ THỊ MALUS & GIỚI HẠN LDR ===== -->
+    <!-- ===== SLIDE 10 — MINH HOẠ TƯƠNG TÁC: ÁNH SÁNG PHÂN CỰC & ĐỊNH LUẬT MALUS ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
-      <div class="eyebrow">Sơ đồ kỹ thuật 2 / 4</div>
+      <div class="eyebrow">Sơ đồ kỹ thuật 2 / 5</div>
+      <h2 class="slide-title">Ánh sáng phân cực theo <em>một hướng nhất định</em></h2>
+      <p class="lead">Trong BB84 nguyên bản, mỗi bit được mã hoá bằng hướng phân cực của một photon đơn lẻ. Một kính
+        lọc phân cực chỉ cho ánh sáng cùng hướng đi qua trọn vẹn — lệch hướng càng nhiều, ánh sáng lọt qua càng ít,
+        theo định luật Malus: cường độ truyền qua tỉ lệ với <strong>cos²(Δθ)</strong> của góc lệch giữa hai kính lọc.
+      </p>
+
+      <div class="malus-demo">
+        <div class="malus-demo-visual">
+          <div class="malus-filters">
+            <div class="malus-filter">
+              <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+                <circle cx="36" cy="36" r="31" fill="none" stroke="var(--line)" stroke-width="2" />
+                <line x1="36" y1="8" x2="36" y2="64" stroke="var(--accent)" stroke-width="2.5"
+                  stroke-linecap="round" />
+              </svg>
+              <span>KÍNH PHÁT (0°)</span>
+            </div>
+            <div class="malus-filter">
+              <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+                <circle cx="36" cy="36" r="31" fill="none" stroke="var(--line)" stroke-width="2" />
+                <line id="malusFilterLine10" x1="36" y1="8" x2="36" y2="64" stroke="var(--safe)" stroke-width="2.5"
+                  stroke-linecap="round" style="transform-origin:36px 36px;" />
+              </svg>
+              <span>KÍNH ĐO CỦA BOB</span>
+            </div>
+          </div>
+          <div class="malus-beam-track">
+            <div class="malus-beam-fill" id="malusBeamFill10"></div>
+          </div>
+        </div>
+
+        <div class="malus-demo-controls">
+          <label class="malus-label" for="malusSlider10">Góc lệch kính đo (Δθ) <span
+              id="malusAngleLabel10">0°</span></label>
+          <input type="range" id="malusSlider10" class="malus-slider" min="0" max="180" value="0" step="1">
+          <div class="malus-readout">
+            Cường độ truyền qua ≈ <span class="malus-big" id="malusIntensity10">100%</span>
+            <div class="malus-sub" id="malusFormula10">cos²(0°) = 1.00</div>
+          </div>
+          <div class="malus-callout" id="malusCallout10">Hai kính cùng hướng — ánh sáng truyền qua gần như trọn vẹn,
+            tương ứng lúc Bob đo đúng basis Alice đã dùng.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 11 — SƠ ĐỒ 2: ĐỒ THỊ MALUS & GIỚI HẠN LDR ===== -->
+    <section class="slide" data-section="Sơ đồ kỹ thuật">
+      <div class="eyebrow">Sơ đồ kỹ thuật 3 / 5</div>
       <h2 class="slide-title">Đồ thị Malus và <em>giới hạn cảm biến LDR</em></h2>
 
       <div class="diagram-frame" style="max-width:560px; padding:14px 20px 6px; margin:0 auto 12px;">
@@ -413,9 +465,9 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 11 — SƠ ĐỒ 3: BẢNG SO SÁNH HACKER VS SƯƠNG MÙ ===== -->
+    <!-- ===== SLIDE 12 — SƠ ĐỒ 3: BẢNG SO SÁNH HACKER VS SƯƠNG MÙ ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
-      <div class="eyebrow">Sơ đồ kỹ thuật 3 / 4</div>
+      <div class="eyebrow">Sơ đồ kỹ thuật 4 / 5</div>
       <h2 class="slide-title">Ba kịch bản: <em>bình thường, hacker, sương mù</em></h2>
       <div class="diagram-frame">
         <svg viewBox="0 0 680 270" style="width:100%; max-width:640px; display:block; margin:0 auto;">
@@ -457,9 +509,9 @@
         nguyên góc phân cực — nên dù cường độ không đổi, QBER vẫn tố cáo được sự can thiệp.</div>
     </section>
 
-    <!-- ===== SLIDE 12 — SƠ ĐỒ 4: KIẾN TRÚC HỆ THỐNG ALICE-BOB ===== -->
+    <!-- ===== SLIDE 13 — SƠ ĐỒ 4: KIẾN TRÚC HỆ THỐNG ALICE-BOB ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
-      <div class="eyebrow">Sơ đồ kỹ thuật 4 / 4</div>
+      <div class="eyebrow">Sơ đồ kỹ thuật 5 / 5</div>
       <h2 class="slide-title">Kiến trúc hệ thống: <em>hai trạm, ba kênh</em></h2>
       <div class="diagram-frame">
         <svg viewBox="0 0 680 340" style="width:100%; max-width:640px; display:block; margin:0 auto;">
@@ -506,7 +558,7 @@
         nào, không thể bị "hack" theo nghĩa mạng máy tính thông thường.</div>
     </section>
 
-    <!-- ===== SLIDE 13 — BƯỚC 1: SINH BIT + BASIS ===== -->
+    <!-- ===== SLIDE 14 — BƯỚC 1: SINH BIT + BASIS ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">1</span>
@@ -520,7 +572,7 @@
         một phần khoá mà không cần đo trực tiếp.</div>
     </section>
 
-    <!-- ===== SLIDE 14 — BƯỚC 2: SERVO MÃ HOÁ GÓC ===== -->
+    <!-- ===== SLIDE 15 — BƯỚC 2: SERVO MÃ HOÁ GÓC ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">2</span>
@@ -549,7 +601,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 15 — BƯỚC 3: TRUYỀN QUA KÊNH QUANG ===== -->
+    <!-- ===== SLIDE 16 — BƯỚC 3: TRUYỀN QUA KÊNH QUANG ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">3</span>
@@ -563,7 +615,7 @@
         cấu vi chỉnh 3 ốc thay vì gắn cố định.</div>
     </section>
 
-    <!-- ===== SLIDE 16 — BƯỚC 4: BOB ĐO BẰNG LDR ===== -->
+    <!-- ===== SLIDE 17 — BƯỚC 4: BOB ĐO BẰNG LDR ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">4</span>
@@ -581,7 +633,7 @@
       </ul>
     </section>
 
-    <!-- ===== SLIDE 17 — BƯỚC 5: SO SÁNH BASIS (SIFTING) ===== -->
+    <!-- ===== SLIDE 18 — BƯỚC 5: SO SÁNH BASIS (SIFTING) ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">5</span>
@@ -597,7 +649,136 @@
           style="font-family:var(--font-mono); color:var(--accent-deep);">qkd_logic.py</code>.</div>
     </section>
 
-    <!-- ===== SLIDE 18 — BƯỚC 6: TÍNH QBER ===== -->
+    <!-- ===== SLIDE 19 — MÔ PHỎNG TRỰC TIẾP: CHẠY THỬ MỘT PHIÊN TRAO ĐỔI KHOÁ ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="eyebrow">Mô phỏng trực tiếp</div>
+      <h2 class="slide-title">Chạy thử một <em>phiên trao đổi khoá</em></h2>
+      <p class="lead">Mỗi vòng: Alice chọn ngẫu nhiên 1 bit và 1 basis, servo xoay đúng góc tương ứng, tín hiệu đi qua
+        kênh quang, Bob đo bằng basis ngẫu nhiên của riêng mình. Chỉ những vòng mà hai bên tình cờ trùng basis mới
+        được giữ lại làm khoá.</p>
+
+      <div class="sim-rail" id="simRail">
+        <div class="rail-step" data-step="0">1. Sinh bit + basis</div>
+        <div class="rail-step" data-step="1">2. Servo mã hoá góc</div>
+        <div class="rail-step" data-step="2">3. Truyền qua kênh quang</div>
+        <div class="rail-step" data-step="3">4. Bob đo bằng LDR</div>
+        <div class="rail-step" data-step="4">5. So sánh basis (sifting)</div>
+        <div class="rail-step" data-step="5">6. Tính QBER</div>
+      </div>
+
+      <div class="stations">
+        <div class="station">
+          <div class="label"><span>MÁY HÀ — ALICE</span><span id="simAliceTag">—</span></div>
+          <svg viewBox="0 0 140 140" width="140" height="140">
+            <rect x="20" y="95" width="100" height="26" rx="3" fill="none" stroke="var(--line)" />
+            <text x="70" y="112" text-anchor="middle" class="svg-mono" font-size="9" fill="var(--ink-mute)">ESP32</text>
+            <circle cx="70" cy="55" r="42" fill="none" stroke="var(--line)" />
+            <g id="simAliceNeedle" style="transform-origin:70px 55px; transition:transform .5s cubic-bezier(.34,1.4,.64,1);">
+              <line x1="70" y1="55" x2="70" y2="16" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" />
+            </g>
+            <circle cx="70" cy="55" r="4" fill="var(--accent)" />
+          </svg>
+          <div class="readout" id="simAliceReadout">Sẵn sàng</div>
+        </div>
+
+        <div class="channel">
+          <svg viewBox="0 0 40 100" height="100">
+            <line x1="20" y1="4" x2="20" y2="96" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 5" />
+            <circle id="simPhoton" cx="20" cy="4" r="5" fill="var(--accent)" opacity="0" />
+          </svg>
+          <span class="eve-badge" id="simEveBadge">EVE ⏺</span>
+        </div>
+
+        <div class="station">
+          <div class="label"><span>MÁY SƠN — BOB</span><span id="simBobTag">—</span></div>
+          <svg viewBox="0 0 140 140" width="140" height="140">
+            <rect x="20" y="95" width="100" height="26" rx="3" fill="none" stroke="var(--line)" />
+            <text x="70" y="112" text-anchor="middle" class="svg-mono" font-size="9" fill="var(--ink-mute)">ESP32</text>
+            <rect x="40" y="18" width="60" height="60" rx="4" fill="none" stroke="var(--line)" />
+            <text x="70" y="44" text-anchor="middle" class="svg-mono" font-size="8" fill="var(--ink-mute)">LDR</text>
+            <rect id="simLdrFill" x="46" y="70" width="0" height="4" fill="var(--safe)" />
+            <line x1="40" y1="78" x2="100" y2="78" stroke="var(--line)" />
+          </svg>
+          <div class="readout" id="simBobReadout">Sẵn sàng</div>
+        </div>
+      </div>
+
+      <div class="sim-controls">
+        <button class="btn" id="simStepBtn">Chạy 1 vòng</button>
+        <button class="btn secondary" id="simAutoBtn">Chạy 24 vòng tự động</button>
+        <button class="btn secondary" id="simResetBtn">Đặt lại</button>
+        <label class="toggle"><input type="checkbox" id="simEveToggle"> Kích hoạt Eve (kẻ nghe lén chặn giữa
+          đường)</label>
+      </div>
+
+      <div class="sim-data">
+        <div class="log">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Alice</th>
+                <th>Bob</th>
+                <th>Basis</th>
+                <th>Kết quả</th>
+              </tr>
+            </thead>
+            <tbody id="simLogBody"></tbody>
+          </table>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <div class="m-label">Khoá đã sift</div>
+            <div class="keybits" id="simKeyBits">—</div>
+          </div>
+          <div class="metric">
+            <div class="m-label">QBER (ngưỡng an toàn 11%)</div>
+            <div class="m-value" id="simQberValue">—</div>
+            <div class="qber-bar">
+              <div class="qber-thresh"></div>
+              <div class="qber-fill" id="simQberFill"></div>
+            </div>
+            <div class="verdict idle" id="simVerdict">Chưa đủ dữ liệu — chạy vài vòng để ước lượng QBER.</div>
+          </div>
+        </div>
+      </div>
+      <p class="sim-note">Để minh hoạ dễ hiểu, trang này so sánh toàn bộ khoá đã sift để tính QBER. Trong triển khai
+        thật, chỉ một phần nhỏ được công khai so sánh rồi bỏ đi — phần còn lại mới thật sự dùng làm khoá mã hoá ảnh.
+      </p>
+    </section>
+
+    <!-- ===== SLIDE 20 — VÌ SAO SAI SỐ LẠI TỐ CÁO KẺ NGHE LÉN: QBER ===== -->
+    <section class="slide" data-section="Giao thức BB84">
+      <div class="eyebrow">Vì sao sai số lại tố cáo kẻ nghe lén</div>
+      <h2 class="slide-title">QBER: <em>tỷ lệ lỗi bit lượng tử</em></h2>
+      <p class="lead">QBER là tỷ lệ bit sai trong số các bit đã giữ lại sau sifting. Tấn công chặn-đo-gửi lại
+        (intercept–resend) buộc Eve đoán basis — đúng 50% số lần — nên mỗi lần đoán sai, có 50% khả năng bit bị đảo
+        khi tới Bob. Gộp lại, việc nghe lén toàn bộ đường truyền tạo ra QBER kỳ vọng khoảng 25%, vượt xa ngưỡng an
+        toàn 11% mà hệ thống đặt ra.</p>
+
+      <div class="qbercalc">
+        <div>
+          <div class="formula-box" style="margin:0 0 14px; max-width:100%; text-align:left; padding:16px 22px;">
+            QBER ≈ 0.25 × (tỷ lệ photon bị Eve chặn đọc)
+          </div>
+          <p class="qbercalc-note">Kéo thanh trượt để xem Eve chặn đọc một phần đường truyền — thay vì toàn bộ — sẽ
+            ảnh hưởng QBER thế nào. Đây là phép tính lý thuyết, tách biệt với vòng lặp ngẫu nhiên ở mục Mô phỏng phía
+            trên.</p>
+        </div>
+        <div>
+          <label class="qbercalc-label">Tỷ lệ bị chặn đọc <span id="interceptLabel">0%</span></label>
+          <input type="range" id="interceptSlider" min="0" max="100" value="0" step="1">
+          <div class="qber-bar" style="margin-top:14px;">
+            <div class="qber-thresh"></div>
+            <div class="qber-fill" id="analyticQberFill"></div>
+          </div>
+          <div class="verdict idle" id="analyticVerdict">0% bị chặn → QBER lý thuyết 0.0%, an toàn.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 21 — BƯỚC 6: TÍNH QBER ===== -->
+
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">6</span>
@@ -621,7 +802,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 19 — KẾT QUẢ THỰC NGHIỆM ===== -->
+    <!-- ===== SLIDE 22 — KẾT QUẢ THỰC NGHIỆM ===== -->
     <section class="slide" data-section="Kết quả & ứng dụng">
       <div class="eyebrow">Kết quả thực nghiệm</div>
       <h2 class="slide-title">Số liệu QBER đo được qua <em>nhiều lần chạy</em></h2>
@@ -650,7 +831,7 @@
         nhiên may rủi.</div>
     </section>
 
-    <!-- ===== SLIDE 20 — GIỚI THIỆU MÃ HOÁ ẢNH XOR ===== -->
+    <!-- ===== SLIDE 23 — GIỚI THIỆU MÃ HOÁ ẢNH XOR ===== -->
     <section class="slide" data-section="Kết quả & ứng dụng">
       <div class="eyebrow">Ứng dụng thực tế</div>
       <h2 class="slide-title">Dùng khoá vừa tạo để <em>mã hoá một tấm ảnh</em></h2>
@@ -665,31 +846,25 @@
       </ul>
     </section>
 
-    <!-- ===== SLIDE 21 — ỨNG DỤNG XOR — MINH HOẠ ===== -->
+    <!-- ===== SLIDE 24 — ỨNG DỤNG XOR — MINH HOẠ ===== -->
     <section class="slide" data-section="Kết quả & ứng dụng">
-      <div class="eyebrow">Ứng dụng thực tế — minh hoạ</div>
+      <div class="eyebrow">Ứng dụng thực tế</div>
       <h2 class="slide-title">Ảnh gốc → mã hoá → <em>giải mã</em></h2>
-      <div class="grid-3">
-        <div class="card xor-card" style="text-align:center;">
-          <div class="xor-frame" data-lightbox="true" data-caption="Ảnh gốc">
-            <img src="assets/images/xor-original.png" alt="Ảnh gốc" draggable="false">
-            <span class="inspect-badge">&#9974; Phóng to</span>
-          </div>
-          <span class="tag" style="margin-top:12px; display:inline-block;">Ảnh gốc</span>
+      <div class="xorcalc">
+        <div class="cell">
+          <canvas id="xorOrigCanvas" width="160" height="160"></canvas>
+          <span>Ảnh gốc</span>
         </div>
-        <div class="card xor-card" style="text-align:center;">
-          <div class="xor-frame" data-lightbox="true" data-caption="Đã mã hoá bằng XOR">
-            <img src="assets/images/xor-encrypted.png" alt="Đã mã hoá bằng XOR" draggable="false">
-            <span class="inspect-badge">&#9974; Phóng to</span>
-          </div>
-          <span class="tag" style="margin-top:12px; display:inline-block;">Đã mã hoá</span>
+        <div class="xorcalc-arrow">→ XOR →</div>
+        <div class="cell">
+          <canvas id="xorResultCanvas" width="160" height="160"></canvas>
+          <span>Giải mã bằng khoá bị lệch</span>
         </div>
-        <div class="card xor-card" style="text-align:center;">
-          <div class="xor-frame" data-lightbox="true" data-caption="Giải mã đúng khoá">
-            <img src="assets/images/xor-decrypted.png" alt="Giải mã đúng khoá" draggable="false">
-            <span class="inspect-badge">&#9974; Phóng to</span>
-          </div>
-          <span class="tag" style="margin-top:12px; display:inline-block;">Giải mã đúng khoá</span>
+        <div class="xorcalc-controls">
+          <label class="xorcalc-label">Số bit khoá bị sai (trên 64 bit) <span id="wrongBitsLabel">0</span></label>
+          <input type="range" id="wrongBitsSlider" min="0" max="64" value="0" step="1">
+          <p class="xorcalc-note">Ở 0 bit sai, ảnh giải mã trùng khớp ảnh gốc tuyệt đối. Chỉ cần vài bit lệch, phần
+            lớn khối ảnh liên quan đã sai hẳn.</p>
         </div>
       </div>
       <div class="warn-box" style="margin-top:18px;">
@@ -699,7 +874,75 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 22 — KẾT LUẬN ===== -->
+    <!-- ===== SLIDE 25 — KIẾN TRÚC THIẾT BỊ THẬT ===== -->
+    <section class="slide" data-section="Kết quả & ứng dụng">
+      <div class="eyebrow">Kiến trúc thiết bị thật</div>
+      <h2 class="slide-title">Hai trạm độc lập, <em>một giao thức chung</em></h2>
+      <p class="lead">Mô phỏng phía trên chạy hoàn toàn trong trình duyệt. Thiết bị thật gồm hai máy tính, mỗi máy nối
+        với một board ESP32 riêng, giao tiếp với nhau qua mạng LAN, chạy chung một codebase Python.</p>
+
+      <div class="arch-grid">
+        <div class="arch-box">
+          <h4>Máy Hà — Alice (gửi)</h4>
+          <ul>
+            <li>Sinh chuỗi bit và basis ngẫu nhiên</li>
+            <li>Điều khiển servo qua ESP32 theo góc 0/45/90/135°</li>
+            <li>Thực hiện sifting, mã hoá ảnh gốc bằng XOR</li>
+            <li>Gửi dữ liệu qua TCP Socket</li>
+          </ul>
+        </div>
+        <div class="arch-box">
+          <h4>Máy Sơn — Bob (nhận)</h4>
+          <ul>
+            <li>Nhận dữ liệu qua TCP Socket</li>
+            <li>Đọc cảm biến LDR qua ESP32 của mình</li>
+            <li>Tính QBER, đối chiếu ngưỡng an toàn</li>
+            <li>Giải mã ảnh và hiển thị kết quả trên PyQt6</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="layers">
+        <div class="layer"><span class="lname">Giao diện</span><span class="lmods">src/gui — PyQt6, AliceView /
+            BobView</span></div>
+        <div class="layer"><span class="lname">Luồng nền</span><span class="lmods">src/gui/workers — QThread:
+            SerialWorker, NetworkWorker</span></div>
+        <div class="layer"><span class="lname">Logic lõi</span><span class="lmods">src/core — bb84_protocol,
+            sifting, qber, image_cipher</span></div>
+        <div class="layer"><span class="lname">Mạng & phần cứng</span><span class="lmods">src/network, src/hardware
+            — TCP socket, ESP32 Serial</span></div>
+      </div>
+
+      <table class="spec-table">
+        <tr>
+          <td>Baudrate Serial</td>
+          <td>115200</td>
+        </tr>
+        <tr>
+          <td>Cổng TCP</td>
+          <td>5050</td>
+        </tr>
+        <tr>
+          <td>Buffer nhận dữ liệu</td>
+          <td>4096 byte</td>
+        </tr>
+        <tr>
+          <td>Số bit khoá thô mỗi phiên</td>
+          <td>512 bit</td>
+        </tr>
+        <tr>
+          <td>Ngưỡng QBER an toàn</td>
+          <td>11%</td>
+        </tr>
+        <tr>
+          <td>Góc servo hợp lệ</td>
+          <td>0° / 45° / 90° / 135°</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- ===== SLIDE 26 — KẾT LUẬN ===== -->
+
     <section class="slide" data-section="Kết thúc">
       <div class="eyebrow">Kết luận</div>
       <h2 class="slide-title">Ba đóng góp chính của <em>Hermex</em></h2>
@@ -713,7 +956,7 @@
       </ul>
     </section>
 
-    <!-- ===== SLIDE 23 — HƯỚNG PHÁT TRIỂN ===== -->
+    <!-- ===== SLIDE 27 — HƯỚNG PHÁT TRIỂN ===== -->
     <section class="slide" data-section="Kết thúc">
       <div class="eyebrow">Hướng phát triển</div>
       <h2 class="slide-title">Giới hạn hiện tại & <em>hướng mở rộng</em></h2>
@@ -766,7 +1009,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 24 — LỜI CẢM ƠN ===== -->
+    <!-- ===== SLIDE 28 — LỜI CẢM ƠN ===== -->
     <section class="slide" data-section="Kết thúc">
       <div class="split">
         <div>
@@ -815,9 +1058,9 @@
   </div>
 
   <div class="bottom-bar">
-    <div class="slide-count" id="slideCount">SLIDE 01 / 24</div>
+    <div class="slide-count" id="slideCount">SLIDE 01 / 28</div>
     <div class="progress-track">
-      <div class="progress-fill" id="progressFill" style="width: 4.1667%;"></div>
+      <div class="progress-fill" id="progressFill" style="width: 3.5714%;"></div>
     </div>
     <div class="nav-arrows">
       <button class="arrow-btn" id="prevBtn">&#8592;</button>
@@ -837,6 +1080,10 @@
   <script src="js/controls.js"></script>
   <script src="js/lightbox.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/malus-demo.js"></script>
+  <script src="js/sim-round.js"></script>
+  <script src="js/qber-analytic.js"></script>
+  <script src="js/xor-demo.js"></script>
 </body>
 
 </html>

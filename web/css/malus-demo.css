@@ -1,0 +1,175 @@
+/* ============================================================
+   css/malus-demo.css
+   Styles for the interactive Malus-law polarization demo
+   (Slide 10 — "Ánh sáng phân cực theo một hướng nhất định")
+   Reuses the deck's existing CSS custom properties so the widget
+   stays visually consistent with the rest of the presentation.
+   ============================================================ */
+
+.malus-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 22px;
+  padding: 28px 34px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+/* ---------- left column: two filter dials + beam bar ---------- */
+
+.malus-demo-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  flex: 0 0 auto;
+}
+
+.malus-filters {
+  display: flex;
+  gap: 34px;
+}
+
+.malus-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.malus-filter svg line {
+  transition: transform .15s ease;
+}
+
+.malus-filter span {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  letter-spacing: .06em;
+  color: var(--ink-mute);
+  white-space: nowrap;
+}
+
+.malus-beam-track {
+  width: 100%;
+  max-width: 220px;
+  height: 8px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+}
+
+.malus-beam-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--safe) 100%);
+  transition: width .15s ease;
+}
+
+/* ---------- right column: slider + readout + callout ---------- */
+
+.malus-demo-controls {
+  flex: 1 1 320px;
+  min-width: 280px;
+  max-width: 460px;
+}
+
+.malus-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.malus-label span {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.malus-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--safe) 100%);
+  outline: none;
+  cursor: pointer;
+}
+
+.malus-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--accent-deep);
+  cursor: pointer;
+}
+
+.malus-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--accent-deep);
+  cursor: pointer;
+  border: 3px solid var(--accent-deep);
+}
+
+.malus-slider::-moz-range-track {
+  height: 6px;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.malus-readout {
+  background: var(--bg-deep);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+  font-size: .98rem;
+  color: var(--ink-soft);
+}
+
+.malus-big {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+.malus-sub {
+  margin-top: 4px;
+  font-size: .85rem;
+  opacity: .75;
+}
+
+.malus-callout {
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 760px) {
+  .malus-demo {
+    flex-direction: column;
+    padding: 22px 20px;
+  }
+
+  .malus-demo-controls {
+    max-width: 100%;
+  }
+}

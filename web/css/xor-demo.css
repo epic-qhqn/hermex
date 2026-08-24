@@ -1,0 +1,129 @@
+/* ============================================================
+   css/xor-demo.css
+   Styles for the interactive XOR-key-mismatch demo on the
+   "Ứng dụng thực tế" slide — replaces the 3 static xor-*.png
+   images with two live canvases (original vs. decrypted-with-
+   wrong-key) driven by a "wrong bits" slider.
+   ============================================================ */
+
+.xorcalc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 10px;
+  padding: 28px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.xorcalc .cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.xorcalc canvas {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+  image-rendering: pixelated;
+}
+
+.xorcalc .cell span {
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  color: var(--ink-mute);
+  letter-spacing: .02em;
+  text-align: center;
+}
+
+.xorcalc-arrow {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--accent);
+  font-size: .95rem;
+  white-space: nowrap;
+}
+
+.xorcalc-controls {
+  flex: 1 1 280px;
+  min-width: 240px;
+  max-width: 360px;
+}
+
+.xorcalc-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-mono);
+  font-size: .85rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.xorcalc-label span {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+#wrongBitsSlider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--danger) 100%);
+  outline: none;
+  cursor: pointer;
+}
+
+#wrongBitsSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--accent-deep);
+  cursor: pointer;
+}
+
+#wrongBitsSlider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--accent-deep);
+  cursor: pointer;
+}
+
+#wrongBitsSlider::-moz-range-track {
+  height: 6px;
+  border-radius: 4px;
+  background: transparent;
+}
+
+.xorcalc-note {
+  font-size: .85rem;
+  color: var(--ink-mute);
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .xorcalc {
+    flex-direction: column;
+    padding: 22px 20px;
+  }
+
+  .xorcalc-controls {
+    max-width: 100%;
+  }
+}
