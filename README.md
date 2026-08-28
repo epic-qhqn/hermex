@@ -168,7 +168,7 @@ Hermex/
    + Anh Khoa: phụ trách phần cơ khí và điện tử — chế tạo sa bàn vật lý, đấu nối các board ESP32, lắp servo và cảm biến LDR
    + Bảo Châu: phụ trách phần mềm và thuật toán — logic BB84, sifting, mã hóa, mạng và giao diện PyQt6.
 
-- Giáo viên hướng dẫn: _(điền tên)_
+- Giáo viên hướng dẫn: Huỳnh Thị Ngọc Dung
 
 - Trường: THPT Quốc Học Quy Nhơn
 
@@ -329,7 +329,7 @@ Hermex/
    + Anh Khoa: mechanical and electronics lead — built the physical demo model, wired the ESP32 boards, mounted the servos and LDR sensors
    + Bao Chau: software and algorithms lead — BB84 logic, sifting, encryption, networking, and the PyQt6 interface.
 
-- Supervising teacher: _(fill in name)_
+- Supervising teacher: Huynh Thi Ngoc Dung
 
 - School: Quoc Hoc Quy Nhon High School
 
