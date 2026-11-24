@@ -1,0 +1,17 @@
+{
+  "name": "20261124_100706_troi2",
+  "condition": "laser_on",
+  "tag": "troi2",
+  "angles": [
+    0
+  ],
+  "repeats": 150,
+  "settle_s": 0.4,
+  "alice_port": "COM5",
+  "bob_port": "COM6",
+  "simulated": false,
+  "duration_s": 30.6,
+  "python": "3.14.5",
+  "git_commit": "992348e",
+  "ldr_calibration": null
+}

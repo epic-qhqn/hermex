@@ -1,0 +1,20 @@
+{
+  "name": "20261124_094301_nen",
+  "condition": "laser_off",
+  "tag": "nen",
+  "angles": [
+    0,
+    45,
+    90,
+    135
+  ],
+  "repeats": 20,
+  "settle_s": 0.4,
+  "alice_port": "COM5",
+  "bob_port": "COM6",
+  "simulated": false,
+  "duration_s": 66.2,
+  "python": "3.14.5",
+  "git_commit": "992348e",
+  "ldr_calibration": null
+}
