@@ -106,6 +106,8 @@
 .slide.active .card:nth-child(2) { animation: riseIn 0.55s var(--ease) forwards 0.42s; }
 .slide.active .card:nth-child(3) { animation: riseIn 0.55s var(--ease) forwards 0.54s; }
 .slide.active .card:nth-child(4) { animation: riseIn 0.55s var(--ease) forwards 0.66s; }
+.slide.active .card:nth-child(5) { animation: riseIn 0.55s var(--ease) forwards 0.78s; }
+.slide.active .card:nth-child(6) { animation: riseIn 0.55s var(--ease) forwards 0.90s; }
 
 .slide.active .stat:nth-child(1) { animation: popIn 0.5s var(--ease) forwards 0.30s; }
 .slide.active .stat:nth-child(2) { animation: popIn 0.5s var(--ease) forwards 0.40s; }

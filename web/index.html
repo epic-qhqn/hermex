@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hermex</title>
+  <title>Hermex — sa bàn mô phỏng phân phối khoá lượng tử BB84</title>
+  <meta name="description" content="Hermex: mô hình cơ – điện mô phỏng giao thức BB84 bằng ESP32, servo và cảm biến LDR, kèm dữ liệu thử nghiệm và phần mềm sifting, QBER, mã hoá ảnh XOR.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,6 +26,7 @@
   <link rel="stylesheet" href="css/sim-demo.css">
   <link rel="stylesheet" href="css/xor-demo.css">
   <link rel="stylesheet" href="css/arch-device.css">
+  <link rel="stylesheet" href="css/polish.css">
 </head>
 
 <body>
@@ -49,15 +51,16 @@
         <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" stroke-width="1.5" />
         <line x1="10" y1="10" x2="10" y2="4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
       </svg>Hermex</div>
-    <div class="section-hint" id="sectionHint">Mở đầu</div>
+    <div class="section-hint" id="sectionHint" title="Mở mục lục" role="button" tabindex="0">Mở đầu</div>
     <div class="top-controls">
       <button class="ctrl-btn active" id="soundBtn">Âm thanh: Bật</button>
+      <button class="ctrl-btn" id="agendaBtn" aria-haspopup="dialog">Mục lục (G)</button>
       <button class="ctrl-btn" id="presentBtn">Trình chiếu</button>
     </div>
   </div>
 
   <div class="deck" id="deck">
-    <!-- ===== SLIDE 1 — BÌA ===== -->
+    <!-- ===== SLIDE 01 ===== -->
     <section class="slide slide-cover active" data-section="Mở đầu" data-cover>
       <div class="cover-bg" aria-hidden="true">
         <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
@@ -138,8 +141,8 @@
           <text x="140" y="150" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--ink-mute)">135°</text>
         </svg>
       </div>
-      <div class="eyebrow" style="justify-content:center; font-size:1rem; letter-spacing:.2em;">Dự án khoa học kỹ thuật
-        — mô phỏng QKD BB84</div>
+      <div class="eyebrow" style="justify-content:center; font-size:1rem; letter-spacing:.2em;">Dự án kỹ thuật — mô phỏng
+        phân phối khoá lượng tử BB84</div>
       <h2 class="slide-title"
         style="font-size:clamp(4.8rem,14vw,11rem); line-height:1; margin-bottom:14px; text-align:center; max-width:100%;">
         HERMEX</h2>
@@ -155,49 +158,183 @@
         <span class="tag">ESP32 + Servo + LDR</span>
         <span class="tag">TCP Socket</span>
         <span class="tag">Mã hoá ảnh XOR</span>
+        <span class="tag">Dữ liệu đo thực nghiệm</span>
       </div>
-      <div class="cover-cta">→ Nhấn phím <kbd>Space</kbd> hoặc mũi tên <kbd>→</kbd> để bắt đầu</div>
+      <div class="cover-cta">→ Nhấn <kbd>Space</kbd> hoặc <kbd>→</kbd> để bắt đầu</div>
     </section>
 
-    <!-- ===== SLIDE 2 — VẤN ĐỀ & ĐỘNG LỰC ===== -->
+    <!-- ===== SLIDE 02 ===== -->
     <section class="slide" data-section="Mở đầu">
-      <div class="eyebrow">Vấn đề & động lực</div>
-      <h2 class="slide-title">Mật mã cổ điển đang chạy đua với <em>máy tính lượng tử</em></h2>
-      <p class="lead">Các thuật toán như RSA dựa vào việc phân tích thừa số nguyên tố lớn là bài toán khó với máy tính
-        thông thường. Máy tính lượng tử — thông qua thuật toán Shor — có khả năng phá vỡ giả định đó trong tương lai
-        không xa.</p>
+      <div class="eyebrow">Tổng quan bài trình bày</div>
+      <h2 class="slide-title">Hành trình của một bit, <em>từ góc quay đến khoá mật</em></h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>1. Vấn đề và phạm vi</h3>
+          <p>Vì sao khoá mật mã hiện nay có thể bị đe doạ, mục tiêu của sa bàn, các ràng buộc linh kiện và những gì mô hình không tuyên bố.</p>
+        </div>
+        <div class="card">
+          <h3>2. Cơ sở lý thuyết</h3>
+          <p>Chồng chất, đo lường, định lý không nhân bản, bốn góc phân cực và định luật Malus.</p>
+        </div>
+        <div class="card">
+          <h3>3. Thiết kế và giao thức</h3>
+          <p>Kiến trúc hai trạm, sáu bước BB84 từ sinh bit ngẫu nhiên đến lọc khoá, và cách tính QBER.</p>
+        </div>
+        <div class="card">
+          <h3>4. Chế tạo và thử nghiệm</h3>
+          <p>Nguyên mẫu, sơ đồ đấu nối, dữ liệu đo thật từ ba điều kiện và phân tích thống kê.</p>
+        </div>
+        <div class="card">
+          <h3>5. Kết quả và ứng dụng</h3>
+          <p>QBER khi có và không có kẻ nghe lén, dùng khoá vừa tạo để mã hoá một tấm ảnh.</p>
+        </div>
+        <div class="card">
+          <h3>6. Đóng góp và hướng phát triển</h3>
+          <p>Nhóm tự làm gì, tác động giáo dục, các giới hạn đã thấy và cải tiến tiếp theo.</p>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:18px;">Câu hỏi xuyên suốt: một sa bàn chi phí thấp có thể tái hiện đúng logic của BB84
+        đến mức nào, và giới hạn của nó nằm ở đâu?</div>
+    </section>
+
+    <!-- ===== SLIDE 03 ===== -->
+    <section class="slide" data-section="Mở đầu">
+      <div class="eyebrow">Vấn đề thực tiễn & nhu cầu</div>
+      <h2 class="slide-title">Khoá mật mã hôm nay có thể bị <em>giải mã vào ngày mai</em></h2>
+      <p class="lead">Các thuật toán như RSA dựa vào việc phân tích thừa số nguyên tố lớn, một bài toán khó với máy tính
+        thông thường. Máy tính lượng tử, thông qua thuật toán Shor, có khả năng phá vỡ giả định đó trong tương lai.</p>
       <ul class="keylist keylist-grid">
-        <li><strong>Rủi ro:</strong> khoá trao đổi qua kênh cổ điển (Diffie-Hellman, RSA) có thể bị "thu thập ngay, giải
-          mã sau" khi máy tính lượng tử đủ mạnh xuất hiện.</li>
-        <li><strong>Hướng giải quyết:</strong> phân phối khoá lượng tử (QKD) không dựa vào độ khó toán học, mà dựa vào
-          định luật vật lý — mọi phép đo trộm đều để lại dấu vết.</li>
-        <li><strong>Giao thức BB84</strong> (Bennett & Brassard, 1984) là giao thức QKD đầu tiên và được nghiên cứu
-          nhiều nhất, phù hợp để mô phỏng lại bằng phần cứng phổ thông.</li>
+        <li><strong>Rủi ro:</strong> khoá trao đổi qua kênh cổ điển (Diffie-Hellman, RSA) có thể bị thu thập ngay bây
+          giờ rồi giải mã sau, khi máy tính lượng tử đủ mạnh xuất hiện.</li>
+        <li><strong>Hướng giải quyết:</strong> phân phối khoá lượng tử (QKD) không dựa vào độ khó toán học mà dựa vào
+          định luật vật lý: mọi phép đo trộm đều để lại dấu vết.</li>
+        <li><strong>Nhu cầu cụ thể:</strong> thiết bị QKD thương mại cần nguồn photon đơn lẻ và bộ dò chuyên dụng, rất
+          khó đưa vào lớp học. Người học cần một mô hình nhìn thấy và chạm vào được.</li>
+        <li><strong>Giao thức BB84</strong> (Bennett &amp; Brassard, 1984) là giao thức QKD đầu tiên và được nghiên cứu
+          nhiều nhất, phù hợp để tái hiện bằng linh kiện phổ thông.</li>
       </ul>
     </section>
 
-    <!-- ===== SLIDE 3 — MỤC TIÊU & CÂU HỎI NGHIÊN CỨU ===== -->
+    <!-- ===== SLIDE 04 ===== -->
     <section class="slide" data-section="Mở đầu">
-      <div class="eyebrow">Mục tiêu & câu hỏi nghiên cứu</div>
-      <h2 class="slide-title">Xây dựng một sa bàn <em>chứng minh được</em> nguyên lý, không chỉ mô phỏng phần mềm</h2>
+      <div class="eyebrow">Mục tiêu & tiêu chí của giải pháp</div>
+      <h2 class="slide-title">Một sa bàn <em>quan sát được</em> và <em>đo kiểm được</em></h2>
       <div class="grid-2">
         <div class="card">
-          <h3>Mục tiêu</h3>
-          <p>Chế tạo mô hình cơ – điện tái hiện đúng logic toán học của BB84: góc quay servo mã hoá bit, cảm biến LDR
-            đọc lại tín hiệu, phần mềm tự động sifting và tính QBER.</p>
+          <h3>Vấn đề cần giải quyết</h3>
+          <p>Chế tạo mô hình cơ – điện chi phí thấp, tái hiện đúng logic toán học của BB84, để người xem thấy một bit
+            được mã hoá thành góc quay, bị đo, được lọc và cuối cùng bảo vệ một dữ liệu thật.</p>
+          <p style="margin-top:10px;"><strong>Người dùng hướng tới:</strong> học sinh, giáo viên và người lần đầu tiếp cận QKD.</p>
+          <p style="margin-top:10px;"><strong>Phạm vi:</strong> mô phỏng logic của BB84 bằng ánh sáng và cơ khí; không tuyên bố bảo mật lượng tử thực sự.</p>
         </div>
         <div class="card">
-          <h3>Câu hỏi nghiên cứu</h3>
-          <p>Hệ thống có thể phân biệt đáng tin cậy giữa một kênh truyền bị suy hao tự nhiên (thời tiết) và một kênh bị
-            nghe lén chủ động (tấn công) hay không?</p>
+          <h3>Tiêu chí mà giải pháp phải đạt</h3>
+          <ol class="numlist">
+            <li>Mã hoá bit bằng bốn góc 0°, 45°, 90°, 135° trên linh kiện phổ thông.</li>
+            <li>Hai trạm Alice và Bob độc lập, chỉ nối nhau bằng kênh quang và mạng công khai.</li>
+            <li>Phần mềm tự động sifting và tính QBER, huỷ khoá khi QBER vượt 11%.</li>
+            <li>Khoá sau kiểm tra mã hoá và giải mã được một ảnh thật, khớp tuyệt đối với ảnh gốc.</li>
+            <li>Mọi số liệu thử nghiệm được ghi lại để người khác kiểm chứng.</li>
+          </ol>
         </div>
       </div>
-      <div class="callout" style="margin-top:20px;">Giả thuyết: nếu phép đo của kẻ nghe lén luôn làm xáo trộn góc phân
-        cực (theo định lý không nhân bản), thì tỷ lệ lỗi QBER — chứ không phải cường độ tín hiệu — mới là chỉ số đáng
-        tin cậy để phát hiện tấn công.</div>
+      <div class="callout" style="margin-top:18px;">Câu hỏi kỹ thuật chính: tín hiệu LDR đọc được từ hai servo có đủ
+        ổn định để phân biệt góc trùng với góc vuông hay không, và nếu chưa thì giới hạn nằm ở đâu?</div>
     </section>
 
-    <!-- ===== SLIDE 4 — CHỒNG CHẤT LƯỢNG TỬ ===== -->
+    <!-- ===== SLIDE 05 ===== -->
+    <section class="slide" data-section="Mở đầu">
+      <div class="eyebrow">Ràng buộc kỹ thuật</div>
+      <h2 class="slide-title">Bốn giới hạn của linh kiện <em>định hình thiết kế</em></h2>
+      <div class="grid-4">
+        <div class="stat compact card">
+          <div class="num">0 – 4095</div>
+          <div class="label">ADC 12 bit của ESP32-C3</div>
+          <div class="sub">Giá trị LDR thô, dao động theo ánh sáng nền của căn phòng.</div>
+        </div>
+        <div class="stat compact card">
+          <div class="num">4 góc</div>
+          <div class="label">Servo MG996 quay 180°</div>
+          <div class="sub">Firmware chỉ chấp nhận 0°, 45°, 90°, 135°; sai số cơ khí không thể bỏ qua.</div>
+        </div>
+        <div class="stat compact card">
+          <div class="num">≈ 5 mẫu/s</div>
+          <div class="label">Tốc độ đo</div>
+          <div class="sub">Mỗi mẫu cách nhau khoảng 0,2 giây; sau khi đổi góc phải chờ servo ổn định.</div>
+        </div>
+        <div class="stat compact card">
+          <div class="num">Laser + LDR</div>
+          <div class="label">Không có photon đơn lẻ</div>
+          <div class="sub">LDR quang dẫn có đáp ứng phi tuyến, thay cho bộ dò photon đơn.</div>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:18px;">Vì các ràng buộc này, Hermex tái hiện đúng <strong>logic</strong> của
+        BB84 chứ không tuyên bố bảo mật lượng tử thực sự. Phần kẻ nghe lén (Eve) được kiểm chứng bằng mô phỏng phần mềm,
+        phần cứng được kiểm chứng ở khả năng phân biệt góc.</div>
+    </section>
+
+    <!-- ===== SLIDE 06 ===== -->
+    <section class="slide" data-section="Mở đầu">
+      <div class="eyebrow">Các phương án đã xem xét</div>
+      <h2 class="slide-title">Ba hướng tiếp cận, <em>một phương án được chọn</em></h2>
+      <div class="cmp-wrap">
+        <table class="cmp-table">
+          <thead>
+            <tr><th>Phương án</th><th>Độ trung thực vật lý</th><th>Chi phí và khả năng chế tạo</th><th>Khả năng quan sát</th><th>Quyết định</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>A. Photon đơn lẻ thật (nguồn đơn photon, bộ dò SPAD)</td>
+              <td><span class="pill ok">Rất cao</span></td>
+              <td><span class="pill no">Rất cao, cần thiết bị chuyên dụng</span></td>
+              <td><span class="pill no">Thấp: không nhìn thấy</span></td>
+              <td>Loại, vượt khả năng thực hiện</td>
+            </tr>
+            <tr>
+              <td>B. Mô phỏng phần mềm thuần tuý</td>
+              <td><span class="pill no">Thấp: không có kênh vật lý</span></td>
+              <td><span class="pill ok">Rất thấp</span></td>
+              <td><span class="pill mid">Trung bình</span></td>
+              <td>Giữ làm công cụ bổ trợ: trang mô phỏng và bộ kiểm thử</td>
+            </tr>
+            <tr class="chosen">
+              <td>C. Mô hình cơ – điện: servo mã hoá góc, laser, LDR đọc lại</td>
+              <td><span class="pill mid">Trung bình: đúng logic, ánh sáng thật</span></td>
+              <td><span class="pill ok">Thấp, linh kiện phổ thông</span></td>
+              <td><span class="pill ok">Cao: góc quay nhìn thấy được</span></td>
+              <td><strong>Chọn làm nguyên mẫu chính</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" style="margin-top:18px;">Tiêu chí lựa chọn: chế tạo được với linh kiện sẵn có, quan sát được
+        bằng mắt, và có thể ghi lại dữ liệu để kiểm chứng. Phương án C đáp ứng cả ba, phương án B bù cho phần C chưa
+        làm được là thử nghiệm kẻ nghe lén.</div>
+    </section>
+
+    <!-- ===== SLIDE 07 ===== -->
+    <section class="slide" data-section="Mở đầu">
+      <div class="eyebrow">Phạm vi của mô hình</div>
+      <h2 class="slide-title">Mô phỏng <em>logic</em> của BB84, không phải QKD đơn photon</h2>
+      <div class="cmp-wrap">
+        <table class="cmp-table">
+          <thead>
+            <tr><th>Nội dung</th><th>QKD thật</th><th>Hermex</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Nguồn sáng</td><td>Đơn photon hoặc xung rất yếu</td><td>Laser đỏ cường độ lớn</td></tr>
+            <tr><td>Bộ thu</td><td>Bộ dò photon đơn</td><td>LDR trên module LM393</td></tr>
+            <tr><td>Cơ sở bảo mật</td><td>Định lý không nhân bản: đo thì làm đổi trạng thái</td><td>Chỉ có trong mô phỏng phần mềm</td></tr>
+            <tr class="chosen"><td>Phần Hermex làm được</td><td colspan="2">Chọn basis và bit ngẫu nhiên, mã hoá thành góc phân cực, đo bằng định luật Malus, lọc khoá, tính QBER, mã hoá ảnh bằng khoá thu được</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" style="margin-top:16px;">Với ánh sáng cường độ lớn, kẻ nghe lén có thể tách một phần ánh sáng mà không làm đổi trạng thái phần còn lại,
+        nên mô hình không bảo mật theo nghĩa lượng tử. Giá trị của Hermex là giáo dục: biến giao thức BB84 thành một hệ thống nhìn thấy,
+        đo được và chạy lại được trong lớp học.</div>
+    </section>
+
+    <!-- ===== SLIDE 08 ===== -->
     <section class="slide" data-section="Cơ sở lý thuyết">
       <div class="eyebrow">Cơ sở lý thuyết — 1 / 4</div>
       <h2 class="slide-title">Chồng chất lượng tử <em>(superposition)</em></h2>
@@ -215,7 +352,7 @@
       <div class="callout">Bản chất lượng tử: câu hỏi "photon đang phân cực theo hướng nào" chỉ có câu trả lời xác định sau khi phép đo thực tế diễn ra.</div>
     </section>
 
-    <!-- ===== SLIDE 5 — ĐO LƯỜNG LÀM SỤP ĐỔ TRẠNG THÁI ===== -->
+    <!-- ===== SLIDE 09 ===== -->
     <section class="slide" data-section="Cơ sở lý thuyết">
       <div class="eyebrow">Cơ sở lý thuyết — 2 / 4</div>
       <h2 class="slide-title">Đo lường làm <em>sụp đổ</em> trạng thái</h2>
@@ -231,7 +368,7 @@
         đáng tin cậy.</div>
     </section>
 
-    <!-- ===== SLIDE 6 — ĐỊNH LÝ KHÔNG NHÂN BẢN ===== -->
+    <!-- ===== SLIDE 10 ===== -->
     <section class="slide" data-section="Cơ sở lý thuyết">
       <div class="side-glyph" style="--rot:-16deg;" aria-hidden="true"><svg viewBox="0 0 200 200" width="300"
           height="300">
@@ -262,7 +399,7 @@
       <div class="callout">Hệ quả cốt lõi: Trong thế giới lượng tử, <strong>kẻ nghe lén không thể tàng hình</strong> — mọi nỗ lực trộm thông tin đều tự động để lại dấu vết sai số QBER.</div>
     </section>
 
-    <!-- ===== SLIDE 7 — BỐN GÓC, BỐN TRẠNG THÁI PHÂN CỰC ===== -->
+    <!-- ===== SLIDE 11 ===== -->
     <section class="slide" data-section="Cơ sở lý thuyết">
       <div class="eyebrow">Cơ sở lý thuyết — 4 / 4</div>
       <h2 class="slide-title">Bốn góc, <em>bốn trạng thái</em> phân cực</h2>
@@ -290,7 +427,7 @@
         không phải con số tuỳ ý, mà là ánh xạ trực tiếp từ bốn trạng thái phân cực mà giao thức BB84 gốc sử dụng.</div>
     </section>
 
-    <!-- ===== SLIDE 8 — SƠ ĐỒ TỔNG THỂ DỰ ÁN ===== -->
+    <!-- ===== SLIDE 12 ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
       <div class="eyebrow">Sơ đồ kỹ thuật — tổng thể dự án</div>
       <h2 class="slide-title">Từ một <em>định luật vật lý</em> đến một tấm ảnh được bảo vệ</h2>
@@ -308,12 +445,12 @@
         <div class="split-media">
           <div class="map-table-card">
             <div class="map-table-head"><span>BB84 thật</span><span>Hermex tái hiện</span></div>
-            <div class="map-row"><span class="real">Photon đơn lẻ</span><span class="model">Xung tín hiệu từ nguồn sáng
+            <div class="map-row"><span class="real">Photon đơn lẻ</span><span class="model">Chùm laser thông
                 thường</span></div>
             <div class="map-row"><span class="real">Hướng phân cực photon</span><span class="model">Góc quay servo
                 (0°/45°/90°/135°)</span></div>
-            <div class="map-row"><span class="real">Kính lọc phân cực của Bob</span><span class="model">Góc "kỳ vọng"
-                khi phần mềm đọc cảm biến LDR</span></div>
+            <div class="map-row"><span class="real">Kính lọc phân cực của Bob</span><span class="model">Servo thứ hai quay
+                tới góc đo, LDR đọc cường độ</span></div>
             <div class="map-row"><span class="real">Đo đúng basis → thu đúng bit</span><span class="model">Servo & LDR
                 cùng góc → đọc đúng giá trị đã gửi</span></div>
             <div class="map-row"><span class="real">Đo sai basis → ngẫu nhiên (định lý không nhân bản)</span><span
@@ -323,7 +460,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 9 — SƠ ĐỒ 1: NGUYÊN LÝ QUANG HỌC & MALUS ===== -->
+    <!-- ===== SLIDE 13 ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
       <div class="eyebrow">Sơ đồ kỹ thuật 1 / 5</div>
       <h2 class="slide-title">Nguyên lý quang học & <em>định luật Malus</em></h2>
@@ -363,12 +500,13 @@
             lớn nhất | θA − θB = 90° → I ≈ 0</text>
         </svg>
       </div>
+      <p class="fig-caption">Hình do nhóm tự vẽ.</p>
       <div class="callout">Đây là công thức duy nhất giải thích được <strong>tại sao</strong> góc lệch quyết định cường
         độ ánh sáng còn lại, chứ không phải quy luật kiểu "bật/tắt" — góc lệch càng lớn, ánh sáng lọt qua càng giảm dần
         liên tục theo hàm cos², không phải nhảy đột ngột từ 100% xuống 0%.</div>
     </section>
 
-    <!-- ===== SLIDE 10 — MINH HOẠ TƯƠNG TÁC: ÁNH SÁNG PHÂN CỰC & ĐỊNH LUẬT MALUS ===== -->
+    <!-- ===== SLIDE 14 ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
       <div class="eyebrow">Sơ đồ kỹ thuật 2 / 5</div>
       <h2 class="slide-title">Ánh sáng phân cực theo <em>một hướng nhất định</em></h2>
@@ -416,7 +554,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 11 — SƠ ĐỒ 2: ĐỒ THỊ MALUS & GIỚI HẠN LDR ===== -->
+    <!-- ===== SLIDE 15 ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
       <div class="eyebrow">Sơ đồ kỹ thuật 3 / 5</div>
       <h2 class="slide-title">Đồ thị Malus và <em>giới hạn cảm biến LDR</em></h2>
@@ -451,6 +589,7 @@
             góc</text>
         </svg>
       </div>
+      <p class="fig-caption">Hình do nhóm tự vẽ, minh hoạ lý thuyết (không phải số đo).</p>
 
       <div class="formula-box" style="margin:10px auto 14px; max-width:540px; padding:14px 28px;">
         R = A · E<sup style="font-size:.65em;">−γ</sup>
@@ -458,17 +597,15 @@
       </div>
 
       <div class="warn-box" style="max-width:820px; margin:0 auto;">
-        <div class="warn-title">Hệ quả: vùng 45° không cho ra giá trị ổn định</div>
-        <p>Mức sáng 50% tại 45° <strong>không</strong> tương đương 50% giá trị điện áp Analog — mà dao động ngẫu nhiên
-          quanh mốc thực nghiệm ~2000 điểm, do chính bản chất phi tuyến ở trên. Vùng ánh sáng lờ mờ này bị loại bỏ hoàn
-          toàn khi lọc khoá (sifting).</p>
+        <div class="warn-title">Hệ quả: không thể dùng một ngưỡng ADC cố định</div>
+        <p>Mức sáng 50% tại 45° <strong>không</strong> tương đương 50% giá trị ADC, vì LDR phi tuyến và mức nền thay đổi theo từng căn phòng. Nhóm hiệu chuẩn ngưỡng ngay trước mỗi lần chạy: trung bình ánh sáng nền cộng 300 điểm ADC. Những vòng basis lệch nhau cho kết quả không đáng tin và bị loại ở bước sifting.</p>
       </div>
     </section>
 
-    <!-- ===== SLIDE 12 — SƠ ĐỒ 3: BẢNG SO SÁNH HACKER VS SƯƠNG MÙ ===== -->
+    <!-- ===== SLIDE 16 ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
       <div class="eyebrow">Sơ đồ kỹ thuật 4 / 5</div>
-      <h2 class="slide-title">Ba kịch bản: <em>bình thường, hacker, sương mù</em></h2>
+      <h2 class="slide-title">Ba kịch bản thiết kế: <em>bình thường, hacker, sương mù</em></h2>
       <div class="diagram-frame">
         <svg viewBox="0 0 680 270" style="width:100%; max-width:640px; display:block; margin:0 auto;">
           <rect x="40" y="18" width="180" height="42" rx="8" fill="var(--safe-bg)" />
@@ -504,12 +641,13 @@
           <text x="530" y="250" text-anchor="middle" font-size="14" fill="var(--ink)">từ chối tín hiệu</text>
         </svg>
       </div>
+      <p class="fig-caption">Hình do nhóm tự vẽ. Kịch bản hacker được kiểm chứng bằng mô phỏng phần mềm; sa bàn đã có module phun sương cho kịch bản sương mù nhưng chưa có số liệu đo riêng.</p>
       <div class="callout">Hệ thống có <strong>hai lớp kiểm tra độc lập</strong>: cường độ tín hiệu (bắt lỗi thời tiết,
         chạy trước) và QBER (bắt hành vi tấn công, chỉ chạy khi tín hiệu đủ mạnh). Eve không thể vừa đo trộm vừa giữ
         nguyên góc phân cực — nên dù cường độ không đổi, QBER vẫn tố cáo được sự can thiệp.</div>
     </section>
 
-    <!-- ===== SLIDE 13 — SƠ ĐỒ 4: KIẾN TRÚC HỆ THỐNG ALICE-BOB ===== -->
+    <!-- ===== SLIDE 17 ===== -->
     <section class="slide" data-section="Sơ đồ kỹ thuật">
       <div class="eyebrow">Sơ đồ kỹ thuật 5 / 5</div>
       <h2 class="slide-title">Kiến trúc hệ thống: <em>hai trạm, ba kênh</em></h2>
@@ -518,13 +656,11 @@
           <text class="svg-th" x="145" y="30" text-anchor="middle" font-size="16" fill="var(--ink)">trạm Alice</text>
           <text class="svg-th" x="535" y="30" text-anchor="middle" font-size="16" fill="var(--ink)">trạm Bob</text>
           <rect x="50" y="44" width="190" height="58" rx="8" fill="var(--accent-pale)" />
-          <text class="svg-th" x="145" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">laptop
-            Alice</text>
+          <text class="svg-th" x="145" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">máy tính Alice</text>
           <text class="svg-mono" x="145" y="88" text-anchor="middle" font-size="12" fill="var(--accent-deep)">GUI
             PyQt6</text>
           <rect x="440" y="44" width="190" height="58" rx="8" fill="var(--accent-pale)" />
-          <text class="svg-th" x="535" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">laptop
-            Bob</text>
+          <text class="svg-th" x="535" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">máy tính Bob</text>
           <text class="svg-mono" x="535" y="88" text-anchor="middle" font-size="12" fill="var(--accent-deep)">GUI
             PyQt6</text>
           <line x1="240" y1="73" x2="440" y2="73" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="7 5" />
@@ -553,12 +689,13 @@
             học lượng tử — không gian tự do</text>
         </svg>
       </div>
+      <p class="fig-caption">Hình do nhóm tự vẽ.</p>
       <div class="callout">Ba đường nối mang ba vai trò khác nhau: Serial USB chỉ nội bộ từng trạm, TCP/IP mang dữ liệu
-        số công khai giữa hai laptop, còn kênh quang học là <strong>ánh sáng thật</strong> — không mang giao thức số
+        số công khai giữa hai máy tính, còn kênh quang học là <strong>ánh sáng thật</strong> — không mang giao thức số
         nào, không thể bị "hack" theo nghĩa mạng máy tính thông thường.</div>
     </section>
 
-    <!-- ===== SLIDE 14 — BƯỚC 1: SINH BIT + BASIS ===== -->
+    <!-- ===== SLIDE 18 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">1</span>
@@ -572,7 +709,7 @@
         một phần khoá mà không cần đo trực tiếp.</div>
     </section>
 
-    <!-- ===== SLIDE 15 — BƯỚC 2: SERVO MÃ HOÁ GÓC ===== -->
+    <!-- ===== SLIDE 19 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">2</span>
@@ -601,7 +738,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 16 — BƯỚC 3: TRUYỀN QUA KÊNH QUANG ===== -->
+    <!-- ===== SLIDE 20 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">3</span>
@@ -615,7 +752,7 @@
         cấu vi chỉnh 3 ốc thay vì gắn cố định.</div>
     </section>
 
-    <!-- ===== SLIDE 17 — BƯỚC 4: BOB ĐO BẰNG LDR ===== -->
+    <!-- ===== SLIDE 21 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">4</span>
@@ -633,7 +770,7 @@
       </ul>
     </section>
 
-    <!-- ===== SLIDE 18 — BƯỚC 5: SO SÁNH BASIS (SIFTING) ===== -->
+    <!-- ===== SLIDE 22 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">5</span>
@@ -649,7 +786,7 @@
           style="font-family:var(--font-mono); color:var(--accent-deep);">qkd_logic.py</code>.</div>
     </section>
 
-    <!-- ===== SLIDE 19 — MÔ PHỎNG TRỰC TIẾP: CHẠY THỬ MỘT PHIÊN TRAO ĐỔI KHOÁ ===== -->
+    <!-- ===== SLIDE 23 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="eyebrow">Mô phỏng trực tiếp</div>
       <h2 class="slide-title">Chạy thử một <em>phiên trao đổi khoá</em></h2>
@@ -668,7 +805,7 @@
 
       <div class="stations">
         <div class="station">
-          <div class="label"><span>MÁY HÀ — ALICE</span><span id="simAliceTag">—</span></div>
+          <div class="label"><span>TRẠM ALICE</span><span id="simAliceTag">—</span></div>
           <svg viewBox="0 0 140 140" width="140" height="140">
             <rect x="20" y="95" width="100" height="26" rx="3" fill="none" stroke="var(--line)" />
             <text x="70" y="112" text-anchor="middle" class="svg-mono" font-size="9" fill="var(--ink-mute)">ESP32</text>
@@ -690,7 +827,7 @@
         </div>
 
         <div class="station">
-          <div class="label"><span>MÁY SƠN — BOB</span><span id="simBobTag">—</span></div>
+          <div class="label"><span>TRẠM BOB</span><span id="simBobTag">—</span></div>
           <svg viewBox="0 0 140 140" width="140" height="140">
             <rect x="20" y="95" width="100" height="26" rx="3" fill="none" stroke="var(--line)" />
             <text x="70" y="112" text-anchor="middle" class="svg-mono" font-size="9" fill="var(--ink-mute)">ESP32</text>
@@ -747,7 +884,7 @@
       </p>
     </section>
 
-    <!-- ===== SLIDE 20 — VÌ SAO SAI SỐ LẠI TỐ CÁO KẺ NGHE LÉN: QBER ===== -->
+    <!-- ===== SLIDE 24 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="eyebrow">Vì sao sai số lại tố cáo kẻ nghe lén</div>
       <h2 class="slide-title">QBER: <em>tỷ lệ lỗi bit lượng tử</em></h2>
@@ -777,8 +914,7 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 21 — BƯỚC 6: TÍNH QBER ===== -->
-
+    <!-- ===== SLIDE 25 ===== -->
     <section class="slide" data-section="Giao thức BB84">
       <div class="side-glyph" style="top:8%; right:8%;" aria-hidden="true"><span
           style="font-family:var(--font-display); font-weight:700; font-size:17rem; color:var(--accent); line-height:1;">6</span>
@@ -802,13 +938,281 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 22 — KẾT QUẢ THỰC NGHIỆM ===== -->
+    <!-- ===== SLIDE 26 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Chế tạo nguyên mẫu</div>
+      <h2 class="slide-title">Hai trạm, mỗi trạm một <em>ESP32-C3</em> và một servo</h2>
+      <div class="arch-grid">
+        <div class="arch-box">
+          <h4>Trạm Alice (gửi)</h4>
+          <ul>
+            <li>ESP32-C3 Super Mini, servo MG996 ở GPIO4</li>
+            <li>Nhận lệnh góc qua Serial, quay servo rồi trả lại xác nhận</li>
+            <li>Chỉ chấp nhận bốn góc hợp lệ 0°, 45°, 90°, 135°</li>
+          </ul>
+        </div>
+        <div class="arch-box">
+          <h4>Trạm Bob (nhận)</h4>
+          <ul>
+            <li>ESP32-C3 Super Mini, servo MG996 ở GPIO4 mang kính phân tích</li>
+            <li>Cảm biến ánh sáng LDR trên module LM393, đọc đầu ra AO ở GPIO1</li>
+            <li>Quay xong chờ 200 ms cho ổn định rồi mới đọc ADC và trả giá trị</li>
+          </ul>
+        </div>
+      </div>
+      <table class="spec-table">
+        <tr><td>Giao thức Serial (tốc độ 115200)</td><td>gửi "&lt;góc&gt;" → nhận "OK:&lt;góc&gt;" hoặc "LDR:&lt;giá trị&gt;"</td></tr>
+        <tr><td>Chọn chân không trùng chân strapping</td><td>GPIO4 và GPIO1 (tránh GPIO2, 8, 9)</td></tr>
+        <tr><td>Nguồn</td><td>12 V → LM2596 hạ 5 V cho servo; ESP32 lấy nguồn qua USB</td></tr>
+        <tr><td>Lọc nhiễu</td><td>tụ 1000 µF ở nguồn servo; tụ 104 giữa GND và AO</td></tr>
+        <tr><td>Kỹ thuật lắp ráp</td><td>hàn dây trực tiếp lên module, không dùng breadboard</td></tr>
+        <tr><td>Hoàn thành lắp ráp mạch</td><td>23/11/2026</td></tr>
+      </table>
+      <p class="fig-caption" style="margin-top:12px;">Thông số lấy từ mã nguồn firmware và sơ đồ đấu nối của nhóm.</p>
+    </section>
+
+    <!-- ===== SLIDE 27 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Sơ đồ đấu nối</div>
+      <h2 class="slide-title">Hàn dây trực tiếp, <em>chia nguồn và lọc nhiễu</em></h2>
+      <div class="wiring-frame" data-lightbox="true" data-caption="Sơ đồ hàn dây Hermex do nhóm tự vẽ">
+        <img src="assets/images/wiring-diagram.jpg" alt="Sơ đồ hàn dây của Hermex: nguồn LM2596, hai servo, hai ESP32-C3, cảm biến LM393, laser và khu phun sương" loading="lazy">
+      </div>
+      <p class="fig-caption">Hình do nhóm tự vẽ. Bấm vào hình để phóng to.</p>
+    </section>
+
+    <!-- ===== SLIDE 28 ===== -->
+    <section class="slide slide-stub" data-section="Chế tạo & thử nghiệm">
+      <h2 class="slide-title">Ảnh nguyên mẫu Hermex</h2>
+    </section>
+
+    <!-- ===== SLIDE 29 ===== -->
+    <section class="slide slide-stub" data-section="Chế tạo & thử nghiệm">
+      <h2 class="slide-title">Kết quả hiệu chuẩn ngưỡng LDR</h2>
+    </section>
+
+    <!-- ===== SLIDE 30 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Quy trình thử nghiệm & nhật ký</div>
+      <h2 class="slide-title">Sáu bộ dữ liệu, <em>ba điều kiện</em>, ghi lại tự động</h2>
+      <p class="lead">Script hermex_hw_experiment.py thử đủ 16 cặp góc (4 góc Alice × 4 góc Bob), mỗi cặp đo 20 lần, chờ
+        0,4 s sau mỗi lần đổi góc. Mỗi bộ lưu ba tệp: dữ liệu thô, bảng tổng hợp so với cos² lý thuyết, và thông tin
+        thí nghiệm kèm mã commit.</p>
+      <div class="cmp-wrap">
+        <table class="cmp-table">
+          <thead>
+            <tr><th>Bộ dữ liệu</th><th>Điều kiện</th><th>Nội dung đo</th><th class="num">Số mẫu</th><th class="num">Thời gian</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>nen</td><td>Tắt laser (đo nền)</td><td>16 cặp góc × 20 lần</td><td class="num">320</td><td class="num">66 s</td></tr>
+            <tr><td>lan1</td><td>Bật laser</td><td>16 cặp góc × 20 lần</td><td class="num">320</td><td class="num">66 s</td></tr>
+            <tr><td>lan2</td><td>Bật laser</td><td>16 cặp góc × 20 lần</td><td class="num">320</td><td class="num">68 s</td></tr>
+            <tr><td>troi, troi2, troi3</td><td>Bật laser, ba thời điểm trong buổi sáng</td><td>riêng cặp 0° / 0°, 150 lần</td><td class="num">3 × 150</td><td class="num">3 × 31 s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" style="margin-top:16px;">Toàn bộ đo ngày 24/11/2026, hai board ESP32 cắm vào cùng một máy tính.
+        Dữ liệu gốc và nhật ký lưu trong thư mục data của kho mã nguồn, xuất trình được khi giám khảo yêu cầu.</div>
+    </section>
+
+    <!-- ===== SLIDE 31 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Kết quả phần cứng 1 / 2</div>
+      <h2 class="slide-title">Tín hiệu LDR <em>thay đổi theo góc lệch</em>, nhưng yếu</h2>
+      <div class="diagram-frame" style="max-width:900px; padding:18px 22px 10px;">
+        <svg viewBox="0 0 720 330" role="img" aria-label="Giá trị ADC trung vị theo độ lệch góc giữa hai servo, ba lần đo" style="width:100%;max-width:760px;display:block;margin:0 auto;">
+<line x1="70" y1="270.0" x2="690" y2="270.0" stroke="var(--line)" stroke-width="1"/>
+<text class="svg-mono" x="62" y="274.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">0</text>
+<line x1="70" y1="210.0" x2="690" y2="210.0" stroke="var(--line)" stroke-width="1"/>
+<text class="svg-mono" x="62" y="214.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">350</text>
+<line x1="70" y1="150.0" x2="690" y2="150.0" stroke="var(--line)" stroke-width="1"/>
+<text class="svg-mono" x="62" y="154.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">700</text>
+<line x1="70" y1="90.0" x2="690" y2="90.0" stroke="var(--line)" stroke-width="1"/>
+<text class="svg-mono" x="62" y="94.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">1050</text>
+<line x1="70" y1="30.0" x2="690" y2="30.0" stroke="var(--line)" stroke-width="1"/>
+<text class="svg-mono" x="62" y="34.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">1400</text>
+<text class="svg-mono" x="70" y="16" font-size="13" fill="var(--ink-mute)">ADC (trung vị, thanh = Q1–Q3)</text>
+<rect x="99.3" y="130.7" width="44" height="139.3" rx="3" fill="var(--ink-mute)" opacity=".85"/>
+<line x1="121.3" y1="139.7" x2="121.3" y2="120.0" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="115.3" y1="120.0" x2="127.3" y2="120.0" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="115.3" y1="139.7" x2="127.3" y2="139.7" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="121.3" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">812</text>
+<rect x="151.3" y="93.8" width="44" height="176.2" rx="3" fill="var(--accent-light)" opacity=".85"/>
+<line x1="173.3" y1="130.6" x2="173.3" y2="55.7" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="167.3" y1="55.7" x2="179.3" y2="55.7" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="167.3" y1="130.6" x2="179.3" y2="130.6" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="173.3" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">1028</text>
+<rect x="203.3" y="174.7" width="44" height="95.3" rx="3" fill="var(--safe-light)" opacity=".85"/>
+<line x1="225.3" y1="183.3" x2="225.3" y2="169.7" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="219.3" y1="169.7" x2="231.3" y2="169.7" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="219.3" y1="183.3" x2="231.3" y2="183.3" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="225.3" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">556</text>
+<text class="svg-th" x="173.3" y="294" text-anchor="middle" font-size="15" fill="var(--ink)">Δθ = 0°</text>
+<rect x="306.0" y="135.0" width="44" height="135.0" rx="3" fill="var(--ink-mute)" opacity=".85"/>
+<line x1="328.0" y1="139.5" x2="328.0" y2="116.7" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="322.0" y1="116.7" x2="334.0" y2="116.7" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="322.0" y1="139.5" x2="334.0" y2="139.5" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="328.0" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">788</text>
+<rect x="358.0" y="78.3" width="44" height="191.7" rx="3" fill="var(--accent-light)" opacity=".85"/>
+<line x1="380.0" y1="111.5" x2="380.0" y2="59.4" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="374.0" y1="59.4" x2="386.0" y2="59.4" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="374.0" y1="111.5" x2="386.0" y2="111.5" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="380.0" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">1118</text>
+<rect x="410.0" y="172.5" width="44" height="97.5" rx="3" fill="var(--safe-light)" opacity=".85"/>
+<line x1="432.0" y1="182.4" x2="432.0" y2="167.0" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="426.0" y1="167.0" x2="438.0" y2="167.0" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="426.0" y1="182.4" x2="438.0" y2="182.4" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="432.0" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">568</text>
+<text class="svg-th" x="380.0" y="294" text-anchor="middle" font-size="15" fill="var(--ink)">Δθ = 45°</text>
+<rect x="512.7" y="109.2" width="44" height="160.8" rx="3" fill="var(--ink-mute)" opacity=".85"/>
+<line x1="534.7" y1="136.5" x2="534.7" y2="95.4" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="528.7" y1="95.4" x2="540.7" y2="95.4" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="528.7" y1="136.5" x2="540.7" y2="136.5" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="534.7" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">938</text>
+<rect x="564.7" y="66.1" width="44" height="203.9" rx="3" fill="var(--accent-light)" opacity=".85"/>
+<line x1="586.7" y1="101.2" x2="586.7" y2="51.1" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="580.7" y1="51.1" x2="592.7" y2="51.1" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="580.7" y1="101.2" x2="592.7" y2="101.2" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="586.7" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">1190</text>
+<rect x="616.7" y="158.7" width="44" height="111.3" rx="3" fill="var(--safe-light)" opacity=".85"/>
+<line x1="638.7" y1="167.0" x2="638.7" y2="150.0" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="632.7" y1="150.0" x2="644.7" y2="150.0" stroke="var(--ink)" stroke-width="1.6"/>
+<line x1="632.7" y1="167.0" x2="644.7" y2="167.0" stroke="var(--ink)" stroke-width="1.6"/>
+<text class="svg-mono" x="638.7" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">650</text>
+<text class="svg-th" x="586.7" y="294" text-anchor="middle" font-size="15" fill="var(--ink)">Δθ = 90°</text>
+<line x1="70" y1="270" x2="690" y2="270" stroke="var(--ink-mute)"/>
+<rect x="70" y="308" width="14" height="14" rx="3" fill="var(--ink-mute)"/><text x="90" y="320" font-size="13" fill="var(--ink-soft)">Nền (tắt laser)</text>
+<rect x="280" y="308" width="14" height="14" rx="3" fill="var(--accent-light)"/><text x="300" y="320" font-size="13" fill="var(--ink-soft)">Laser — lần 1</text>
+<rect x="490" y="308" width="14" height="14" rx="3" fill="var(--safe-light)"/><text x="510" y="320" font-size="13" fill="var(--ink-soft)">Laser — lần 2</text>
+</svg>
+      </div>
+      <p class="fig-caption">Đồ thị do nhóm tự tạo bằng Python từ dữ liệu đo ngày 24/11/2026. Δθ = 135° được gộp với 45° vì cos² đối xứng.</p>
+      <div class="grid-3">
+        <div class="stat compact card"><div class="num">84%</div><div class="label">Laser, lần 2 (lan2)</div><div class="sub">Phân biệt đúng góc trùng và góc vuông bằng một ngưỡng duy nhất.</div></div>
+        <div class="stat compact card"><div class="num">59%</div><div class="label">Laser, lần 1 (lan1)</div><div class="sub">Gần mức đoán ngẫu nhiên (50%).</div></div>
+        <div class="stat compact card"><div class="num">66%</div><div class="label">Nền, tắt laser</div><div class="sub">Cao hơn mức đoán ngẫu nhiên dù không có laser.</div></div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 32 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Kết quả phần cứng 2 / 2</div>
+      <h2 class="slide-title">Cùng một cặp góc, <em>ba lần đo cho ba mức nhiễu</em></h2>
+      <div class="diagram-frame" style="max-width:900px; padding:18px 22px 10px;">
+        <svg viewBox="0 0 720 300" role="img" aria-label="Độ phân tán giá trị ADC trong ba lần đo 150 mẫu" style="width:100%;max-width:760px;display:block;margin:0 auto;">
+<line x1="70" y1="240.0" x2="690" y2="240.0" stroke="var(--line)"/>
+<text class="svg-mono" x="62" y="244.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">0</text>
+<line x1="70" y1="187.5" x2="690" y2="187.5" stroke="var(--line)"/>
+<text class="svg-mono" x="62" y="191.5" text-anchor="end" font-size="13" fill="var(--ink-mute)">550</text>
+<line x1="70" y1="135.0" x2="690" y2="135.0" stroke="var(--line)"/>
+<text class="svg-mono" x="62" y="139.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">1100</text>
+<line x1="70" y1="82.5" x2="690" y2="82.5" stroke="var(--line)"/>
+<text class="svg-mono" x="62" y="86.5" text-anchor="end" font-size="13" fill="var(--ink-mute)">1650</text>
+<line x1="70" y1="30.0" x2="690" y2="30.0" stroke="var(--line)"/>
+<text class="svg-mono" x="62" y="34.0" text-anchor="end" font-size="13" fill="var(--ink-mute)">2200</text>
+<text class="svg-mono" x="70" y="16" font-size="13" fill="var(--ink-mute)">ADC, 150 mẫu mỗi lần (hộp = Q1–Q3, vạch = min–max)</text>
+<line x1="173.33333333333331" y1="192.9" x2="173.33333333333331" y2="35.3" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<line x1="163.33333333333331" y1="35.3" x2="183.33333333333331" y2="35.3" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<line x1="163.33333333333331" y1="192.9" x2="183.33333333333331" y2="192.9" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<rect x="139.33333333333331" y="155.0" width="68" height="33.7" rx="4" fill="var(--danger-light)" opacity=".85"/>
+<line x1="139.33333333333331" y1="182.4" x2="207.33333333333331" y2="182.4" stroke="#06131c" stroke-width="2.5"/>
+<text class="svg-th" x="173.33333333333331" y="264" text-anchor="middle" font-size="15" fill="var(--ink)">Lần 1</text>
+<text class="svg-mono" x="173.33333333333331" y="284" text-anchor="middle" font-size="13" fill="var(--ink-soft)">σ = 545 · max = 2144</text>
+<line x1="380.0" y1="195.0" x2="380.0" y2="105.9" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<line x1="370.0" y1="105.9" x2="390.0" y2="105.9" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<line x1="370.0" y1="195.0" x2="390.0" y2="195.0" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<rect x="346.0" y="188.3" width="68" height="3.6" rx="4" fill="var(--accent-light)" opacity=".85"/>
+<line x1="346.0" y1="191.3" x2="414.0" y2="191.3" stroke="#06131c" stroke-width="2.5"/>
+<text class="svg-th" x="380.0" y="264" text-anchor="middle" font-size="15" fill="var(--ink)">Lần 2</text>
+<text class="svg-mono" x="380.0" y="284" text-anchor="middle" font-size="13" fill="var(--ink-soft)">σ = 145 · max = 1405</text>
+<line x1="586.6666666666666" y1="191.5" x2="586.6666666666666" y2="178.0" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<line x1="576.6666666666666" y1="178.0" x2="596.6666666666666" y2="178.0" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<line x1="576.6666666666666" y1="191.5" x2="596.6666666666666" y2="191.5" stroke="var(--ink-mute)" stroke-width="1.5"/>
+<rect x="552.6666666666666" y="181.2" width="68" height="4.5" rx="4" fill="var(--safe-light)" opacity=".85"/>
+<line x1="552.6666666666666" y1="184.3" x2="620.6666666666666" y2="184.3" stroke="#06131c" stroke-width="2.5"/>
+<text class="svg-th" x="586.6666666666666" y="264" text-anchor="middle" font-size="15" fill="var(--ink)">Lần 3</text>
+<text class="svg-mono" x="586.6666666666666" y="284" text-anchor="middle" font-size="13" fill="var(--ink-soft)">σ = 35 · max = 650</text>
+<line x1="70" y1="240" x2="690" y2="240" stroke="var(--ink-mute)"/>
+</svg>
+      </div>
+      <p class="fig-caption">Đồ thị do nhóm tự tạo bằng Python từ ba bộ dữ liệu troi, troi2, troi3 (cặp 0° / 0°, 150 mẫu mỗi bộ).</p>
+      <div class="callout">Độ lệch chuẩn của ADC giảm từ 545 xuống 145 rồi 35 chỉ do đo vào ba thời điểm khác nhau, trong
+        khi vị trí hai servo không đổi. Nhiễu từ môi trường lớn hơn nhiều so với chênh lệch giữa các góc ở trang trước.</div>
+    </section>
+
+    <!-- ===== SLIDE 33 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Báo cáo số liệu đo</div>
+      <h2 class="slide-title">Bảng ADC trung bình <em>theo từng cặp góc</em></h2>
+      <div class="grid-3 heat-grid"><div class="heat-card"><h4>Nền, tắt laser</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(56,189,248,0.33)">982<span>±71</span></td><td class="" style="background:rgba(56,189,248,0.39)">1035<span>±220</span></td><td class="d90" style="background:rgba(56,189,248,0.58)">1204<span>±604</span></td><td class="" style="background:rgba(56,189,248,0.49)">1125<span>±650</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(56,189,248,0.10)">773<span>±20</span></td><td class="d0" style="background:rgba(56,189,248,0.09)">769<span>±9</span></td><td class="" style="background:rgba(56,189,248,0.32)">967<span>±314</span></td><td class="d90" style="background:rgba(56,189,248,0.30)">950<span>±148</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(56,189,248,0.36)">1003<span>±38</span></td><td class="" style="background:rgba(56,189,248,0.20)">860<span>±106</span></td><td class="d0" style="background:rgba(56,189,248,0.08)">757<span>±31</span></td><td class="" style="background:rgba(56,189,248,0.13)">800<span>±42</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(56,189,248,0.08)">756<span>±9</span></td><td class="d90" style="background:rgba(56,189,248,0.08)">760<span>±12</span></td><td class="" style="background:rgba(56,189,248,0.12)">790<span>±25</span></td><td class="d0" style="background:rgba(56,189,248,0.17)">838<span>±19</span></td></tr></tbody></table></div><div class="heat-card"><h4>Laser, lần 1</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(56,189,248,0.08)">666<span>±189</span></td><td class="" style="background:rgba(56,189,248,0.48)">1393<span>±100</span></td><td class="d90" style="background:rgba(56,189,248,0.58)">1570<span>±81</span></td><td class="" style="background:rgba(56,189,248,0.18)">846<span>±146</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(56,189,248,0.32)">1096<span>±32</span></td><td class="d0" style="background:rgba(56,189,248,0.37)">1189<span>±97</span></td><td class="" style="background:rgba(56,189,248,0.19)">868<span>±178</span></td><td class="d90" style="background:rgba(56,189,248,0.29)">1040<span>±58</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(56,189,248,0.20)">888<span>±84</span></td><td class="" style="background:rgba(56,189,248,0.18)">853<span>±72</span></td><td class="d0" style="background:rgba(56,189,248,0.24)">954<span>±104</span></td><td class="" style="background:rgba(56,189,248,0.35)">1159<span>±28</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(56,189,248,0.38)">1215<span>±13</span></td><td class="d90" style="background:rgba(56,189,248,0.40)">1252<span>±13</span></td><td class="" style="background:rgba(56,189,248,0.41)">1261<span>±11</span></td><td class="d0" style="background:rgba(56,189,248,0.36)">1179<span>±199</span></td></tr></tbody></table></div><div class="heat-card"><h4>Laser, lần 2</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(56,189,248,0.09)">516<span>±22</span></td><td class="" style="background:rgba(56,189,248,0.09)">516<span>±9</span></td><td class="d90" style="background:rgba(56,189,248,0.13)">562<span>±17</span></td><td class="" style="background:rgba(56,189,248,0.11)">535<span>±54</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(56,189,248,0.08)">504<span>±3</span></td><td class="d0" style="background:rgba(56,189,248,0.09)">510<span>±8</span></td><td class="" style="background:rgba(56,189,248,0.12)">544<span>±20</span></td><td class="d90" style="background:rgba(56,189,248,0.24)">681<span>±26</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(56,189,248,0.58)">1071<span>±459</span></td><td class="" style="background:rgba(56,189,248,0.16)">594<span>±12</span></td><td class="d0" style="background:rgba(56,189,248,0.14)">572<span>±15</span></td><td class="" style="background:rgba(56,189,248,0.16)">591<span>±29</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(56,189,248,0.16)">598<span>±8</span></td><td class="d90" style="background:rgba(56,189,248,0.17)">609<span>±12</span></td><td class="" style="background:rgba(56,189,248,0.16)">600<span>±7</span></td><td class="d0" style="background:rgba(56,189,248,0.16)">592<span>±7</span></td></tr></tbody></table></div></div>
+      <p class="fig-caption" style="margin-top:12px;">Hàng là góc Alice, cột là góc Bob. Mỗi ô ghi trung bình ± độ lệch chuẩn của 20 lần đo (ADC). Ô viền xanh lá: hai góc trùng nhau. Ô viền đỏ: hai góc vuông nhau. Nền ô càng sáng thì ADC càng cao. Số liệu gốc: thư mục data, ngày 24/11/2026.</p>
+      <div class="callout" style="margin-top:12px;">Nếu hệ hoạt động đúng như Malus, ô viền xanh lá phải thấp hơn ô viền đỏ trong cùng hàng. Lan2 đúng ở cả 4 hàng, nhưng hàng 135° chỉ chênh 17 điểm, nhỏ hơn nhiễu. Lan1 đúng ở 2 trong 4 hàng; bộ nền đúng ở 3 trong 4 hàng. Ô (90°, 0°) của lan2 có độ lệch chuẩn 459, là điểm nhiễu lớn nhất.</div>
+    </section>
+
+    <!-- ===== SLIDE 34 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Phân tích thống kê</div>
+      <h2 class="slide-title">Góc vuông cho ADC cao hơn góc trùng, <em>nhưng bộ nền cũng vậy</em></h2>
+      <p class="lead">So sánh 80 mẫu ở góc trùng (Δθ = 0°) với 80 mẫu ở góc vuông (Δθ = 90°) trong mỗi bộ đo, bằng kiểm định Welch. Chênh lệch TB = ADC góc vuông trừ ADC góc trùng; KTC = khoảng tin cậy.</p>
+      <div class="cmp-wrap">
+        <table class="cmp-table">
+          <thead>
+            <tr><th>Bộ đo</th><th class="num">Chênh lệch TB</th><th class="num">KTC 95%</th><th class="num">Cohen d</th><th class="num">AUC</th><th class="num">p (Welch)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Nền, tắt laser</td><td class="num">143</td><td class="num">63 đến 222</td><td class="num">0,56</td><td class="num">0,68</td><td class="num">0,0006</td></tr>
+            <tr><td>Laser, lần 1</td><td class="num">191</td><td class="num">108 đến 273</td><td class="num">0,72</td><td class="num">0,64</td><td class="num">&lt; 0,0001</td></tr>
+            <tr class="chosen"><td>Laser, lần 2</td><td class="num">183</td><td class="num">115 đến 251</td><td class="num">0,85</td><td class="num">0,89</td><td class="num">&lt; 0,0001</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout" style="margin-top:16px;">Chênh lệch có ý nghĩa thống kê ở cả ba bộ, nhưng bộ nền (không laser) đã chênh 143 so với 183 đến 191 khi bật laser,
+        nên phần đóng góp riêng của laser còn nhỏ. Chỉ lan2 tách khá rõ (AUC 0,89). Các mẫu trong một bộ đo được thu liên tiếp,
+        không độc lập, nên giá trị p chỉ mang tính tham khảo; cần lặp nhiều bộ đo ở cùng điều kiện để kết luận.</div>
+    </section>
+
+    <!-- ===== SLIDE 35 ===== -->
+    <section class="slide" data-section="Chế tạo & thử nghiệm">
+      <div class="eyebrow">Diễn giải kết quả & giới hạn</div>
+      <h2 class="slide-title">Đọc đúng số liệu: <em>đã thấy gì, chưa kết luận được gì</em></h2>
+      <div class="grid-2">
+        <div class="safe-box">
+          <div style="font-weight:600; font-size:1.05rem; margin-bottom:8px;">Điều số liệu hỗ trợ</div>
+          <ul class="numlist">
+            <li>Ở cả hai lần bật laser, ADC tăng khi góc lệch tăng từ 0° lên 90°.</li>
+            <li>Khi hai servo cùng góc, bộ lan2 rất ổn định: độ lệch chuẩn khoảng 7 đến 22 điểm.</li>
+            <li>Hệ thống ghi nhận, lưu trữ và đối chiếu được với lý thuyết một cách có hệ thống.</li>
+          </ul>
+        </div>
+        <div class="warn-box">
+          <div class="warn-title">Điều chưa thể kết luận</div>
+          <ul class="numlist">
+            <li>Bộ đo nền (tắt laser) cũng tăng theo góc, nên một phần xu hướng không đến từ laser.</li>
+            <li>Chưa đối chiếu chiều của đầu ra AO (module LM393) với tài liệu module: cần xác định sáng hơn thì ADC tăng hay giảm.</li>
+            <li>Chỉ có một nguyên mẫu và ba bộ đo 16 cặp, chưa đủ để kiểm định thống kê.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:18px;">Hệ quả thiết kế: nhóm không dùng ngưỡng cố định mà hiệu chuẩn lại ngưỡng
+        mỗi lần chạy (trung bình ánh sáng nền cộng 300 điểm ADC), và coi cải thiện phép đo phần cứng là việc ưu tiên
+        tiếp theo.</div>
+    </section>
+
+    <!-- ===== SLIDE 36 ===== -->
+    <section class="slide slide-stub" data-section="Chế tạo & thử nghiệm">
+      <h2 class="slide-title">Chạy BB84 trọn vẹn trên phần cứng thật</h2>
+    </section>
+
+    <!-- ===== SLIDE 37 ===== -->
+    <section class="slide slide-stub" data-section="Chế tạo & thử nghiệm">
+      <h2 class="slide-title">Thử nghiệm kẻ nghe lén (Eve) trên phần cứng</h2>
+    </section>
+
+    <!-- ===== SLIDE 38 ===== -->
     <section class="slide" data-section="Kết quả & ứng dụng">
-      <div class="eyebrow">Kết quả thực nghiệm</div>
-      <h2 class="slide-title">Số liệu QBER đo được qua <em>nhiều lần chạy</em></h2>
-      <p class="lead">Chạy lặp lại kịch bản kiểm thử tích hợp toàn bộ pipeline (<code
-          style="font-family:var(--font-mono);">test_pipeline.py</code>), so sánh kênh sạch với kênh có Eve mô phỏng gây
-        nhiễu ~25% tại các vị trí basis trùng khớp.</p>
+      <div class="eyebrow">Kết quả mô phỏng phần mềm</div>
+      <h2 class="slide-title">QBER trong mô phỏng: kênh sạch và kênh có <em>Eve</em></h2>
+      <p class="lead">Kịch bản kiểm thử tích hợp <code style="font-family:var(--font-mono);">test_pipeline.py</code> chạy hoàn toàn bằng phần mềm, không dùng ESP32. Nó so sánh kênh sạch với kênh có Eve mô phỏng gây nhiễu khoảng 25% tại các vị trí basis trùng khớp.</p>
       <div class="diagram-frame" style="max-width:560px;">
         <svg viewBox="0 0 680 220" style="width:100%; max-width:520px; display:block; margin:0 auto;">
           <line x1="100" y1="30" x2="100" y2="180" stroke="var(--ink-mute)" stroke-width="1" />
@@ -826,12 +1230,11 @@
             font-weight="700">~27%</text>
         </svg>
       </div>
-      <div class="callout">Chênh lệch rõ rệt và ổn định qua nhiều lần chạy độc lập: kênh sạch luôn cho QBER xấp xỉ 0%,
-        trong khi kênh có Eve luôn vượt xa ngưỡng 11% — xác nhận QBER là chỉ số phát hiện đáng tin cậy, không phải ngẫu
-        nhiên may rủi.</div>
+      <p class="fig-caption">Đồ thị do nhóm tự vẽ từ kết quả chạy test_pipeline.py (mô phỏng phần mềm, không phải dữ liệu phần cứng).</p>
+      <div class="callout">Phần mềm phân biệt rõ kênh sạch (QBER xấp xỉ 0%) với kênh có Eve (xấp xỉ 25–27%, sát giá trị lý thuyết 25%). Đây là kết quả mô phỏng; trên phần cứng tín hiệu LDR còn nhiễu nên chưa thể kết luận tương tự (xem phần Chế tạo &amp; thử nghiệm).</div>
     </section>
 
-    <!-- ===== SLIDE 23 — GIỚI THIỆU MÃ HOÁ ẢNH XOR ===== -->
+    <!-- ===== SLIDE 39 ===== -->
     <section class="slide" data-section="Kết quả & ứng dụng">
       <div class="eyebrow">Ứng dụng thực tế</div>
       <h2 class="slide-title">Dùng khoá vừa tạo để <em>mã hoá một tấm ảnh</em></h2>
@@ -846,7 +1249,7 @@
       </ul>
     </section>
 
-    <!-- ===== SLIDE 24 — ỨNG DỤNG XOR — MINH HOẠ ===== -->
+    <!-- ===== SLIDE 40 ===== -->
     <section class="slide" data-section="Kết quả & ứng dụng">
       <div class="eyebrow">Ứng dụng thực tế</div>
       <h2 class="slide-title">Ảnh gốc → mã hoá → <em>giải mã</em></h2>
@@ -874,16 +1277,15 @@
       </div>
     </section>
 
-    <!-- ===== SLIDE 25 — KIẾN TRÚC THIẾT BỊ THẬT ===== -->
+    <!-- ===== SLIDE 41 ===== -->
     <section class="slide" data-section="Kết quả & ứng dụng">
       <div class="eyebrow">Kiến trúc thiết bị thật</div>
       <h2 class="slide-title">Hai trạm độc lập, <em>một giao thức chung</em></h2>
-      <p class="lead">Mô phỏng phía trên chạy hoàn toàn trong trình duyệt. Thiết bị thật gồm hai máy tính, mỗi máy nối
-        với một board ESP32 riêng, giao tiếp với nhau qua mạng LAN, chạy chung một codebase Python.</p>
+      <p class="lead">Mô phỏng ở trên chạy hoàn toàn trong trình duyệt. Thiết kế thiết bị thật gồm hai trạm, mỗi trạm một máy tính nối với một board ESP32 riêng, giao tiếp qua mạng LAN, dùng chung một codebase Python. Khi thử nghiệm phần cứng, cả hai board có thể cắm vào cùng một máy.</p>
 
       <div class="arch-grid">
         <div class="arch-box">
-          <h4>Máy Hà — Alice (gửi)</h4>
+          <h4>Trạm Alice (gửi)</h4>
           <ul>
             <li>Sinh chuỗi bit và basis ngẫu nhiên</li>
             <li>Điều khiển servo qua ESP32 theo góc 0/45/90/135°</li>
@@ -892,7 +1294,7 @@
           </ul>
         </div>
         <div class="arch-box">
-          <h4>Máy Sơn — Bob (nhận)</h4>
+          <h4>Trạm Bob (nhận)</h4>
           <ul>
             <li>Nhận dữ liệu qua TCP Socket</li>
             <li>Đọc cảm biến LDR qua ESP32 của mình</li>
@@ -900,17 +1302,6 @@
             <li>Giải mã ảnh và hiển thị kết quả trên PyQt6</li>
           </ul>
         </div>
-      </div>
-
-      <div class="layers">
-        <div class="layer"><span class="lname">Giao diện</span><span class="lmods">src/gui — PyQt6, AliceView /
-            BobView</span></div>
-        <div class="layer"><span class="lname">Luồng nền</span><span class="lmods">src/gui/workers — QThread:
-            SerialWorker, NetworkWorker</span></div>
-        <div class="layer"><span class="lname">Logic lõi</span><span class="lmods">src/core — bb84_protocol,
-            sifting, qber, image_cipher</span></div>
-        <div class="layer"><span class="lname">Mạng & phần cứng</span><span class="lmods">src/network, src/hardware
-            — TCP socket, ESP32 Serial</span></div>
       </div>
 
       <table class="spec-table">
@@ -941,27 +1332,84 @@
       </table>
     </section>
 
-    <!-- ===== SLIDE 26 — KẾT LUẬN ===== -->
-
-    <section class="slide" data-section="Kết thúc">
-      <div class="eyebrow">Kết luận</div>
-      <h2 class="slide-title">Ba đóng góp chính của <em>Hermex</em></h2>
-      <ul class="keylist keylist-grid">
-        <li><strong>Tái hiện đúng logic BB84</strong> bằng phần cứng thật — servo mã hoá góc, LDR đọc lại tín hiệu,
-          không chỉ dừng ở mô phỏng phần mềm thuần tuý.</li>
-        <li><strong>Chứng minh QBER phân biệt được</strong> nghe lén chủ động với nhiễu tự nhiên (thời tiết/vật cản) —
-          hai lớp kiểm tra độc lập, đúng nguyên lý bảo mật vật lý của QKD.</li>
-        <li><strong>Xây dựng trọn vẹn một pipeline phần mềm</strong> — từ sinh khoá, sifting, tính QBER, tới mã hoá/giải
-          mã ảnh thật, đã kiểm thử tự động qua nhiều kịch bản.</li>
-      </ul>
+    <!-- ===== SLIDE 42 ===== -->
+    <section class="slide" data-section="Đóng góp & tác động">
+      <div class="eyebrow">Kế thừa & đóng góp mới</div>
+      <h2 class="slide-title">Nhóm dùng lại gì, và <em>tự phát triển gì</em></h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Phần kế thừa (có nguồn)</h3>
+          <ul class="numlist">
+            <li>Giao thức BB84 (Bennett &amp; Brassard, 1984) và ngưỡng lỗi khoảng 11% (Shor &amp; Preskill, 2000).</li>
+            <li>Định luật Malus và định lý không nhân bản (Wootters &amp; Zurek, 1982).</li>
+            <li>Thư viện có sẵn: PyQt6, OpenCV, NumPy, PySerial, ESP32Servo.</li>
+            <li>Linh kiện thương mại: ESP32-C3, servo MG996, LDR.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Phần nhóm phát triển</h3>
+          <ul class="numlist">
+            <li>Ánh xạ (basis, bit) thành bốn góc servo và đọc lại bằng LDR trên hai trạm độc lập.</li>
+            <li>Hiệu chuẩn ngưỡng LDR theo ánh sáng căn phòng ngay trước khi chạy.</li>
+            <li>Pipeline sifting, QBER, mã hoá XOR ảnh và truyền qua TCP.</li>
+            <li>Quy trình thu dữ liệu có nhật ký, đối chiếu với cos² lý thuyết.</li>
+            <li>Trang web mô phỏng tương tác để giải thích dự án.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout" style="margin-top:18px;">Tính mới nằm ở cách đặt vấn đề: dùng linh kiện phổ thông để làm
+        <strong>nhìn thấy được</strong> từng bước của BB84, và công bố trung thực giới hạn của phép đo thay vì chỉ trình
+        bày kết quả đẹp.</div>
     </section>
 
-    <!-- ===== SLIDE 27 — HƯỚNG PHÁT TRIỂN ===== -->
+    <!-- ===== SLIDE 43 ===== -->
+    <section class="slide" data-section="Đóng góp & tác động">
+      <div class="eyebrow">Tác động & khả năng ứng dụng</div>
+      <h2 class="slide-title">Từ một sa bàn lớp học đến <em>nhận thức về an toàn thông tin</em></h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Giáo dục</h3>
+          <p>Mô hình trực quan để dạy học sinh vì sao một phép đo trộm làm lộ kẻ nghe lén, kết nối vật lý phổ thông với
+            an toàn thông tin. Có thể dùng trong hoạt động trải nghiệm STEM.</p>
+        </div>
+        <div class="card">
+          <h3>Kỹ thuật</h3>
+          <p>Cung cấp khung thu thập và đối chiếu dữ liệu cho các mô hình QKD giá rẻ, từ đó có thể thay LDR bằng
+            photodiode hoặc thay laser thường bằng nguồn điều chế.</p>
+        </div>
+        <div class="card">
+          <h3>Kinh tế</h3>
+          <p>Toàn bộ dùng linh kiện phổ thông và phần mềm mã nguồn mở, nên chi phí thấp hơn rất nhiều so với thiết bị QKD
+            thương mại, phù hợp với trường học.</p>
+        </div>
+        <div class="card">
+          <h3>Xã hội</h3>
+          <p>Góp phần nâng nhận thức về nguy cơ từ máy tính lượng tử. Năm 2024, NIST đã công bố các tiêu chuẩn mật mã hậu
+            lượng tử đầu tiên, cho thấy vấn đề này đã là việc thực tế.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SLIDE 44 ===== -->
     <section class="slide" data-section="Kết thúc">
-      <div class="eyebrow">Hướng phát triển</div>
-      <h2 class="slide-title">Giới hạn hiện tại & <em>hướng mở rộng</em></h2>
-      <p class="lead">Hai mặt của cùng một lộ trình: những gì sa bàn hiện tại chưa làm được, và những bước tiếp theo để
-        tiến gần hơn một hệ QKD hoàn chỉnh.</p>
+      <div class="eyebrow">Kết luận</div>
+      <h2 class="slide-title">Ba kết quả của <em>Hermex</em></h2>
+      <ul class="keylist keylist-grid">
+        <li><strong>Nguyên mẫu hoạt động:</strong> hai trạm ESP32 điều khiển servo bốn góc và đọc LDR qua Serial, kèm
+          pipeline sifting, QBER, mã hoá XOR ảnh qua TCP đã kiểm thử tích hợp.</li>
+        <li><strong>Phần mềm:</strong> trong mô phỏng, QBER phân biệt kênh sạch (xấp xỉ 0%) với kênh có Eve (xấp xỉ
+          25–27%, sát lý thuyết 25%), vượt rõ ngưỡng 11%.</li>
+        <li><strong>Phần cứng:</strong> sáu bộ đo ngày 24/11 cho thấy LDR có phản ứng theo góc nhưng còn nhiễu; một ngưỡng
+          duy nhất phân biệt đúng góc trùng và góc vuông ở mức 59–84% tuỳ lần đo.</li>
+      </ul>
+      <div class="callout" style="margin-top:18px;">Kết luận trung thực: mô hình đã chứng minh được logic BB84 ở tầng phần
+        mềm và đã xây dựng xong tầng phần cứng; việc làm phần cứng đủ tin cậy là bước kế tiếp.</div>
+    </section>
+
+    <!-- ===== SLIDE 45 ===== -->
+    <section class="slide" data-section="Kết thúc">
+      <div class="eyebrow">Giới hạn & ý tưởng tiếp theo</div>
+      <h2 class="slide-title">Từ giới hạn đo được đến <em>các cải tiến cụ thể</em></h2>
       <div class="grid-2">
         <div class="card roadmap-card">
           <div class="roadmap-icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="38" height="38">
@@ -969,9 +1417,13 @@
               <rect x="17" y="15" width="7" height="21" rx="2" fill="var(--danger)" opacity=".55" />
               <rect x="30" y="7" width="7" height="29" rx="2" fill="var(--line)" />
             </svg></div>
-          <h3>Hạn chế còn lại</h3>
-          <p>Mô phỏng bằng cơ-điện (servo + LDR), chưa dùng photon đơn lẻ thật; số bit khoá thô còn nhỏ so với ứng dụng
-            thực tế.</p>
+          <h3>Giới hạn đã xác định</h3>
+          <ol class="numlist">
+            <li>Ánh sáng môi trường làm độ lệch chuẩn thay đổi từ 35 đến 545 điểm ADC giữa ba lần đo.</li>
+            <li>Chưa có số liệu đo cho kẻ nghe lén trên phần cứng, mới có mô phỏng phần mềm.</li>
+            <li>Một nguyên mẫu, sáu bộ dữ liệu; chưa kiểm định thống kê.</li>
+            <li>Chiều biến thiên của đầu ra AO cần đối chiếu với tài liệu của module LM393.</li>
+          </ol>
         </div>
         <div class="card roadmap-card">
           <div class="roadmap-icon" aria-hidden="true"><svg viewBox="0 0 40 40" width="38" height="38">
@@ -979,37 +1431,29 @@
               <rect x="17" y="18" width="7" height="18" rx="2" fill="var(--safe)" opacity=".6" />
               <rect x="30" y="6" width="7" height="30" rx="2" fill="var(--safe)" />
             </svg></div>
-          <h3>Hướng mở rộng</h3>
-          <p>Tăng số bit khoá thô mỗi phiên; thử nghiệm ngoài trời với khoảng cách truyền xa hơn để kiểm chứng độ bền
-            của hệ thống.</p>
+          <h3>Ý tưởng phát triển tiếp theo</h3>
+          <ol class="numlist">
+            <li>Hộp che sáng và giá đỡ in 3D che dây, để giảm ánh sáng nền.</li>
+            <li>Điều chế laser theo tần số cố định và đọc đồng bộ, nhằm loại ánh sáng nền.</li>
+            <li>Thay LDR bằng photodiode để đáp ứng nhanh và tuyến tính hơn.</li>
+            <li>Lặp lại ít nhất 10 bộ đo và phân tích thống kê.</li>
+            <li>Thêm servo thứ ba đóng vai Eve chặn và gửi lại, đo QBER trên phần cứng.</li>
+          </ol>
         </div>
-      </div>
-      <div class="diagram-frame" style="margin-top:20px; padding:30px 34px 26px;">
-        <svg viewBox="0 0 900 240" style="width:100%; max-width:860px; display:block; margin:0 auto;">
-          <path d="M90 190 Q 320 190 450 125 T 800 60" fill="none" stroke="var(--line)" stroke-width="3"
-            stroke-dasharray="1 10" stroke-linecap="round" />
-          <circle cx="90" cy="190" r="12" fill="var(--ink-mute)" />
-          <text class="svg-th" x="90" y="222" text-anchor="middle" font-size="20" fill="var(--ink)">Hiện tại</text>
-          <text x="90" y="36" text-anchor="middle" font-size="15" fill="var(--ink-soft)">Mô phỏng cơ – điện</text>
-          <text x="90" y="58" text-anchor="middle" font-size="15" fill="var(--ink-soft)">(servo + LDR)</text>
-
-          <circle cx="450" cy="125" r="13" fill="var(--accent)" />
-          <text class="svg-th" x="450" y="158" text-anchor="middle" font-size="20" fill="var(--ink)">Bước tiếp
-            theo</text>
-          <text x="450" y="28" text-anchor="middle" font-size="15" fill="var(--ink-soft)">Tăng bit khoá · thử
-            nghiệm</text>
-          <text x="450" y="50" text-anchor="middle" font-size="15" fill="var(--ink-soft)">ngoài trời, khoảng cách xa
-            hơn</text>
-
-          <circle cx="800" cy="60" r="14" fill="var(--accent-deep)" />
-          <text class="svg-th" x="800" y="94" text-anchor="middle" font-size="20" fill="var(--ink)">Tầm nhìn xa</text>
-          <text x="800" y="132" text-anchor="middle" font-size="15" fill="var(--ink-soft)">Hướng tới nguồn phát</text>
-          <text x="800" y="154" text-anchor="middle" font-size="15" fill="var(--ink-soft)">photon đơn lẻ thật</text>
-        </svg>
       </div>
     </section>
 
-    <!-- ===== SLIDE 28 — LỜI CẢM ƠN ===== -->
+    <!-- ===== SLIDE 46 ===== -->
+    <section class="slide slide-stub" data-section="Kết thúc">
+      <h2 class="slide-title">Nhật ký nghiên cứu</h2>
+    </section>
+
+    <!-- ===== SLIDE 47 ===== -->
+    <section class="slide slide-stub" data-section="Kết thúc">
+      <h2 class="slide-title">Khai báo công nghệ số và AI</h2>
+    </section>
+
+    <!-- ===== SLIDE 48 ===== -->
     <section class="slide" data-section="Kết thúc">
       <div class="split">
         <div>
@@ -1058,16 +1502,25 @@
   </div>
 
   <div class="bottom-bar">
-    <div class="slide-count" id="slideCount">SLIDE 01 / 28</div>
+    <div class="slide-count" id="slideCount">SLIDE 01 / 48</div>
     <div class="progress-track">
-      <div class="progress-fill" id="progressFill" style="width: 3.5714%;"></div>
+      <div class="progress-fill" id="progressFill" style="width: 2.0833%;"></div>
     </div>
     <div class="nav-arrows">
       <button class="arrow-btn" id="prevBtn">&#8592;</button>
       <button class="arrow-btn" id="nextBtn">&#8594;</button>
     </div>
   </div>
-  <div class="kbd-hint">&#8592; &#8594; hoặc Space để chuyển slide &nbsp;|&nbsp; F11 toàn màn hình</div>
+  <div class="kbd-hint">&#8592; &#8594; hoặc Space để chuyển slide &nbsp;|&nbsp; F11 toàn màn hình &nbsp;|&nbsp; G mục lục</div>
+
+  <div class="agenda" id="agenda" role="dialog" aria-modal="true" aria-label="Mục lục">
+    <button class="agenda-close" id="agendaClose" aria-label="Đóng mục lục">&times;</button>
+    <div class="agenda-inner">
+      <h3>Mục lục</h3>
+      <p class="agenda-sub">Chọn một slide để nhảy tới. Nhấn G hoặc Esc để đóng.</p>
+      <div class="agenda-cols"></div>
+    </div>
+  </div>
 
   <div class="img-lightbox" id="imgLightbox">
     <button class="lb-close" id="lbClose" aria-label="Đóng">&times;</button>
@@ -1079,6 +1532,8 @@
   <script src="js/deck.js"></script>
   <script src="js/controls.js"></script>
   <script src="js/lightbox.js"></script>
+  <script src="js/agenda.js"></script>
+  <script src="js/fit.js"></script>
   <script src="js/main.js"></script>
   <script src="js/malus-demo.js"></script>
   <script src="js/sim-round.js"></script>

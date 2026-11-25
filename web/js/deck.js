@@ -74,7 +74,7 @@
       window.HermexAudio.playSlideSound();
     }
 
-    // Cập nhật số thứ tự slide (vd: SLIDE 01 / 24)
+    // Cập nhật số thứ tự slide (vd: SLIDE 01 / 38)
     const slideCountEl = document.getElementById('slideCount');
     if (slideCountEl) {
       slideCountEl.textContent =
@@ -86,6 +86,15 @@
     if (progressFillEl) {
       progressFillEl.style.width =
         ((current + 1) / slides.length * 100) + '%';
+    }
+
+    // Báo cho các module khác (co vừa khung hình, mục lục...)
+    document.dispatchEvent(new CustomEvent('hermex:slide', { detail: { index: current } }));
+
+    // Ẩn gợi ý phím tắt sau lần chuyển slide đầu tiên
+    if (playSound) {
+      var kh = document.querySelector('.kbd-hint');
+      if (kh) kh.classList.add('hide');
     }
 
     // Cập nhật tên đề mục (section hint)

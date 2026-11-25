@@ -1,0 +1,265 @@
+/* ==========================================================================
+   POLISH — căn chỉnh bố cục, khả năng đọc, mục lục, in PDF
+   Nạp sau cùng để ghi đè mà không phụ thuộc thứ tự slide.
+   ========================================================================== */
+
+/* ---------- Phông chữ dự phòng khi không có mạng (phòng thi thường không ổn định) ---------- */
+:root {
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, 'Courier New', monospace;
+}
+
+/* ---------- Cột nội dung thống nhất: tiêu đề, đoạn dẫn và khối đều thẳng lề trái ---------- */
+.slide {
+  padding: 78px 5vw 66px;
+  justify-content: center;
+  justify-content: safe center; /* nội dung dài hơn khung sẽ bắt đầu từ trên, không bị cắt phần đầu */
+}
+
+.slide > .callout, .slide > .grid-2, .slide > .grid-3, .slide > .grid-4, .slide > .keylist,
+.slide > .split, .slide > .cmp-wrap, .slide > .spec-table, .slide > .arch-grid, .slide > .layers,
+.slide > .safe-box, .slide > .warn-box, .slide > .refs, .slide > .stations, .slide > .sim-rail,
+.slide > .sim-controls, .slide > .sim-data, .slide > .qbercalc, .slide > .xorcalc {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.slide > h2.slide-title,
+.slide > p.lead,
+.slide > .eyebrow {
+  margin-left: calc((100% - min(100%, 1200px)) / 2);
+  margin-right: auto;
+}
+
+.slide > .eyebrow {
+  width: auto;
+  max-width: calc(100% - 4px);
+}
+
+h2.slide-title {
+  font-size: clamp(1.9rem, 3.1vw, 2.85rem);
+  line-height: 1.18;
+  margin-bottom: 16px;
+  max-width: 1200px;
+}
+
+p.lead {
+  font-size: clamp(1.05rem, 1.28vw, 1.22rem);
+  line-height: 1.65;
+  max-width: 1040px;
+  margin-bottom: 18px;
+}
+
+.keylist li { font-size: 1.05rem; line-height: 1.55; padding: 14px 18px; }
+.callout { font-size: 1.06rem; line-height: 1.62; padding: 16px 22px; }
+.card { padding: 20px 24px; }
+.card h3 { font-size: 1.18rem; margin-bottom: 8px; }
+.card p, .card li { font-size: 1.02rem; line-height: 1.58; }
+
+/* Slide bìa và slide kết giữ bố cục căn giữa */
+.slide-cover > *,
+.slide-cover p.lead,
+.slide-cover .eyebrow { margin-left: auto; margin-right: auto; }
+
+/* ---------- Gợi ý phím tắt: tự mờ đi để không che nội dung ---------- */
+.kbd-hint { transition: opacity .6s ease; bottom: 68px; }
+.kbd-hint.hide { opacity: 0; pointer-events: none; }
+
+/* ---------- Chú thích nguồn dưới mỗi hình (tiêu chí hình thức) ---------- */
+.fig-caption {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  line-height: 1.45;
+  color: var(--ink-mute);
+  text-align: center;
+  max-width: 860px;
+  margin: -8px auto 14px;
+}
+
+/* ---------- Bảng so sánh phương án & bảng nhật ký ---------- */
+.cmp-wrap { width: 100%; overflow-x: auto; }
+.cmp-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: .98rem;
+  line-height: 1.45;
+}
+.cmp-table th, .cmp-table td { padding: 12px 16px; text-align: left; vertical-align: top; }
+.cmp-table thead th {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  background: rgba(6, 182, 212, .08);
+  border-bottom: 1px solid var(--line);
+}
+.cmp-table tbody tr:not(:last-child) td { border-bottom: 1px solid var(--line); }
+.cmp-table td:first-child { font-weight: 600; color: var(--ink); }
+.cmp-table tr.chosen td { background: var(--safe-bg); }
+.cmp-table tr.chosen td:first-child { box-shadow: inset 4px 0 0 var(--safe); }
+.cmp-table td.num { font-family: var(--font-mono); text-align: right; white-space: nowrap; }
+.cmp-table th.num { text-align: right; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .76rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.pill.ok { color: var(--safe-light); background: var(--safe-bg); border-color: var(--safe-border); }
+.pill.no { color: var(--danger-light); background: var(--danger-bg); border-color: var(--danger-border); }
+.pill.mid { color: var(--accent-light); background: var(--accent-pale); border-color: var(--line-focus); }
+
+/* ---------- Thẻ số liệu nhỏ ---------- */
+.stat.compact .num { font-size: 1.9rem; }
+.stat.compact .label { font-size: .95rem; color: var(--ink-soft); }
+.stat.compact .sub { font-size: .85rem; color: var(--ink-mute); margin-top: 8px; line-height: 1.45; }
+
+/* ---------- Danh sách có đánh số trong thẻ ---------- */
+.numlist { list-style: none; counter-reset: n; display: flex; flex-direction: column; gap: 8px; }
+.numlist li { counter-increment: n; position: relative; padding-left: 34px; font-size: 1.02rem; line-height: 1.5; color: var(--ink); }
+.numlist li::before {
+  content: counter(n);
+  position: absolute; left: 0; top: 1px;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--accent-pale); border: 1px solid var(--line-focus);
+  color: var(--accent-deep); font-family: var(--font-mono); font-size: .8rem; font-weight: 700;
+  display: grid; place-items: center;
+}
+
+/* ---------- Dòng thời gian ---------- */
+.timeline { list-style: none; display: grid; gap: 0; border-left: 2px solid var(--line-focus); margin-left: 8px; }
+.timeline li { position: relative; padding: 0 0 14px 22px; font-size: 1.02rem; line-height: 1.5; }
+.timeline li::before {
+  content: ''; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 0 3px var(--bg);
+}
+.timeline .when { font-family: var(--font-mono); font-size: .82rem; color: var(--accent-deep); display: block; }
+
+/* ---------- Tài liệu tham khảo ---------- */
+.refs { list-style: none; counter-reset: r; display: grid; gap: 10px; width: 100%; }
+.refs li {
+  counter-increment: r; position: relative; padding: 12px 16px 12px 54px;
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: 12px;
+  font-size: .98rem; line-height: 1.5; color: var(--ink-soft);
+}
+.refs li::before {
+  content: '[' counter(r) ']'; position: absolute; left: 16px; top: 12px;
+  font-family: var(--font-mono); font-weight: 700; color: var(--accent-deep);
+}
+
+/* ---------- Mục lục (agenda) ---------- */
+.agenda {
+  position: fixed; inset: 0; z-index: 300; display: none;
+  background: rgba(8, 13, 26, .92); backdrop-filter: blur(10px);
+  padding: 76px 5vw 40px; overflow-y: auto;
+}
+.agenda.open { display: block; }
+.agenda-inner { max-width: 1200px; margin: 0 auto; }
+.agenda h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 4px; }
+.agenda .agenda-sub { color: var(--ink-mute); font-size: .92rem; margin-bottom: 22px; }
+.agenda-cols { columns: 3 320px; column-gap: 22px; }
+.agenda-group { break-inside: avoid; margin-bottom: 18px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.agenda-group h4 { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 8px; }
+.agenda-group button {
+  display: flex; gap: 10px; width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
+  color: var(--ink-soft); font: inherit; font-size: .95rem; line-height: 1.4; padding: 5px 6px; border-radius: 8px;
+}
+.agenda-group button:hover, .agenda-group button:focus-visible { background: var(--accent-pale); color: var(--ink); outline: none; }
+.agenda-group button.current { color: var(--accent-light); font-weight: 600; }
+.agenda-group .n { font-family: var(--font-mono); color: var(--ink-mute); min-width: 1.8em; }
+.agenda-close {
+  position: absolute; top: 72px; right: 5vw; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--bg-card); border: 1px solid var(--line); color: var(--ink); font-size: 1.4rem; cursor: pointer;
+}
+
+.section-hint { cursor: pointer; }
+.section-hint:hover { border-color: var(--line-focus); }
+
+/* ---------- Truy cập bàn phím & chuyển động ---------- */
+:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  .slide, .slide.active { transition: opacity .2s linear; transform: none; }
+  .photon-field { display: none; }
+}
+
+/* ---------- Màn hình hẹp ---------- */
+@media (max-width: 768px) {
+  .slide { padding: 70px 5vw 62px; }
+  .cmp-table { font-size: .88rem; }
+  .cmp-table th, .cmp-table td { padding: 9px 10px; }
+  .kbd-hint { display: none; }
+}
+
+/* ---------- In / xuất PDF: mỗi slide một trang 16:9 ---------- */
+@page { size: 1280px 720px; margin: 0; }
+@media print {
+  html, body { height: auto; overflow: visible; background: #0F172A; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .top-bar, .bottom-bar, .kbd-hint, .photon-field, .agenda, .img-lightbox, .sim-controls { display: none !important; }
+  .deck { position: static; width: 1280px; height: auto; overflow: visible; }
+  .slide {
+    position: relative; inset: auto; width: 1280px; height: 720px; padding: 40px 64px;
+    opacity: 1 !important; visibility: visible !important; transform: none !important;
+    page-break-after: always; break-after: page; overflow: hidden;
+  }
+  .card:hover, .callout:hover { transform: none; }
+  .slide .card, .slide .stat, .slide li, .slide .diagram-frame, .slide .formula-box, .slide .media-slot,
+  .slide .callout, .slide .safe-box, .slide .warn-box, .slide .cover-icon, .slide .cover-cta, .slide .cover-tags,
+  .slide .map-row, .slide .arch-box, .slide .layer, .slide .eyebrow, .slide .slide-title, .slide .lead {
+    opacity: 1 !important; transform: none !important; animation: none !important;
+  }
+}
+
+/* ---------- Bảng so sánh: cột đầu rộng hơn, nhãn tự xuống dòng ---------- */
+.cmp-table td:first-child { width: 25%; }
+.cmp-table td:last-child { width: 19%; }
+.cmp-table .pill { white-space: normal; line-height: 1.35; border-radius: 10px; }
+.cmp-table td.num, .cmp-table th.num { width: 1%; }
+
+.spec-table td { padding: 9px 18px; }
+
+/* ---------- Bảng nhiệt số liệu đo ---------- */
+.heat-grid { gap: 16px; }
+.heat-card { background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 14px 10px; }
+.heat-card h4 { font-family: var(--font-mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent-deep); margin-bottom: 8px; }
+.heat { width: 100%; border-collapse: separate; border-spacing: 3px; font-family: var(--font-mono); text-align: center; }
+.heat th { font-size: .78rem; color: var(--ink-mute); font-weight: 600; padding: 2px; }
+.heat td { font-size: .95rem; font-weight: 700; color: var(--ink); padding: 8px 2px; border-radius: 6px; border: 2px solid transparent; line-height: 1.15; }
+.heat td span { display: block; font-size: .7rem; font-weight: 400; color: var(--ink-soft); }
+.heat td.d0 { border-color: var(--safe); }
+.heat td.d90 { border-color: var(--danger); }
+
+/* Slide chỉ có tiêu đề (chưa có dữ liệu) */
+.slide.slide-stub{justify-content:center}
+.slide.slide-stub .slide-title{opacity:.9}
+.wiring-frame{max-width:100%;margin:8px auto 0;display:flex;justify-content:center;cursor:zoom-in}
+.wiring-frame img{max-height:calc(100vh - 300px);width:auto;max-width:100%;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:#fff}
+.wiring-frame img{max-height:calc(100vh - 360px)}
+.cmp-table th{white-space:nowrap}
+.wiring-frame{margin-bottom:12px}.wiring-frame+.fig-caption{position:static;margin-top:6px}
+
+/* ---------- Tiêu đề từng trang căn giữa ---------- */
+.slide > h2.slide-title,
+.slide > p.lead,
+.slide > .eyebrow {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.slide > h2.slide-title,
+.slide > p.lead { max-width: 1200px; }
+.slide > .eyebrow { align-self: center; }

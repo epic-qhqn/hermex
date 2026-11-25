@@ -11,6 +11,9 @@ function startApp() {
   if (typeof window.initControls === 'function') {
     window.initControls();
   }
+  if (typeof window.initAgenda === 'function') {
+    window.initAgenda();
+  }
   if (typeof window.initLightbox === 'function') {
     window.initLightbox();
   }

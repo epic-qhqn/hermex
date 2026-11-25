@@ -50,7 +50,7 @@
     const lbClose = document.getElementById('lbClose');
 
     // Gắn sự kiện click cho các khung ảnh có thuộc tính data-lightbox="true"
-    document.querySelectorAll('.xor-frame[data-lightbox="true"]').forEach((frame) => {
+    document.querySelectorAll('.xor-frame[data-lightbox="true"], .wiring-frame[data-lightbox="true"]').forEach((frame) => {
       frame.addEventListener('click', () => {
         const img = frame.querySelector('img');
         if (img) {
