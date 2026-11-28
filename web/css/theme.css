@@ -279,3 +279,91 @@ h2.slide-title em { color: var(--blue); }
 .slide .wv.is-full .wv-tabs button[aria-pressed="true"] { background: #FFD43B; color: #080B33; }
 .slide .wv.is-full .fig-caption { color: #FFFFFF; }
 @media screen and (max-width: 899px) { .slide.slide-wiring > .wv { flex: 0 0 auto; } .wv-stage { flex: 0 0 62vh; } }
+
+/* ---------- Slide hiệu chuẩn ngưỡng LDR ---------- */
+.slide.slide-cal .cal-fig { margin: 0 auto; width: min(100%, 980px); box-sizing: border-box; background: #FFFFFF; color: #080B33; border-radius: 14px; padding: 10px 18px 8px; box-shadow: 0 14px 30px -14px rgba(4,6,36,.55); }
+.slide.slide-cal .cal-fig svg { display: block; width: 100%; height: auto; max-height: 28vh; fill: #080B33; }
+.slide.slide-cal .cal-key { display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem 1.2rem; font-size: .8rem; font-weight: 600; }
+.cal-key i { display: inline-block; width: .7em; height: .7em; border-radius: 50%; margin-right: .4em; }
+.cal-key i.dash { width: 0; height: 1em; border-radius: 0; border-left: 3px dashed #080B33; vertical-align: middle; }
+.slide.slide-cal > * { margin-top: .5rem; margin-bottom: 0; }
+.slide.slide-cal .cmp-wrap { width: min(100%, 980px); }
+.slide.slide-cal .cmp-table :is(th, td) { padding-top: .35rem; padding-bottom: .35rem; }
+.slide.slide-cal .cal-note { max-width: 980px; font-size: .9rem; padding-top: .6rem; padding-bottom: .6rem; }
+.slide.slide-cal .slide-title { margin-bottom: .4rem; }
+.slide .optics { cursor: pointer; } .slide .optics:focus-visible { outline: 3px solid #4DE1FF; outline-offset: 3px; }
+
+/* ---------- Bảng: một cách giãn dòng và căn lề thống nhất ---------- */
+.slide.slide .cmp-table :is(th, td) { padding: .55rem .9rem; line-height: 1.4; vertical-align: middle; text-align: left; }
+.slide.slide .cmp-table th { font-family: var(--font-body); font-size: .9rem; font-weight: 700; text-wrap: balance; }
+.slide.slide .cmp-table td { font-size: .92rem; }
+/* cột số và cột đánh giá: tiêu đề và nội dung cùng căn giữa */
+.slide.slide :is(.t-cal, .t-stats) :is(th, td):not(:first-child),
+.slide.slide .t-runs :is(th, td):nth-child(n+4),
+.slide.slide .t-options :is(th, td):nth-child(n+2):nth-child(-n+4) { text-align: center; }
+.slide.slide :is(.t-cal, .t-stats, .t-runs) td:not(:first-child) { font-variant-numeric: tabular-nums; }
+.slide.slide .cmp-table :is(td.num, th.num) { width: auto; font-family: var(--font-body); white-space: nowrap; }
+/* độ rộng cột */
+.slide.slide .t-options, .slide.slide .t-scope, .slide.slide .t-cal, .slide.slide .t-stats { table-layout: fixed; }
+.slide.slide .t-options th:nth-child(1) { width: 24%; }
+.slide.slide .t-options th:nth-child(n+2) { width: 19%; }
+.slide.slide .t-options th:nth-child(5) { width: 19%; }
+.slide.slide .t-options .pill { display: block; text-align: center; }
+.slide.slide .t-scope th:nth-child(1) { width: 22%; }
+.slide.slide .t-scope th:nth-child(2) { width: 46%; }
+.slide.slide .t-scope th:nth-child(3) { width: 32%; }
+.slide.slide .t-cal th:first-child { width: 24%; }
+.slide.slide .t-stats th:first-child { width: 22%; }
+.slide.slide .t-stats th:nth-child(3) { width: 19%; }
+.slide.slide .t-runs :is(th, td):nth-child(n+4) { white-space: nowrap; }
+.slide.slide.slide-cal .cmp-table :is(th, td) { padding-top: .4rem; padding-bottom: .4rem; }
+
+/* bảng thông số: nhãn và giá trị đứng sát nhau theo hai cột thẳng hàng */
+.slide.slide .spec-table td { padding: .45rem 1.1rem; line-height: 1.4; vertical-align: middle; font-size: .9rem; }
+.slide.slide .spec-table td:first-child { width: 34%; text-align: left; }
+.slide.slide .spec-table td:last-child { text-align: left; }
+@media screen and (max-width: 700px) {
+  .slide.slide .cmp-table :is(th, td) { padding: .4rem .35rem; font-size: .75rem; overflow-wrap: anywhere; }
+  .slide.slide .cmp-table :is(td.num, th.num), .slide.slide .t-runs :is(th, td):nth-child(n+4) { white-space: normal; }
+  .slide.slide .t-options, .slide.slide .t-scope, .slide.slide .t-cal, .slide.slide .t-stats { table-layout: auto; }
+  .slide.slide .cmp-table th { width: auto; }
+  .slide.slide .spec-table td { padding: .4rem .5rem; font-size: .8rem; }
+}
+
+/* ---------- Nhật ký mô phỏng: các cột căn giữa thẳng hàng ---------- */
+.slide.slide.layout-sim .log :is(th, td) { text-align: center; }
+.slide.slide.layout-sim .log th:first-child { width: 14%; }
+
+/* ---------- Bảng ba kịch bản ---------- */
+.slide.slide .t-scen { table-layout: fixed; }
+.slide.slide .t-scen thead th:first-child { width: 28%; }
+.slide.slide .t-scen :is(th, td):not(:first-child) { text-align: center; }
+.slide.slide .t-scen tbody th { font-family: var(--font-body); font-weight: 700; font-size: .92rem; text-align: left; padding: .65rem .9rem; border-bottom: 1px solid var(--line); }
+.slide.slide .t-scen td { padding-top: .65rem; padding-bottom: .65rem; }
+.t-scen .tag { display: block; padding: .3em .4em; border-radius: 8px; }
+.t-scen .tag.ok { background: #E7F6EE; color: #0B5C3F; }
+.t-scen .tag.bad { background: #FDEAEC; color: #A30F2D; }
+.t-scen .tag.fog { background: #E9ECFF; color: #1F2FBF; }
+@media screen and (max-width: 700px) { .slide.slide .t-scen { table-layout: auto; } .slide.slide .t-scen tbody th { font-size: .75rem; padding: .4rem .35rem; } }
+
+/* ---------- Chú thích: cách bảng, hình và khung bên dưới đều nhau ---------- */
+.slide.slide.slide .fig-caption { margin-top: 16px !important; margin-bottom: 18px !important; max-width: 84ch; line-height: 1.6; }
+.slide.slide.slide > .fig-caption:last-child, .slide.slide.slide .wv > .fig-caption, .slide.slide.slide .fig-group > .fig-caption { margin-bottom: 0 !important; }
+.slide.slide.slide .wv > .fig-caption { margin-top: 4px !important; }
+
+/* ---------- Bóng chữ nhẹ cho mọi nền ---------- */
+/* nền xanh, đỏ: chữ sáng, bóng tối */
+.slide.slide.slide.slide { text-shadow: 0 1px 3px rgba(2,4,30,.45); }
+.slide.slide.slide.slide :is(h2.slide-title, h2.slide-title em, .eyebrow) { text-shadow: 0 3px 8px rgba(2,4,30,.45); }
+/* nền vàng: chữ tối, bóng mờ cùng tông */
+.slide.slide.slide.slide.c-yellow { text-shadow: 0 1px 2px rgba(8,11,51,.22); }
+.slide.slide.slide.slide.c-yellow :is(h2.slide-title, h2.slide-title em, .eyebrow) { text-shadow: 0 3px 6px rgba(8,11,51,.28); }
+/* chữ trong khung sáng: bóng rất nhẹ để không nhoè */
+.slide.slide.slide.slide :is(.card:not(.stat), .keylist li, .formula-box, .diagram-frame, .warn-box, .safe-box, .xorcalc, .malus-demo, .qbercalc, .arch-box, .spec-table, .layer, .refs li, .stations, .log, .metric, .cmp-table, .heat-card, .cal-fig, .rail-step) { text-shadow: 0 1px 2px rgba(8,11,51,.2); }
+/* chữ sáng trên khung tối */
+.slide.slide.slide.slide :is(.callout, .stat.card, .cmp-table thead th, .btn.primary, .optics) { text-shadow: 0 2px 4px rgba(0,0,0,.5); }
+.slide.slide.slide.slide .tag { text-shadow: none; }
+
+/* ---------- Tia laser quét khi chuyển trang ---------- */
+.laser-sweep { position: fixed; top: 0; bottom: 0; left: 0; width: 4px; margin-left: -2px; z-index: 50; opacity: 0; pointer-events: none; background: #FFFFFF; box-shadow: 0 0 12px 4px #FF2E55, 0 0 44px 14px rgba(255,46,85,.55); }
+@media print { .laser-sweep { display: none; } }
