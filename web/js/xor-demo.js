@@ -38,7 +38,7 @@
     1, 1, 0, 0, 0, 0, 1, 1
   ];
 
-  var LIGHT = "#E7ECF2";
+  var LIGHT = "#DCE4F2";
   var DARK =
     getComputedStyle(document.documentElement)
       .getPropertyValue("--accent-deep")

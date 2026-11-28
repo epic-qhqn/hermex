@@ -26,7 +26,7 @@
         if (window.HermexAudio && typeof window.HermexAudio.playClickSound === 'function') {
           window.HermexAudio.playClickSound();
         }
-        goTo(current + 1);
+        step(1);
       });
     }
     if (prevBtn) {
@@ -34,7 +34,7 @@
         if (window.HermexAudio && typeof window.HermexAudio.playClickSound === 'function') {
           window.HermexAudio.playClickSound();
         }
-        goTo(current - 1);
+        step(-1);
       });
     }
 
@@ -44,14 +44,22 @@
       const lightbox = document.getElementById('imgLightbox');
       if (lightbox && lightbox.classList.contains('open')) return;
 
-      if (e.key === 'ArrowRight' || e.key === ' ') {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
         e.preventDefault();
-        goTo(current + 1);
+        step(1);
       }
-      if (e.key === 'ArrowLeft') {
-        goTo(current - 1);
+      if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        step(-1);
       }
     });
+  }
+
+  /* slide có nhiều khung nhỏ thì đi hết khung rồi mới sang slide */
+  function step(dir) {
+    var s = slides[current];
+    if (s && s.hermexStep && s.hermexStep(dir)) return;
+    goTo(current + dir);
   }
 
   /**

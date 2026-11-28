@@ -8,12 +8,24 @@
 
   function fitSlide(slide) {
     slide.style.zoom = '';
+    slide.style.removeProperty('--z');
+    var tables = slide.querySelectorAll('table');
+    for (var t = 0; t < tables.length; t++) tables[t].style.zoom = '';
+    for (var k = 0; k < tables.length; k++) { /* bảng rộng hơn khung thì thu nhỏ đúng bảng đó */
+      var room = tables[k].parentElement.clientWidth, need = tables[k].offsetWidth;
+      if (room && need > room + 1) tables[k].style.zoom = (room / need * 0.99).toFixed(3);
+    }
     if (window.innerWidth < 900) return; // màn hình hẹp: cuộn thay vì thu nhỏ chữ
-    var ch = slide.clientHeight;
-    var sh = slide.scrollHeight;
-    if (!ch || sh <= ch + 2) return;
-    var z = Math.max(MIN_ZOOM, (ch / sh) * 0.985);
-    slide.style.zoom = z.toFixed(3);
+    /* co vài lượt: --z giữ chú thích không nhỏ quá khi slide bị thu */
+    var z = 1;
+    for (var pass = 0; pass < 3; pass++) {
+      var ch = slide.clientHeight;
+      var sh = slide.scrollHeight;
+      if (!ch || sh <= ch + 2) return;
+      z = Math.max(MIN_ZOOM, z * (ch / sh) * 0.985);
+      slide.style.zoom = z.toFixed(3);
+      slide.style.setProperty('--z', z.toFixed(3));
+    }
   }
 
   function fitAll() {

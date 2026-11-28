@@ -5,8 +5,8 @@
 
 /* ---------- Phông chữ dự phòng khi không có mạng (phòng thi thường không ổn định) ---------- */
 :root {
-  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-body: 'Inter', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Be Vietnam Pro', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Be Vietnam Pro', 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono', Consolas, 'Courier New', monospace;
 }
 
@@ -98,7 +98,7 @@ p.lead {
   letter-spacing: .08em;
   text-transform: uppercase;
   color: var(--accent-deep);
-  background: rgba(6, 182, 212, .08);
+  background: rgba(36, 86, 214, 0.08);
   border-bottom: 1px solid var(--line);
 }
 .cmp-table tbody tr:not(:last-child) td { border-bottom: 1px solid var(--line); }
@@ -165,7 +165,7 @@ p.lead {
 /* ---------- Mục lục (agenda) ---------- */
 .agenda {
   position: fixed; inset: 0; z-index: 300; display: none;
-  background: rgba(8, 13, 26, .92); backdrop-filter: blur(10px);
+  background: rgba(246, 248, 251, .97); backdrop-filter: blur(10px);
   padding: 76px 5vw 40px; overflow-y: auto;
 }
 .agenda.open { display: block; }
@@ -208,7 +208,7 @@ p.lead {
 /* ---------- In / xuất PDF: mỗi slide một trang 16:9 ---------- */
 @page { size: 1280px 720px; margin: 0; }
 @media print {
-  html, body { height: auto; overflow: visible; background: #0F172A; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html, body { height: auto; overflow: visible; background: #F6F8FB; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .top-bar, .bottom-bar, .kbd-hint, .photon-field, .agenda, .img-lightbox, .sim-controls { display: none !important; }
   .deck { position: static; width: 1280px; height: auto; overflow: visible; }
   .slide {
@@ -247,7 +247,7 @@ p.lead {
 .slide.slide-stub{justify-content:center}
 .slide.slide-stub .slide-title{opacity:.9}
 .wiring-frame{max-width:100%;margin:8px auto 0;display:flex;justify-content:center;cursor:zoom-in}
-.wiring-frame img{max-height:calc(100vh - 300px);width:auto;max-width:100%;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:#fff}
+.wiring-frame img{max-height:calc(100vh - 300px);width:auto;max-width:100%;border-radius:8px;border:1px solid var(--line);background:#fff}
 .wiring-frame img{max-height:calc(100vh - 360px)}
 .cmp-table th{white-space:nowrap}
 .wiring-frame{margin-bottom:12px}.wiring-frame+.fig-caption{position:static;margin-top:6px}

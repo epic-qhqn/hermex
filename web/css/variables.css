@@ -1,53 +1,56 @@
 /* ==========================================================================
-   HERMEX SLIDES — BẢNG MÀU & THIẾT LẬP THEME KEYNOTE CHUYÊN NGHIỆP
+   HERMEX SLIDES — BẢNG MÀU SÁNG "BÀN QUANG HỌC"
    ========================================================================== */
 :root {
-  /* Bảng màu Neon Cyan & Quantum Swatches */
-  --swatch-0:   #0E7490;
-  --swatch-1:   #0891B2;
-  --swatch-2:   #06B6D4;
-  --swatch-3:   #22D3EE;
-  --swatch-4:   #67E8F9;
+  /* Bảng màu xanh cobalt */
+  --swatch-0:   #12307A;
+  --swatch-1:   #1D47B8;
+  --swatch-2:   #2456D6;
+  --swatch-3:   #6F91E8;
+  --swatch-4:   #A9BEF2;
 
-  /* Màu nền tối đậm chuẩn Slate / Midnight */
-  --bg:           #0F172A;
-  --bg-deep:      #080D1A;
-  --bg-card:      rgba(30, 41, 59, 0.72);
-  --bg-card-hover:rgba(30, 41, 59, 0.95);
-  --bg-glass:     rgba(15, 23, 42, 0.85);
+  /* Màu nền sáng */
+  --bg:           #FFFFFF;
+  --bg-deep:      #EEF0FA;
+  --bg-card:      #FFFFFF;
+  --bg-card-hover:#FFFFFF;
+  --bg-glass:     #FFFFFF;
 
-  /* Màu chữ sáng nhạt độ tương phản cao trên nền tối */
-  --ink:          #F5F8FC;
-  --ink-soft:     #E2E8F0;
-  --ink-mute:     #94A3B8;
+  /* Màu chữ xanh mực */
+  --ink:          #0B0F2E;
+  --ink-soft:     #232A52;
+  --ink-mute:     #555D85;
 
-  /* Điểm nhấn Cyan & Aqua */
-  --accent:       #06B6D4;
-  --accent-light: #38BDF8;
-  --accent-deep:  #38BDF8;
-  --accent-pale:  rgba(6, 182, 212, 0.12);
-  --accent-glow:  0 0 20px rgba(6, 182, 212, 0.3);
+  /* Điểm nhấn cobalt */
+  --accent:       #2B2FE8;
+  --accent-light: #2B2FE8;
+  --accent-deep:  #2B2FE8;
+  --accent-pale:  #E9EAFF;
+  --accent-glow:  none;
 
   /* Đường viền hairline tinh xảo */
-  --line:         rgba(148, 163, 184, 0.16);
-  --line-subtle:  rgba(255, 255, 255, 0.08);
-  --line-focus:   rgba(6, 182, 212, 0.5);
+  --line:         #C9CDEB;
+  --line-subtle:  #E6EBF2;
+  --line-focus:   #8D90F4;
 
   /* Trạng thái An toàn (Emerald) & Cảnh báo (Rose) */
-  --safe:         #10B981;
-  --safe-light:   #34D399;
-  --safe-bg:      rgba(16, 185, 129, 0.12);
-  --safe-border:  rgba(16, 185, 129, 0.32);
+  --safe:         #0B7A53;
+  --safe-light:   #0B7A53;
+  --safe-bg:      #E6F5EE;
+  --safe-border:  #A9D9C4;
 
-  --danger:       #F43F5E;
-  --danger-light: #FB7185;
-  --danger-bg:    rgba(244, 63, 94, 0.12);
-  --danger-border:rgba(244, 63, 94, 0.32);
+  --danger:       #C8283C;
+  --danger-light: #B01F32;
+  --danger-bg:    #FCEBED;
+  --danger-border:#F0B6BD;
+
+  /* Tia laser của sa bàn: chỉ dùng cho đường truyền và tiến trình */
+  --laser:        #FF2E55;
 
   /* Typography chuẩn quốc tế */
-  --font-display: 'Space Grotesk', sans-serif;
+  --font-display: 'Be Vietnam Pro', sans-serif;
   --font-headline: 'Playfair Display', serif;
-  --font-body:    'Inter', sans-serif;
+  --font-body:    'Be Vietnam Pro', sans-serif;
   --font-mono:    'JetBrains Mono', monospace;
 
   /* Động lực học chuyển động (Apple Keynote Easing) */
@@ -55,8 +58,8 @@
   --ease-in-out:  cubic-bezier(0.65, 0, 0.35, 1);
 
   /* Đổ bóng tự nhiên */
-  --shadow-sm:    0 2px 8px rgba(0, 0, 0, 0.25);
-  --shadow-md:    0 8px 24px -4px rgba(0, 0, 0, 0.35);
-  --shadow-lg:    0 16px 36px -8px rgba(0, 0, 0, 0.5);
-  --shadow-glow:  0 8px 28px -6px rgba(6, 182, 212, 0.25);
+  --shadow-sm:    none;
+  --shadow-md:    none;
+  --shadow-lg:    0 12px 32px -16px rgba(20, 33, 61, 0.18);
+  --shadow-glow:  none;
 }

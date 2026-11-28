@@ -27,8 +27,8 @@
   max-height: 82vh;
   width: auto;
   border-radius: 18px;
-  border: 1.5px solid rgba(103, 232, 249, 0.35);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(6, 182, 212, 0.25);
+  border: 1.5px solid rgba(36, 86, 214, 0.35);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(36, 86, 214, 0.25);
   transform: scale(0.95);
   transition: transform 0.35s var(--ease);
 }
@@ -59,7 +59,7 @@
   height: 44px;
   border-radius: 50%;
   background: rgba(17, 27, 46, 0.85);
-  border: 1px solid rgba(103, 232, 249, 0.3);
+  border: 1px solid rgba(36, 86, 214, 0.3);
   color: var(--accent-deep);
   display: flex;
   align-items: center;
@@ -74,5 +74,5 @@
   background: var(--accent);
   color: var(--bg-deep);
   transform: scale(1.1) rotate(90deg);
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
+  box-shadow: 0 0 20px rgba(36, 86, 214, 0.35);
 }

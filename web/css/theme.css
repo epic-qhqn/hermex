@@ -1,0 +1,281 @@
+/* ==========================================================================
+   THEME KHỐI MÀU TƯƠNG PHẢN CAO — nạp sau cùng.
+   Trang mở mục: xanh cobalt. Trang nội dung: xanh đậm. Không dùng nền trắng.
+   Chuyển động nằm trong js/motion.js (chỉ dùng transform, opacity, clip-path).
+   ========================================================================== */
+:root { --blue: #2B2FE8; --night: #0B0F2E; --sun: #FFD43B; --out: cubic-bezier(.22, 1, .36, 1); }
+
+.deck { background: var(--night); }
+.slide, .slide.active { transform: none; transition: none; background: #FFFFFF; }
+.slide.leaving { opacity: 1; visibility: visible; z-index: 4; }
+
+.card, .callout, .keylist li, .warn-box, .safe-box, .formula-box, .diagram-frame,
+.map-table-card, .thanks-card, .thanks-badge, .eyebrow, .ctrl-btn, .arrow-btn,
+.top-bar, .bottom-bar, .section-hint, .kbd-hint, .cover-cta, .cover-tags .tag, .agenda {
+  backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; text-shadow: none;
+}
+h2.slide-title em, .logo, .stat .num { text-shadow: none; }
+
+/* ---------- Chữ ---------- */
+.eyebrow { background: none; border: 0; padding: 0; margin-bottom: 10px; font-family: var(--font-body);
+  font-size: .98rem; letter-spacing: 0; text-transform: none; color: var(--blue); }
+h2.slide-title { font-weight: 800; letter-spacing: -.025em; font-size: clamp(2rem, 3.4vw, 3.1rem); }
+h2.slide-title em { color: var(--blue); }
+
+/* ---------- Khối ---------- */
+.card, .keylist li { background: #FFFFFF; border: 2px solid var(--night); border-radius: 14px; }
+.card, .keylist li { transition: translate .35s var(--out), box-shadow .35s var(--out); }
+.card:hover, .keylist li:hover { transform: none; translate: -4px -4px; box-shadow: 6px 6px 0 var(--blue); background: #FFFFFF; border-color: var(--night); }
+.callout { background: var(--night); color: #FFFFFF; border: 0; border-left: 8px solid var(--sun); border-radius: 12px; }
+.callout strong { color: var(--sun); }
+.callout:hover, .warn-box:hover, .safe-box:hover, .formula-box:hover, .map-table-card:hover, .thanks-card:hover { transform: none; box-shadow: none; }
+.stat.card { background: var(--blue); border-color: var(--blue); }
+.stat.card .num, .stat.card:hover .num { color: var(--sun); transform: none; text-shadow: none; }
+.stat.card .label, .stat.card .sub { color: #FFFFFF; }
+.stat.card:hover { background: var(--blue); box-shadow: 6px 6px 0 var(--night); }
+.formula-box, .diagram-frame, .map-table-card { background: #FFFFFF; border: 2px solid var(--night); border-radius: 14px; }
+.warn-box, .safe-box { border-width: 2px; }
+.cmp-table { border: 2px solid var(--night); }
+.cmp-table thead th { background: var(--night); color: #FFFFFF; }
+
+/* ---------- Trang nền xanh ---------- */
+.slide.tone-blue {
+  --ink: #FFFFFF; --ink-soft: #E7E9FF; --ink-mute: #C6C9FF; --accent-deep: #FFD43B;
+  background: var(--blue); color: #FFFFFF;
+}
+.tone-blue .eyebrow, .tone-blue h2.slide-title em { color: var(--sun); }
+.tone-blue h2.slide-title { color: #FFFFFF; }
+.tone-blue p.lead { color: var(--ink-soft); }
+.tone-blue :is(.card:not(.stat), .keylist li, .formula-box, .diagram-frame, .map-table-card, .warn-box, .safe-box, .xorcalc, .malus-demo, .thanks-card, .arch-box, .spec-table, .layer, .refs li, .stations, .log, .metric, .qbercalc, .cmp-table) {
+  --ink: #0B0F2E; --ink-soft: #232A52; --ink-mute: #555D85; --accent-deep: #2B2FE8;
+  color: var(--ink); background-color: #FFFFFF; border-color: var(--night);
+}
+.tone-blue .stat.card { background: var(--night); border-color: var(--night); }
+
+/* ---------- Thanh trên / dưới ---------- */
+.top-bar, .bottom-bar { background: var(--night); border-color: var(--night); }
+.logo, .slide-count, .logo .dial { color: #FFFFFF; filter: none; }
+.logo .dial line { transform-origin: 10px 10px; transition: transform .8s var(--out); }
+.section-hint, .ctrl-btn, .arrow-btn { background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,.3); }
+.ctrl-btn:hover, .arrow-btn:hover { background: #FFFFFF; color: var(--night); transform: none; box-shadow: none; }
+.ctrl-btn.active { background: var(--sun); border-color: var(--sun); color: var(--night); box-shadow: none; }
+.progress-track { height: 5px; background: rgba(255,255,255,.18); }
+.progress-fill { background: var(--laser); box-shadow: none; transition: width .8s var(--out); }
+.progress-fill::after { width: 11px; height: 11px; background: var(--laser); box-shadow: 0 0 0 4px rgba(255,46,85,.3); animation: none; }
+.kbd-hint { background: var(--night); color: #FFFFFF; }
+
+/* ---------- Bìa ---------- */
+@media (min-width: 900px) {
+  .slide.slide-cover { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); grid-template-rows: repeat(5, auto);
+    align-content: center; column-gap: 3vw; justify-items: start; text-align: left; }
+  .slide.slide-cover > * { grid-column: 1; margin: 0 0 16px; text-align: left !important; justify-self: start; }
+  .slide.slide-cover > .optics { grid-column: 2; grid-row: 1 / 6; align-self: center; justify-self: stretch; margin: 0; }
+  .slide.slide-cover .eyebrow { justify-content: flex-start !important; }
+  .slide.slide-cover h2.slide-title { font-size: clamp(4.5rem, 10vw, 10rem) !important; letter-spacing: -.05em; }
+  .slide.slide-cover .cover-tags { justify-content: flex-start; }
+}
+.slide-cover .cover-tags, .slide-cover .cover-cta { opacity: 1; }
+.slide-cover .cover-cta { background: var(--sun); border-color: var(--sun); color: var(--night); }
+.cover-cta kbd { background: var(--night); border-color: var(--night); color: #FFFFFF; box-shadow: none; }
+.cover-cta:hover { box-shadow: 0 8px 0 var(--night); }
+.cover-tags .tag { background: transparent; color: #FFFFFF; border-color: rgba(255,255,255,.45); }
+.optics { background: var(--night); border-radius: 24px; padding: 16px 18px 20px; text-align: center !important; touch-action: none; cursor: ew-resize; }
+.optics canvas { display: block; width: 100%; height: min(46vh, 420px); min-height: 250px; }
+.optics-read { color: #FFFFFF; font-size: 1rem; }
+.optics-read b { color: var(--sun);  font-variant-numeric: tabular-nums; }
+.optics-tip { color: #AEB3E6; font-size: .85rem; margin-top: 4px; }
+
+.side-glyph { opacity: .1; }
+.xor-frame, .xorcalc canvas { box-shadow: none; }
+.heat td.d0 { border-color: var(--safe); }
+.heat td.d90 { border-color: var(--danger); }
+.img-lightbox .lb-close { color: #FFFFFF; }
+
+@media (max-width: 600px) {
+  .top-bar { padding: 10px 14px; gap: 8px; }
+  .section-hint { display: none; }
+  .ctrl-btn { padding: 6px 10px; font-size: .75rem; white-space: nowrap; }
+  .logo { font-size: 0; }
+}
+@media print { .optics { display: none; } .slide.slide-cover { display: flex; } }
+.slide-cover .eyebrow { letter-spacing: 0 !important; }
+@media (max-width: 899px) { .slide-cover > .optics { order: 1; flex: 0 0 auto; margin-top: 20px; } }
+
+/* ---------- Cỡ chữ cho phòng chiếu: lớn theo chiều cao màn hình ---------- */
+@media screen and (min-width: 900px) {
+  html { font-size: clamp(16px, 2.15vh, 24px); }
+  .slide { padding: 68px 4vw 74px; }
+  .slide > * , .slide > h2.slide-title, .slide > p.lead { max-width: min(92vw, 78rem); }
+  p.lead { font-size: 1.28rem; max-width: min(92vw, 66rem); line-height: 1.55; }
+  .card p, .card li, .keylist li, .numlist li, .timeline li, .arch-box li { font-size: 1.12rem; line-height: 1.5; }
+  .card h3 { font-size: 1.3rem; }
+  .callout { font-size: 1.15rem; line-height: 1.5; }
+  .eyebrow { font-size: 1.1rem; }
+  .map-row, .cmp-table, .refs li, .warn-box p, .safe-box { font-size: 1.08rem; }
+  .arch-box h4, .map-table-head, .cmp-table thead th, .lname { font-size: .98rem; }
+  .spec-table td, .lmods, .pill, .stat.compact .sub, .stat .label { font-size: 1rem; }
+  .fig-caption, .sim-note, .qbercalc-note, .xorcalc-note, .malus-callout, .malus-sub { font-size: .98rem; }
+  .malus-filter span, .malus-label, .xorcalc-label, .xorcalc .cell span, .qbercalc-label,
+  .verdict, .m-label, .readout, .toggle, .sim-controls .btn, .log table { font-size: .98rem; }
+  .rail-step, .station .label, .eve-badge, .heat th, .heat td span, .heat-card h4 { font-size: .9rem; }
+  .heat td { font-size: 1.08rem; }
+  .diagram-frame { max-width: min(92vw, 62rem); padding: 14px 18px 8px; }
+  .diagram-frame svg { max-height: 52vh; }
+}
+
+@media screen and (min-width: 1100px) {
+  /* Đồ thị LDR: hình bên trái, giải thích bên phải */
+  .slide.layout-graph { display: grid; grid-template-columns: 1.15fr 1fr; align-content: center; column-gap: 2rem; }
+  .slide.layout-graph > * { margin: 0 0 .8rem !important; max-width: none !important; width: 100%; }
+  .slide.layout-graph > :is(.eyebrow, h2) { grid-column: 1 / -1; text-align: center; }
+  .slide.layout-graph > .diagram-frame { grid-column: 1; grid-row: 3 / span 2; }
+  .slide.layout-graph > .fig-caption { grid-column: 1; grid-row: 5; }
+  .slide.layout-graph > .formula-box { grid-column: 2; grid-row: 3; }
+  .slide.layout-graph > .warn-box { grid-column: 2; grid-row: 4 / span 2; }
+
+  /* Mô phỏng: trạm và nút bấm bên trái, nhật ký và QBER bên phải; bỏ đoạn dẫn để chữ đủ lớn */
+  .slide.layout-sim { display: grid; grid-template-columns: 1fr 1fr; align-content: center; column-gap: 1.4rem; }
+  .slide.layout-sim > * { margin: 0 0 .7rem !important; max-width: none !important; width: 100%; min-width: 0; }
+  .slide.layout-sim > :is(.eyebrow, h2, .sim-rail, .sim-note) { grid-column: 1 / -1; text-align: center; }
+  .slide.layout-sim > p.lead { display: none; }
+  .slide.layout-sim > .stations { grid-column: 1; grid-row: 4; padding: 1rem; flex-wrap: nowrap; }
+  .slide.layout-sim > .sim-controls { grid-column: 1; grid-row: 5; gap: .6rem; align-self: start; }
+  .slide.layout-sim > .sim-data { grid-column: 2; grid-row: 4 / span 2; grid-template-columns: 1fr; gap: .7rem; }
+  .slide.layout-sim > .sim-note { grid-row: 6; }
+  .layout-sim .log { max-height: 24vh; min-height: 7rem; }
+  .layout-sim .metrics { flex-direction: row; }
+  .layout-sim .metric { flex: 1; min-width: 0; }
+  .layout-sim .toggle { margin-left: 0; }
+}
+.slide.layout-graph > .eyebrow, .slide.layout-sim > .eyebrow { justify-self: center; justify-content: center; }
+
+/* ---------- Bỏ nền trắng: cùng bảng màu với trang kể chuyện ---------- */
+.deck { background: #0B0F3F; }
+.slide, .slide.active { background: #131C7A; --ink: #EEF0FF; --ink-soft: #D5DAFF; --ink-mute: #C0C7FA; --accent: #FFD43B; --accent-light: #FFD43B; --accent-deep: #FFD43B; --safe: #6FE3B4; --safe-light: #6FE3B4; --danger: #FF8DA0; --danger-light: #FF8DA0; color: var(--ink); }
+.slide.tone-blue, .slide.tone-blue.active { background: #1F2FBF; }
+.slide h2.slide-title { color: #EEF0FF; }
+.slide .eyebrow, .slide h2.slide-title em { color: #FFD43B; }
+.slide p.lead { color: var(--ink-soft); }
+/* Khung nội dung: nền xanh rất nhạt, chữ đậm */
+.slide :is(.card:not(.stat), .keylist li, .formula-box, .diagram-frame, .map-table-card, .warn-box, .safe-box, .xorcalc, .malus-demo, .qbercalc, .thanks-card, .arch-box, .spec-table, .layer, .refs li, .stations, .log, .metric, .cmp-table, .heat-card, .sim-rail .rail-step) {
+  --ink: #0B0F3F; --ink-soft: #232A52; --ink-mute: #474E78; --accent: #1F2FBF; --accent-light: #1F2FBF; --accent-deep: #1F2FBF; --safe: #086040; --safe-light: #086040; --danger: #9E1730; --danger-light: #9E1730;
+  color: var(--ink); background-color: #E9ECFF; border-color: #8F9BFF;
+}
+.slide :is(.card:not(.stat), .keylist li):hover { background-color: #E9ECFF; border-color: #FFD43B; box-shadow: 6px 6px 0 #FFD43B; }
+.slide .warn-box { background-color: #FFE9ED; border-color: #FF8DA0; }
+.slide .safe-box { background-color: #E0F8EE; border-color: #6FE3B4; }
+.slide .stat.card, .slide.tone-blue .stat.card { background: #0B0F3F; border-color: #0B0F3F; }
+.slide .callout { background: #0B0F3F; color: #EEF0FF; }
+.slide .callout code { color: #FFD43B; background: transparent; }
+.slide .thanks-caption, .slide .thanks-caption * { background-color: #0B0F3F; color: #EEF0FF; }
+.story-link { text-decoration: none; display: inline-flex; align-items: center; }
+.slide .eyebrow .step-indicator { background: #FFD43B; color: #0B0F3F; border-color: #FFD43B; }
+.slide .sim-controls .btn.primary, .slide .sim-controls .btn:first-child { background: #1F2FBF; border-color: #8F9BFF; color: #FFFFFF; }
+.slide .thanks-card svg > circle:first-child { fill: #131C7A; stroke: #8F9BFF; }
+.slide .thanks-card svg text { fill: #EEF0FF; }
+.slide .thanks-card svg line { stroke: #8F9BFF; }
+.slide .thanks-card svg line:nth-of-type(4), .slide .thanks-card svg > circle:last-of-type { stroke: #FFD43B; }
+.slide .thanks-card { background-color: #131C7A; }
+/* Bảng so sánh phương án: gọn lại để không phải cuộn trong khung */
+@media screen and (min-width: 900px) {
+  .slide .cmp-table { font-size: .98rem; }
+  .slide .cmp-table th, .slide .cmp-table td { padding: 7px 12px; line-height: 1.4; }
+}
+
+/* ---------- Nhiều màu: slide xoay giữa xanh, đỏ, vàng ---------- */
+.slide.slide.c-blue.c-blue { background: #1F2FBF; }
+.slide.slide.c-red.c-red { background: #C4123F; --ink-soft: #FFF0F2; --ink-mute: #FFE0E5; --accent: #FFE680; --accent-light: #FFE680; --accent-deep: #FFE680; --safe: #D5FFEE; --safe-light: #D5FFEE; --danger: #FFE0E5; --danger-light: #FFE0E5; }
+.slide.slide.c-red.c-red .eyebrow, .slide.slide.c-red.c-red h2.slide-title em { color: #FFE680; }
+.slide.slide.c-yellow.c-yellow { background: #FFD43B; --ink: #0B0F3F; --ink-soft: #161C55; --ink-mute: #2C3266; --accent: #1F2FBF; --accent-light: #1F2FBF; --accent-deep: #1F2FBF; --safe: #05563A; --safe-light: #05563A; --danger: #8E0C2D; --danger-light: #8E0C2D; color: #0B0F3F; }
+.slide.slide.c-yellow.c-yellow h2.slide-title { color: #0B0F3F; }
+.slide.slide.c-yellow.c-yellow .eyebrow, .slide.slide.c-yellow.c-yellow h2.slide-title em { color: #9E0F33; }
+.slide.slide.c-yellow .eyebrow .step-indicator { background: #0B0F3F; color: #FFD43B; border-color: #0B0F3F; }
+.slide.slide.c-yellow .side-glyph { color: #0B0F3F; }
+
+/* ---------- Tương phản cao hơn và bóng đổ nhẹ ---------- */
+.slide.slide.slide { --ink: #FFFFFF; --ink-soft: #F2F4FF; --ink-mute: #E4E8FF; }
+.slide.slide.c-blue.c-blue { background: #1A27A8; }
+.slide.slide.c-red.c-red { background: #B00E37; --ink-soft: #FFF6F7; --ink-mute: #FFEBEE; }
+.slide.slide.c-yellow.c-yellow { --ink: #080B33; --ink-soft: #0E1240; --ink-mute: #1C2152; color: #080B33; }
+.slide.slide.slide h2.slide-title { color: var(--ink); text-shadow: 0 2px 10px rgba(4,6,36,.28); }
+.slide.slide.slide.c-yellow h2.slide-title { text-shadow: none; }
+.slide p.lead { font-weight: 500; }
+/* chữ trong khung sáng luôn đậm */
+.slide.slide.slide :is(.card:not(.stat), .keylist li, .formula-box, .diagram-frame, .map-table-card, .warn-box, .safe-box, .xorcalc, .malus-demo, .qbercalc, .arch-box, .spec-table, .layer, .refs li, .stations, .log, .metric, .cmp-table, .heat-card, .sim-rail .rail-step) { --ink: #080B33; --ink-soft: #141A48; --ink-mute: #2A305C; }
+.slide.slide.slide :is(.card, .keylist li, .formula-box, .diagram-frame, .map-table-card, .warn-box, .safe-box, .xorcalc, .malus-demo, .qbercalc, .thanks-card, .arch-box, .spec-table, .stations, .log, .metric, .cmp-wrap, .heat-card, .callout, .optics) { box-shadow: 0 14px 30px -14px rgba(4,6,36,.55); }
+.slide.slide.slide :is(.card, .keylist li):hover { box-shadow: 0 20px 36px -14px rgba(4,6,36,.65); }
+.slide-3d .mo-hinh { max-width: min(92vw, 70rem) !important; flex: 0 0 auto; }
+.slide-3d .mo-hinh canvas { height: 42vh; min-height: 190px; }
+.slide-3d .fig-caption { margin-top: 12px; }
+.slide-3d h2.slide-title { margin-bottom: 10px; }
+
+/* ---------- Bảng vừa khung, không dùng thanh trượt ---------- */
+.slide .cmp-wrap { overflow: visible; max-height: none; min-height: 0; flex: 0 0 auto; }
+.slide .cmp-table { width: 100%; min-width: 0; }
+.slide .cmp-table th { white-space: normal; letter-spacing: 0; text-transform: none; vertical-align: bottom; }
+.slide .log, .slide.layout-sim .log { overflow: visible; max-height: none; }
+.slide .log tbody tr:nth-last-child(n+8) { display: none; } /* chỉ giữ 7 vòng mới nhất */
+@media screen and (max-width: 1280px) {
+  .slide.slide .cmp-table { font-size: .86rem; }
+  .slide.slide .cmp-table th, .slide.slide .cmp-table td { padding: 6px 8px; line-height: 1.35; }
+  .slide .cmp-table .pill { font-size: inherit; padding: 1px 6px; }
+}
+@media screen and (max-width: 700px) {
+  .slide.slide .cmp-table { font-size: .66rem; }
+  .slide.slide .cmp-table th, .slide.slide .cmp-table td { padding: 5px 3px; overflow-wrap: anywhere; width: auto; }
+  .slide .cmp-table .pill { padding: 0 3px; border: 0; font-family: var(--font-body); }
+  .slide .cmp-table td.num { white-space: normal; font-family: var(--font-body); }
+}
+
+/* ---------- Chú thích đi liền ngay dưới hình ---------- */
+.fig-group { margin: 0 auto 12px; width: 100%; max-width: 600px; }
+.slide .fig-group > .diagram-frame { max-width: 100% !important; margin: 0 auto !important; }
+.slide .fig-caption { font-family: var(--font-body); font-size: .92rem; line-height: 1.45; font-weight: 500; text-align: center; margin: 8px auto 0; max-width: 62ch; text-wrap: balance; }
+.slide .diagram-frame + .fig-caption { margin-top: 8px !important; }
+@media screen and (min-width: 1100px) {
+  .slide.layout-graph > .fig-group { grid-column: 1; grid-row: 3 / span 3; align-self: center; margin: 0 !important; }
+}
+.slide .diagram-frame:has(+ .fig-caption) { margin-bottom: 0 !important; }
+.slide .diagram-frame + .fig-caption { margin-bottom: 14px !important; }
+
+/* ---------- Chú thích dưới hình và bảng: in nghiêng, cỡ nhỏ vừa đủ đọc ---------- */
+.slide.slide :is(.fig-caption, .sim-note, .qbercalc-note, .xorcalc-note, .fig-group .fig-caption) { font-family: var(--font-body); font-style: italic; font-weight: 400; font-size: max(.8rem, calc(12px / var(--z, 1))); line-height: 1.45; }
+@media screen and (max-width: 700px) { .slide.slide :is(.fig-caption, .sim-note, .qbercalc-note, .xorcalc-note) { font-size: .75rem; } }
+
+/* ---------- Mô phỏng: mọi khung giữ nguyên kích thước và vị trí khi chạy ---------- */
+.slide.slide.layout-sim .log { box-sizing: border-box; height: 15.6rem; overflow: hidden; padding: 0; }
+.slide.slide.layout-sim .log table { font-size: .9rem; table-layout: fixed; }
+.slide.slide.layout-sim .log :is(th, td) { height: 1.9rem; padding-top: 0; padding-bottom: 0; line-height: 1.2; white-space: nowrap; overflow: hidden; }
+.slide.slide.layout-sim .log th:first-child { width: 14%; }
+.slide.slide.layout-sim .metrics { align-items: stretch; }
+.slide.slide.layout-sim .metric { box-sizing: border-box; height: 13.4rem; min-width: 0; overflow: hidden; }
+.slide.slide.layout-sim .keybits { height: 7.5em; line-height: 1.5; overflow: hidden; }
+.slide .keycount { font-size: .85rem; margin-top: .4rem; }
+.slide.slide.layout-sim .m-value { height: 2.9rem; line-height: 1.15; margin-bottom: 6px; }
+.slide.slide.layout-sim .m-value-sub { display: block; font-size: .8rem; }
+.slide.slide.layout-sim .verdict { font-size: .85rem; line-height: 1.4; height: 5.6em; }
+.slide.layout-sim .station .label { font-variant-numeric: tabular-nums; }
+.slide.layout-sim .station .readout { min-height: 1.5em; white-space: nowrap; }
+.slide.slide.layout-sim #simAutoBtn { min-width: 16em; white-space: nowrap; font-size: .85rem; }
+
+/* ---------- Sơ đồ hàn: khung xem phóng to ---------- */
+.slide.slide.slide-wiring { justify-content: flex-start; }
+.slide.slide-wiring > * { flex-shrink: 0; }
+.slide.slide-wiring .slide-title { font-size: clamp(1.3rem, 3.6vh, 2rem); margin-bottom: .4rem; }
+.slide.slide-wiring .eyebrow { margin-bottom: .2rem; }
+.slide.slide-wiring > .wv { flex: 1 1 0; min-height: 0; width: 100%; max-width: none; display: flex; flex-direction: column; gap: .5rem; }
+.wv-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: .35rem; }
+.wv button { font: 700 .82rem/1.2 var(--font-body); padding: .45em .85em; border-radius: 999px; cursor: pointer; border: 2px solid #080B33; background: #FFFFFF00; color: inherit; }
+.wv-tabs button[aria-pressed="true"] { background: #080B33; color: #FFD43B; }
+.slide.c-blue .wv button, .slide.c-red .wv button { border-color: #FFD43B; }
+.wv button:focus-visible { outline: 3px solid #4DE1FF; outline-offset: 2px; }
+.wv-stage { position: relative; flex: 1 1 0; min-height: 0; border-radius: 14px; background: #E4E9EE; box-shadow: 0 14px 30px -14px rgba(4,6,36,.55); }
+.wv-stage svg { position: absolute; inset: 8px; width: calc(100% - 16px); height: calc(100% - 16px); }
+.wv-stage .wv-full { position: absolute; right: 8px; bottom: 8px; background: #080B33; color: #FFFFFF; border-color: #FFFFFF; }
+.slide .wv > .fig-caption { margin: 0 auto; max-width: 90ch; }
+.slide.slide.wv-open { transform: none !important; animation: none !important; filter: none !important; overflow: visible; z-index: 350; }
+.slide .wv.is-full { position: fixed; inset: 0; z-index: 350; background: #080B33; color: #FFFFFF; padding: 10px; }
+.slide .wv.is-full button { border-color: #FFD43B; color: #FFFFFF; }
+.slide .wv.is-full .wv-tabs button[aria-pressed="true"] { background: #FFD43B; color: #080B33; }
+.slide .wv.is-full .fig-caption { color: #FFFFFF; }
+@media screen and (max-width: 899px) { .slide.slide-wiring > .wv { flex: 0 0 auto; } .wv-stage { flex: 0 0 62vh; } }

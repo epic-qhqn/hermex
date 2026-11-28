@@ -7,12 +7,7 @@
   <title>Hermex — sa bàn mô phỏng phân phối khoá lượng tử BB84</title>
   <meta name="description" content="Hermex: mô hình cơ – điện mô phỏng giao thức BB84 bằng ESP32, servo và cảm biến LDR, kèm dữ liệu thử nghiệm và phần mềm sifting, QBER, mã hoá ảnh XOR.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="css/fonts.css">
 
   <link rel="stylesheet" href="css/variables.css">
   <link rel="stylesheet" href="css/base.css">
@@ -20,31 +15,17 @@
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/slides.css">
   <link rel="stylesheet" href="css/navigation.css">
-  <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/lightbox.css">
   <link rel="stylesheet" href="css/malus-demo.css">
   <link rel="stylesheet" href="css/sim-demo.css">
   <link rel="stylesheet" href="css/xor-demo.css">
   <link rel="stylesheet" href="css/arch-device.css">
   <link rel="stylesheet" href="css/polish.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/mo-hinh.css">
 </head>
 
 <body>
-
-  <div class="photon-field" aria-hidden="true">
-    <div class="photon"
-      style="width:90px; height:90px; left:8%; top:15%; --dx:60px; --dy:40px; animation-duration:14s;"></div>
-    <div class="photon"
-      style="width:60px; height:60px; left:85%; top:20%; --dx:-50px; --dy:70px; animation-duration:11s;"></div>
-    <div class="photon"
-      style="width:120px; height:120px; left:50%; top:75%; --dx:40px; --dy:-60px; animation-duration:17s;"></div>
-    <div class="photon"
-      style="width:50px; height:50px; left:20%; top:80%; --dx:-30px; --dy:-50px; animation-duration:9s;"></div>
-    <div class="photon"
-      style="width:75px; height:75px; left:70%; top:60%; --dx:55px; --dy:30px; animation-duration:13s;"></div>
-    <div class="photon"
-      style="width:45px; height:45px; left:35%; top:10%; --dx:-40px; --dy:60px; animation-duration:10s;"></div>
-  </div>
 
   <div class="top-bar">
     <div class="logo"><svg class="dial" viewBox="0 0 20 20">
@@ -53,6 +34,7 @@
       </svg>Hermex</div>
     <div class="section-hint" id="sectionHint" title="Mở mục lục" role="button" tabindex="0">Mở đầu</div>
     <div class="top-controls">
+      <a class="ctrl-btn story-link" href="kham-pha.html">Câu chuyện</a>
       <button class="ctrl-btn active" id="soundBtn">Âm thanh: Bật</button>
       <button class="ctrl-btn" id="agendaBtn" aria-haspopup="dialog">Mục lục (G)</button>
       <button class="ctrl-btn" id="presentBtn">Trình chiếu</button>
@@ -62,84 +44,10 @@
   <div class="deck" id="deck">
     <!-- ===== SLIDE 01 ===== -->
     <section class="slide slide-cover active" data-section="Mở đầu" data-cover>
-      <div class="cover-bg" aria-hidden="true">
-        <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <marker id="cbArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5"
-              orient="auto-start-reverse">
-              <path d="M1 1L8 5L1 9" fill="none" stroke="var(--swatch-2)" stroke-width="1.6" stroke-linecap="round" />
-            </marker>
-          </defs>
-          <!-- lưới kính phân cực mờ -->
-          <g stroke="var(--swatch-3)" stroke-width="1" opacity=".22">
-            <line x1="0" y1="120" x2="1440" y2="120" transform="rotate(45 720 450)" />
-            <line x1="0" y1="220" x2="1440" y2="220" transform="rotate(45 720 450)" />
-            <line x1="0" y1="320" x2="1440" y2="320" transform="rotate(45 720 450)" />
-            <line x1="0" y1="420" x2="1440" y2="420" transform="rotate(45 720 450)" />
-            <line x1="0" y1="520" x2="1440" y2="520" transform="rotate(45 720 450)" />
-            <line x1="0" y1="620" x2="1440" y2="620" transform="rotate(45 720 450)" />
-            <line x1="0" y1="720" x2="1440" y2="720" transform="rotate(45 720 450)" />
-            <line x1="0" y1="820" x2="1440" y2="820" transform="rotate(45 720 450)" />
-          </g>
-          <!-- hai vòng la bàn phân cực lớn -->
-          <g opacity=".28">
-            <circle cx="150" cy="150" r="270" fill="none" stroke="var(--swatch-1)" stroke-width="1.4" />
-            <circle cx="150" cy="150" r="270" fill="none" stroke="var(--swatch-2)" stroke-width="1"
-              stroke-dasharray="2 10" />
-            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4" />
-            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4"
-              transform="rotate(45 150 150)" />
-            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4"
-              transform="rotate(90 150 150)" />
-            <line x1="150" y1="150" x2="150" y2="-120" stroke="var(--swatch-1)" stroke-width="1.4"
-              transform="rotate(135 150 150)" />
-          </g>
-          <g opacity=".24">
-            <circle cx="1310" cy="760" r="330" fill="none" stroke="var(--swatch-1)" stroke-width="1.4" />
-            <circle cx="1310" cy="760" r="330" fill="none" stroke="var(--swatch-2)" stroke-width="1"
-              stroke-dasharray="2 10" />
-            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
-              transform="rotate(20 1310 760)" />
-            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
-              transform="rotate(65 1310 760)" />
-            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
-              transform="rotate(110 1310 760)" />
-            <line x1="1310" y1="760" x2="1310" y2="430" stroke="var(--swatch-1)" stroke-width="1.4"
-              transform="rotate(155 1310 760)" />
-          </g>
-          <!-- tia photon truyền qua kính lọc, mang theo bit ngẫu nhiên -->
-          <g opacity=".4">
-            <line x1="60" y1="470" x2="1380" y2="470" stroke="var(--swatch-2)" stroke-width="1.3" stroke-dasharray="1 9"
-              marker-end="url(#cbArrow)" />
-          </g>
-          <g class="svg-mono" fill="var(--swatch-2)" font-size="15" opacity=".5">
-            <text x="230" y="455">0</text>
-            <text x="410" y="455">1</text>
-            <text x="590" y="455">1</text>
-            <text x="770" y="455">0</text>
-            <text x="950" y="455">1</text>
-            <text x="1130" y="455">0</text>
-          </g>
-        </svg>
-      </div>
-      <div class="cover-icon">
-        <svg viewBox="0 0 200 200" width="108" height="108">
-          <circle cx="100" cy="100" r="86" fill="var(--bg-card)" stroke="var(--accent-deep)" stroke-width="2" />
-          <circle cx="100" cy="100" r="86" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 6" />
-          <line x1="100" y1="100" x2="100" y2="22" stroke="var(--line)" stroke-width="2.5" />
-          <line x1="100" y1="100" x2="100" y2="22" stroke="var(--line)" stroke-width="2.5"
-            transform="rotate(90 100 100)" />
-          <line x1="100" y1="100" x2="100" y2="22" stroke="var(--line)" stroke-width="2.5"
-            transform="rotate(135 100 100)" />
-          <line class="cover-needle" x1="100" y1="100" x2="100" y2="22" stroke="var(--accent)" stroke-width="4"
-            stroke-linecap="round" transform="rotate(45 100 100)" />
-          <circle cx="100" cy="100" r="7" fill="var(--accent-deep)" />
-          <text x="100" y="46" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--ink-mute)">0°</text>
-          <text x="163" y="105" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--ink-mute)">90°</text>
-          <text x="145" y="52" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--accent-deep)"
-            font-weight="700">45°</text>
-          <text x="140" y="150" text-anchor="middle" class="svg-mono" font-size="11" fill="var(--ink-mute)">135°</text>
-        </svg>
+      <div class="optics" aria-label="Mô phỏng định luật Malus: rê chuột để xoay kính của Bob">
+        <canvas id="opticsCanvas"></canvas>
+        <p class="optics-read">Kính Alice <b id="opA">45°</b>, kính Bob <b id="opB">45°</b>, ánh sáng tới LDR <b id="opI">100%</b></p>
+        <p class="optics-tip">Rê chuột hoặc chạm để xoay kính của Bob</p>
       </div>
       <div class="eyebrow" style="justify-content:center; font-size:1rem; letter-spacing:.2em;">Dự án kỹ thuật — mô phỏng
         phân phối khoá lượng tử BB84</div>
@@ -474,29 +382,29 @@
           </defs>
           <rect x="40" y="70" width="34" height="20" rx="3" fill="var(--bg-deep)" stroke="var(--line)"
             stroke-width="1" />
-          <text class="svg-mono" x="57" y="112" text-anchor="middle" font-size="15" fill="var(--ink-mute)">laser</text>
+          <text class="svg-mono" x="57" y="112" text-anchor="middle" font-size="16.2" fill="var(--ink-mute)">laser</text>
           <line x1="74" y1="80" x2="158" y2="80" stroke="var(--accent)" stroke-width="2" marker-end="url(#a9)" />
           <line x1="172" y1="48" x2="172" y2="112" stroke="var(--accent-deep)" stroke-width="4"
             transform="rotate(20 172 80)" />
-          <text class="svg-mono" x="172" y="140" text-anchor="middle" font-size="15" fill="var(--ink-soft)">kính Alice
+          <text class="svg-mono" x="172" y="140" text-anchor="middle" font-size="16.2" fill="var(--ink-soft)">kính Alice
             (θA)</text>
           <rect x="190" y="60" width="130" height="40" rx="6" fill="none" stroke="var(--line)" stroke-width="1"
             stroke-dasharray="3 3" />
-          <text class="svg-mono" x="255" y="46" text-anchor="middle" font-size="13" fill="var(--ink-mute)">kênh truyền
+          <text class="svg-mono" x="255" y="46" text-anchor="middle" font-size="15.9" fill="var(--ink-mute)">kênh truyền
             không gian</text>
           <line x1="182" y1="80" x2="398" y2="80" stroke="var(--accent)" stroke-width="1.5" marker-end="url(#a9)" />
           <line x1="402" y1="48" x2="402" y2="112" stroke="var(--accent-deep)" stroke-width="4"
             transform="rotate(-15 402 80)" />
-          <text class="svg-mono" x="402" y="140" text-anchor="middle" font-size="15" fill="var(--ink-soft)">kính Bob
+          <text class="svg-mono" x="402" y="140" text-anchor="middle" font-size="16.2" fill="var(--ink-soft)">kính Bob
             (θB)</text>
           <line x1="412" y1="80" x2="498" y2="80" stroke="var(--accent)" stroke-width="1" marker-end="url(#a9)" />
           <rect x="500" y="58" width="95" height="44" rx="8" fill="var(--safe-bg)" stroke="var(--safe)" />
-          <text class="svg-th" x="547" y="85" text-anchor="middle" font-size="16" fill="#6EE7B7">LDR</text>
+          <text class="svg-th" x="547" y="85" text-anchor="middle" font-size="17.3" fill="var(--safe)">LDR</text>
           <rect x="100" y="178" width="480" height="66" rx="8" fill="var(--bg-deep)" stroke="var(--line)"
             stroke-width="1" />
-          <text class="svg-mono" x="340" y="205" text-anchor="middle" font-size="19" fill="var(--ink)">I = I₀ · cos²(θA
+          <text class="svg-mono" x="340" y="205" text-anchor="middle" font-size="20.5" fill="var(--ink)">I = I₀ · cos²(θA
             − θB)</text>
-          <text class="svg-mono" x="340" y="230" text-anchor="middle" font-size="12" fill="var(--ink-mute)">θA = θB → I
+          <text class="svg-mono" x="340" y="230" text-anchor="middle" font-size="14.6" fill="var(--ink-mute)">θA = θB → I
             lớn nhất | θA − θB = 90° → I ≈ 0</text>
         </svg>
       </div>
@@ -555,41 +463,43 @@
     </section>
 
     <!-- ===== SLIDE 15 ===== -->
-    <section class="slide" data-section="Sơ đồ kỹ thuật">
+    <section class="slide layout-graph" data-section="Sơ đồ kỹ thuật">
       <div class="eyebrow">Sơ đồ kỹ thuật 3 / 5</div>
       <h2 class="slide-title">Đồ thị Malus và <em>giới hạn cảm biến LDR</em></h2>
 
+      <figure class="fig-group">
       <div class="diagram-frame" style="max-width:560px; padding:14px 20px 6px; margin:0 auto 12px;">
         <svg viewBox="0 0 680 250" style="width:100%; max-width:520px; display:block; margin:0 auto;">
           <line x1="90" y1="50" x2="90" y2="195" stroke="var(--ink-mute)" stroke-width="1" />
           <line x1="90" y1="195" x2="610" y2="195" stroke="var(--ink-mute)" stroke-width="1" />
-          <text class="svg-mono" x="50" y="42" font-size="13" fill="var(--ink-mute)">I/I₀</text>
-          <text class="svg-mono" x="80" y="59" text-anchor="end" font-size="13" fill="var(--ink-mute)">1.0</text>
-          <text class="svg-mono" x="80" y="130" text-anchor="end" font-size="13" fill="var(--ink-mute)">0.5</text>
-          <text class="svg-mono" x="80" y="199" text-anchor="end" font-size="13" fill="var(--ink-mute)">0</text>
-          <text class="svg-mono" x="90" y="216" text-anchor="middle" font-size="13" fill="var(--ink-mute)">0°</text>
-          <text class="svg-mono" x="345" y="216" text-anchor="middle" font-size="13" fill="var(--ink-mute)">45°</text>
-          <text class="svg-mono" x="610" y="216" text-anchor="middle" font-size="13" fill="var(--ink-mute)">90°</text>
-          <text class="svg-mono" x="345" y="238" text-anchor="middle" font-size="12" fill="var(--ink-mute)">lệch góc Δθ
+          <text class="svg-mono" x="50" y="42" font-size="15.9" fill="var(--ink-mute)">I/I₀</text>
+          <text class="svg-mono" x="80" y="59" text-anchor="end" font-size="15.9" fill="var(--ink-mute)">1.0</text>
+          <text class="svg-mono" x="80" y="130" text-anchor="end" font-size="15.9" fill="var(--ink-mute)">0.5</text>
+          <text class="svg-mono" x="80" y="199" text-anchor="end" font-size="15.9" fill="var(--ink-mute)">0</text>
+          <text class="svg-mono" x="90" y="216" text-anchor="middle" font-size="15.9" fill="var(--ink-mute)">0°</text>
+          <text class="svg-mono" x="345" y="216" text-anchor="middle" font-size="15.9" fill="var(--ink-mute)">45°</text>
+          <text class="svg-mono" x="610" y="216" text-anchor="middle" font-size="15.9" fill="var(--ink-mute)">90°</text>
+          <text class="svg-mono" x="345" y="238" text-anchor="middle" font-size="14.6" fill="var(--ink-mute)">lệch góc Δθ
             giữa hai kính phân cực</text>
 
           <path d="M90 55 L147 59 L203 72 L260 90 L317 113 L345 125 L373 138 L430 160 L487 179 L543 191 L600 195"
             fill="none" stroke="var(--accent)" stroke-width="3" />
 
           <circle cx="90" cy="55" r="5" fill="var(--accent-deep)" />
-          <text class="svg-mono" x="140" y="42" text-anchor="start" font-size="13" fill="var(--ink-soft)">trùng cơ
+          <text class="svg-mono" x="140" y="42" text-anchor="start" font-size="15.9" fill="var(--ink-soft)">trùng cơ
             sở</text>
 
           <circle cx="345" cy="125" r="5" fill="var(--accent-deep)" />
-          <text class="svg-mono" x="345" y="102" text-anchor="middle" font-size="13" fill="var(--ink-soft)">lệch cơ
+          <text class="svg-mono" x="345" y="102" text-anchor="middle" font-size="15.9" fill="var(--ink-soft)">lệch cơ
             sở</text>
 
           <circle cx="600" cy="195" r="5" fill="var(--accent-deep)" />
-          <text class="svg-mono" x="592" y="174" text-anchor="end" font-size="13" fill="var(--ink-soft)">vuông
+          <text class="svg-mono" x="592" y="174" text-anchor="end" font-size="15.9" fill="var(--ink-soft)">vuông
             góc</text>
         </svg>
       </div>
       <p class="fig-caption">Hình do nhóm tự vẽ, minh hoạ lý thuyết (không phải số đo).</p>
+      </figure>
 
       <div class="formula-box" style="margin:10px auto 14px; max-width:540px; padding:14px 28px;">
         R = A · E<sup style="font-size:.65em;">−γ</sup>
@@ -609,36 +519,36 @@
       <div class="diagram-frame">
         <svg viewBox="0 0 680 270" style="width:100%; max-width:640px; display:block; margin:0 auto;">
           <rect x="40" y="18" width="180" height="42" rx="8" fill="var(--safe-bg)" />
-          <text class="svg-th" x="130" y="43" text-anchor="middle" font-size="15" fill="#6EE7B7">bình thường</text>
+          <text class="svg-th" x="130" y="43" text-anchor="middle" font-size="16.2" fill="var(--safe)">bình thường</text>
           <rect x="240" y="18" width="180" height="42" rx="8" fill="var(--danger-bg)" />
-          <text class="svg-th" x="330" y="43" text-anchor="middle" font-size="15" fill="#FCA5A5">có hacker (Eve)</text>
+          <text class="svg-th" x="330" y="43" text-anchor="middle" font-size="16.2" fill="var(--danger)">có hacker (Eve)</text>
           <rect x="440" y="18" width="180" height="42" rx="8" fill="var(--accent-pale)" />
-          <text class="svg-th" x="530" y="43" text-anchor="middle" font-size="14" fill="var(--accent-deep)">sương
+          <text class="svg-th" x="530" y="43" text-anchor="middle" font-size="15.1" fill="var(--accent-deep)">sương
             mù</text>
 
           <line x1="40" y1="82" x2="620" y2="82" stroke="var(--line)" />
-          <text class="svg-mono" x="40" y="77" font-size="13" fill="var(--ink-mute)">cường độ LDR</text>
-          <text x="130" y="106" text-anchor="middle" font-size="14" fill="var(--ink)">ổn định</text>
-          <text x="330" y="106" text-anchor="middle" font-size="14" fill="var(--ink)">ổn định</text>
-          <text x="530" y="106" text-anchor="middle" font-size="14" fill="var(--ink)">sụt giảm mạnh</text>
+          <text class="svg-mono" x="40" y="77" font-size="15.9" fill="var(--ink-mute)">cường độ LDR</text>
+          <text x="130" y="106" text-anchor="middle" font-size="15.1" fill="var(--ink)">ổn định</text>
+          <text x="330" y="106" text-anchor="middle" font-size="15.1" fill="var(--ink)">ổn định</text>
+          <text x="530" y="106" text-anchor="middle" font-size="15.1" fill="var(--ink)">sụt giảm mạnh</text>
 
           <line x1="40" y1="130" x2="620" y2="130" stroke="var(--line)" />
-          <text class="svg-mono" x="40" y="125" font-size="13" fill="var(--ink-mute)">góc phân cực</text>
-          <text x="130" y="154" text-anchor="middle" font-size="14" fill="var(--ink)">giữ nguyên</text>
-          <text x="330" y="154" text-anchor="middle" font-size="14" fill="var(--ink)">bị xáo trộn</text>
-          <text x="530" y="154" text-anchor="middle" font-size="14" fill="var(--ink)">mất phân cực</text>
+          <text class="svg-mono" x="40" y="125" font-size="15.9" fill="var(--ink-mute)">góc phân cực</text>
+          <text x="130" y="154" text-anchor="middle" font-size="15.1" fill="var(--ink)">giữ nguyên</text>
+          <text x="330" y="154" text-anchor="middle" font-size="15.1" fill="var(--ink)">bị xáo trộn</text>
+          <text x="530" y="154" text-anchor="middle" font-size="15.1" fill="var(--ink)">mất phân cực</text>
 
           <line x1="40" y1="178" x2="620" y2="178" stroke="var(--line)" />
-          <text class="svg-mono" x="40" y="173" font-size="13" fill="var(--ink-mute)">QBER</text>
-          <text x="130" y="202" text-anchor="middle" font-size="14" fill="var(--ink)">~0%</text>
-          <text x="330" y="202" text-anchor="middle" font-size="14" fill="var(--ink)">&gt; 11%</text>
-          <text x="530" y="202" text-anchor="middle" font-size="14" fill="var(--ink)">không tính được</text>
+          <text class="svg-mono" x="40" y="173" font-size="15.9" fill="var(--ink-mute)">QBER</text>
+          <text x="130" y="202" text-anchor="middle" font-size="15.1" fill="var(--ink)">~0%</text>
+          <text x="330" y="202" text-anchor="middle" font-size="15.1" fill="var(--ink)">&gt; 11%</text>
+          <text x="530" y="202" text-anchor="middle" font-size="15.1" fill="var(--ink)">không tính được</text>
 
           <line x1="40" y1="226" x2="620" y2="226" stroke="var(--line)" />
-          <text class="svg-mono" x="40" y="221" font-size="13" fill="var(--ink-mute)">phản ứng hệ thống</text>
-          <text x="130" y="250" text-anchor="middle" font-size="14" fill="var(--ink)">truyền ảnh</text>
-          <text x="330" y="250" text-anchor="middle" font-size="14" fill="var(--ink)">huỷ khoá</text>
-          <text x="530" y="250" text-anchor="middle" font-size="14" fill="var(--ink)">từ chối tín hiệu</text>
+          <text class="svg-mono" x="40" y="221" font-size="15.9" fill="var(--ink-mute)">phản ứng hệ thống</text>
+          <text x="130" y="250" text-anchor="middle" font-size="15.1" fill="var(--ink)">truyền ảnh</text>
+          <text x="330" y="250" text-anchor="middle" font-size="15.1" fill="var(--ink)">huỷ khoá</text>
+          <text x="530" y="250" text-anchor="middle" font-size="15.1" fill="var(--ink)">từ chối tín hiệu</text>
         </svg>
       </div>
       <p class="fig-caption">Hình do nhóm tự vẽ. Kịch bản hacker được kiểm chứng bằng mô phỏng phần mềm; sa bàn đã có module phun sương cho kịch bản sương mù nhưng chưa có số liệu đo riêng.</p>
@@ -653,39 +563,39 @@
       <h2 class="slide-title">Kiến trúc hệ thống: <em>hai trạm, ba kênh</em></h2>
       <div class="diagram-frame">
         <svg viewBox="0 0 680 340" style="width:100%; max-width:640px; display:block; margin:0 auto;">
-          <text class="svg-th" x="145" y="30" text-anchor="middle" font-size="16" fill="var(--ink)">trạm Alice</text>
-          <text class="svg-th" x="535" y="30" text-anchor="middle" font-size="16" fill="var(--ink)">trạm Bob</text>
+          <text class="svg-th" x="145" y="30" text-anchor="middle" font-size="17.3" fill="var(--ink)">trạm Alice</text>
+          <text class="svg-th" x="535" y="30" text-anchor="middle" font-size="17.3" fill="var(--ink)">trạm Bob</text>
           <rect x="50" y="44" width="190" height="58" rx="8" fill="var(--accent-pale)" />
-          <text class="svg-th" x="145" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">máy tính Alice</text>
-          <text class="svg-mono" x="145" y="88" text-anchor="middle" font-size="12" fill="var(--accent-deep)">GUI
+          <text class="svg-th" x="145" y="68" text-anchor="middle" font-size="16.2" fill="var(--accent-deep)">máy tính Alice</text>
+          <text class="svg-mono" x="145" y="88" text-anchor="middle" font-size="14.6" fill="var(--accent-deep)">GUI
             PyQt6</text>
           <rect x="440" y="44" width="190" height="58" rx="8" fill="var(--accent-pale)" />
-          <text class="svg-th" x="535" y="68" text-anchor="middle" font-size="15" fill="var(--accent-deep)">máy tính Bob</text>
-          <text class="svg-mono" x="535" y="88" text-anchor="middle" font-size="12" fill="var(--accent-deep)">GUI
+          <text class="svg-th" x="535" y="68" text-anchor="middle" font-size="16.2" fill="var(--accent-deep)">máy tính Bob</text>
+          <text class="svg-mono" x="535" y="88" text-anchor="middle" font-size="14.6" fill="var(--accent-deep)">GUI
             PyQt6</text>
           <line x1="240" y1="73" x2="440" y2="73" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="7 5" />
-          <text class="svg-mono" x="340" y="63" text-anchor="middle" font-size="12" fill="var(--ink-mute)">TCP/IP — kênh
+          <text class="svg-mono" x="340" y="63" text-anchor="middle" font-size="14.6" fill="var(--ink-mute)">TCP/IP — kênh
             cổ điển</text>
 
           <line x1="145" y1="102" x2="145" y2="256" stroke="var(--ink-mute)" stroke-width="1" />
           <line x1="535" y1="102" x2="535" y2="256" stroke="var(--ink-mute)" stroke-width="1" />
-          <text class="svg-mono" x="40" y="182" font-size="12" fill="var(--ink-mute)">Serial USB</text>
-          <text class="svg-mono" x="640" y="182" text-anchor="end" font-size="12" fill="var(--ink-mute)">Serial
+          <text class="svg-mono" x="40" y="182" font-size="14.6" fill="var(--ink-mute)">Serial USB</text>
+          <text class="svg-mono" x="640" y="182" text-anchor="end" font-size="14.6" fill="var(--ink-mute)">Serial
             USB</text>
 
           <rect x="170" y="128" width="340" height="112" rx="10" fill="var(--danger-bg)" stroke="var(--danger)" />
-          <text class="svg-th" x="340" y="154" text-anchor="middle" font-size="14" fill="#FCA5A5">hai ESP32 không có kết
+          <text class="svg-th" x="340" y="154" text-anchor="middle" font-size="15.1" fill="var(--danger)">hai ESP32 không có kết
             nối</text>
-          <text x="340" y="176" text-anchor="middle" font-size="13" fill="#FDA4AF">mạng hay dây dẫn điện tử nào</text>
-          <text x="340" y="196" text-anchor="middle" font-size="13" fill="#FDA4AF">với nhau — chỉ liên hệ qua</text>
-          <text x="340" y="216" text-anchor="middle" font-size="13" fill="#FDA4AF">ánh sáng xuyên không gian</text>
+          <text x="340" y="176" text-anchor="middle" font-size="15.9" fill="var(--danger-light)">mạng hay dây dẫn điện tử nào</text>
+          <text x="340" y="196" text-anchor="middle" font-size="15.9" fill="var(--danger-light)">với nhau — chỉ liên hệ qua</text>
+          <text x="340" y="216" text-anchor="middle" font-size="15.9" fill="var(--danger-light)">ánh sáng xuyên không gian</text>
 
           <rect x="70" y="258" width="150" height="46" rx="8" fill="var(--bg-card)" stroke="var(--line)" />
-          <text class="svg-th" x="145" y="285" text-anchor="middle" font-size="14" fill="var(--ink)">ESP32 Alice</text>
+          <text class="svg-th" x="145" y="285" text-anchor="middle" font-size="15.1" fill="var(--ink)">ESP32 Alice</text>
           <rect x="460" y="258" width="150" height="46" rx="8" fill="var(--bg-card)" stroke="var(--line)" />
-          <text class="svg-th" x="535" y="285" text-anchor="middle" font-size="14" fill="var(--ink)">ESP32 Bob</text>
+          <text class="svg-th" x="535" y="285" text-anchor="middle" font-size="15.1" fill="var(--ink)">ESP32 Bob</text>
           <line x1="220" y1="281" x2="460" y2="281" stroke="var(--danger)" stroke-width="3" />
-          <text class="svg-mono" x="340" y="325" text-anchor="middle" font-size="12" fill="var(--ink-mute)">kênh quang
+          <text class="svg-mono" x="340" y="325" text-anchor="middle" font-size="14.6" fill="var(--ink-mute)">kênh quang
             học lượng tử — không gian tự do</text>
         </svg>
       </div>
@@ -787,7 +697,7 @@
     </section>
 
     <!-- ===== SLIDE 23 ===== -->
-    <section class="slide" data-section="Giao thức BB84">
+    <section class="slide layout-sim" data-section="Giao thức BB84">
       <div class="eyebrow">Mô phỏng trực tiếp</div>
       <h2 class="slide-title">Chạy thử một <em>phiên trao đổi khoá</em></h2>
       <p class="lead">Mỗi vòng: Alice chọn ngẫu nhiên 1 bit và 1 basis, servo xoay đúng góc tương ứng, tín hiệu đi qua
@@ -867,6 +777,7 @@
           <div class="metric">
             <div class="m-label">Khoá đã sift</div>
             <div class="keybits" id="simKeyBits">—</div>
+          <div class="keycount" id="simKeyCount">0 bit</div>
           </div>
           <div class="metric">
             <div class="m-label">QBER (ngưỡng an toàn 11%)</div>
@@ -927,7 +838,7 @@
       <div class="grid-2">
         <div class="safe-box">
           <div style="font-weight:600; font-size:1.02rem; margin-bottom:4px;">QBER ≤ 11%: Kênh an toàn</div>
-          <p style="margin:0; font-size:0.95rem; color:#A7F3D0;">Kênh được xác nhận an toàn, khoá lượng tử còn lại được
+          <p style="margin:0; font-size:0.95rem; color:var(--safe);">Kênh được xác nhận an toàn, khoá lượng tử còn lại được
             dùng để mã hoá ảnh XOR và gửi đi.</p>
         </div>
         <div class="warn-box">
@@ -972,13 +883,25 @@
     </section>
 
     <!-- ===== SLIDE 27 ===== -->
-    <section class="slide" data-section="Chế tạo & thử nghiệm">
+    <section class="slide slide-wiring" data-section="Chế tạo &amp; thử nghiệm">
       <div class="eyebrow">Sơ đồ đấu nối</div>
       <h2 class="slide-title">Hàn dây trực tiếp, <em>chia nguồn và lọc nhiễu</em></h2>
-      <div class="wiring-frame" data-lightbox="true" data-caption="Sơ đồ hàn dây Hermex do nhóm tự vẽ">
-        <img src="assets/images/wiring-diagram.jpg" alt="Sơ đồ hàn dây của Hermex: nguồn LM2596, hai servo, hai ESP32-C3, cảm biến LM393, laser và khu phun sương" loading="lazy">
+      <div class="wv" data-wiring>
+        <div class="wv-tabs" role="group" aria-label="Chọn phần sơ đồ"><button type="button" data-view="36 140 1724 696" data-note="Chấm bạc là chỗ hàn nối. Cầu cong là dây bắc qua nhau, không nối." aria-pressed="true">Toàn mạch</button><button type="button" data-view="62 180 820 500" data-note="LM2596 cấp bus 5V và bus GND, dây đỏ và đen của hai servo cùng tụ C1 hàn vào hai bus." aria-pressed="false">Nguồn và servo</button><button type="button" data-view="390 440 710 280" data-note="Chân 5V để trống. Dây VCC của cảm biến và dây từ R1 hàn chung chân 3V3 của Bob." aria-pressed="false">Hai ESP32-C3</button><button type="button" data-view="1020 180 630 420" data-note="Cảm biến LM393 có tụ 104 giữa GND và AO, laser nối qua điện trở R1 100Ω." aria-pressed="false">Cảm biến và laser</button><button type="button" data-view="48 912 826 428" data-note="Hàn tụ 1000µF vào hai dây bus." aria-pressed="false">Tụ C1</button><button type="button" data-view="920 912 826 428" data-note="Hàn tụ 104 giữa chân GND và AO của cảm biến." aria-pressed="false">Tụ C2</button><button type="button" data-view="1088 596 628 220" data-note="Khu phun sương dùng nguồn riêng, không nối vào mạch chính." aria-pressed="false">Phun sương</button><button type="button" data-view="36 1377 852 335" data-note="Chín bước hàn theo thứ tự." aria-pressed="false">Thứ tự hàn</button><button type="button" data-view="908 1377 852 335" data-note="Đo thông mạch trước khi cắm USB." aria-pressed="false">Đo kiểm</button></div>
+        <div class="wv-stage">
+          <svg viewBox="36 140 1724 696" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Sơ đồ hàn dây của Hermex"><clipPath id="wvClip"><rect x="36" y="140" width="1724" height="696"/></clipPath><image href="assets/images/wiring-diagram.jpg" width="1796" height="1800" clip-path="url(#wvClip)"/></svg>
+          <button type="button" class="wv-full" aria-pressed="false">Toàn màn hình</button>
+        </div>
+        <p class="fig-caption" aria-live="polite">Chấm bạc là chỗ hàn nối. Cầu cong là dây bắc qua nhau, không nối.</p>
       </div>
-      <p class="fig-caption">Hình do nhóm tự vẽ. Bấm vào hình để phóng to.</p>
+    </section>
+
+    <!-- ===== MÔ HÌNH 3D ===== -->
+    <section class="slide slide-3d" data-section="Chế tạo &amp; thử nghiệm">
+      <div class="eyebrow">Bản thiết kế</div>
+      <h2 class="slide-title">Mô hình <em>3D</em> của sa bàn</h2>
+      <div data-mo-hinh></div>
+      <p class="fig-caption">Hình dựng từ mã FreeCAD của nhóm, chưa phải ảnh chụp sa bàn đã lắp.</p>
     </section>
 
     <!-- ===== SLIDE 28 ===== -->
@@ -1036,49 +959,49 @@
 <line x1="121.3" y1="139.7" x2="121.3" y2="120.0" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="115.3" y1="120.0" x2="127.3" y2="120.0" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="115.3" y1="139.7" x2="127.3" y2="139.7" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="121.3" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">812</text>
+<text class="svg-mono" x="121.3" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">812</text>
 <rect x="151.3" y="93.8" width="44" height="176.2" rx="3" fill="var(--accent-light)" opacity=".85"/>
 <line x1="173.3" y1="130.6" x2="173.3" y2="55.7" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="167.3" y1="55.7" x2="179.3" y2="55.7" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="167.3" y1="130.6" x2="179.3" y2="130.6" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="173.3" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">1028</text>
+<text class="svg-mono" x="173.3" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">1028</text>
 <rect x="203.3" y="174.7" width="44" height="95.3" rx="3" fill="var(--safe-light)" opacity=".85"/>
 <line x1="225.3" y1="183.3" x2="225.3" y2="169.7" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="219.3" y1="169.7" x2="231.3" y2="169.7" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="219.3" y1="183.3" x2="231.3" y2="183.3" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="225.3" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">556</text>
+<text class="svg-mono" x="225.3" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">556</text>
 <text class="svg-th" x="173.3" y="294" text-anchor="middle" font-size="15" fill="var(--ink)">Δθ = 0°</text>
 <rect x="306.0" y="135.0" width="44" height="135.0" rx="3" fill="var(--ink-mute)" opacity=".85"/>
 <line x1="328.0" y1="139.5" x2="328.0" y2="116.7" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="322.0" y1="116.7" x2="334.0" y2="116.7" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="322.0" y1="139.5" x2="334.0" y2="139.5" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="328.0" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">788</text>
+<text class="svg-mono" x="328.0" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">788</text>
 <rect x="358.0" y="78.3" width="44" height="191.7" rx="3" fill="var(--accent-light)" opacity=".85"/>
 <line x1="380.0" y1="111.5" x2="380.0" y2="59.4" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="374.0" y1="59.4" x2="386.0" y2="59.4" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="374.0" y1="111.5" x2="386.0" y2="111.5" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="380.0" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">1118</text>
+<text class="svg-mono" x="380.0" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">1118</text>
 <rect x="410.0" y="172.5" width="44" height="97.5" rx="3" fill="var(--safe-light)" opacity=".85"/>
 <line x1="432.0" y1="182.4" x2="432.0" y2="167.0" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="426.0" y1="167.0" x2="438.0" y2="167.0" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="426.0" y1="182.4" x2="438.0" y2="182.4" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="432.0" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">568</text>
+<text class="svg-mono" x="432.0" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">568</text>
 <text class="svg-th" x="380.0" y="294" text-anchor="middle" font-size="15" fill="var(--ink)">Δθ = 45°</text>
 <rect x="512.7" y="109.2" width="44" height="160.8" rx="3" fill="var(--ink-mute)" opacity=".85"/>
 <line x1="534.7" y1="136.5" x2="534.7" y2="95.4" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="528.7" y1="95.4" x2="540.7" y2="95.4" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="528.7" y1="136.5" x2="540.7" y2="136.5" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="534.7" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">938</text>
+<text class="svg-mono" x="534.7" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">938</text>
 <rect x="564.7" y="66.1" width="44" height="203.9" rx="3" fill="var(--accent-light)" opacity=".85"/>
 <line x1="586.7" y1="101.2" x2="586.7" y2="51.1" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="580.7" y1="51.1" x2="592.7" y2="51.1" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="580.7" y1="101.2" x2="592.7" y2="101.2" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="586.7" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">1190</text>
+<text class="svg-mono" x="586.7" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">1190</text>
 <rect x="616.7" y="158.7" width="44" height="111.3" rx="3" fill="var(--safe-light)" opacity=".85"/>
 <line x1="638.7" y1="167.0" x2="638.7" y2="150.0" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="632.7" y1="150.0" x2="644.7" y2="150.0" stroke="var(--ink)" stroke-width="1.6"/>
 <line x1="632.7" y1="167.0" x2="644.7" y2="167.0" stroke="var(--ink)" stroke-width="1.6"/>
-<text class="svg-mono" x="638.7" y="262" text-anchor="middle" font-size="12" fill="#06131c" font-weight="700">650</text>
+<text class="svg-mono" x="638.7" y="262" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="700">650</text>
 <text class="svg-th" x="586.7" y="294" text-anchor="middle" font-size="15" fill="var(--ink)">Δθ = 90°</text>
 <line x1="70" y1="270" x2="690" y2="270" stroke="var(--ink-mute)"/>
 <rect x="70" y="308" width="14" height="14" rx="3" fill="var(--ink-mute)"/><text x="90" y="320" font-size="13" fill="var(--ink-soft)">Nền (tắt laser)</text>
@@ -1115,21 +1038,21 @@
 <line x1="163.33333333333331" y1="35.3" x2="183.33333333333331" y2="35.3" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <line x1="163.33333333333331" y1="192.9" x2="183.33333333333331" y2="192.9" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <rect x="139.33333333333331" y="155.0" width="68" height="33.7" rx="4" fill="var(--danger-light)" opacity=".85"/>
-<line x1="139.33333333333331" y1="182.4" x2="207.33333333333331" y2="182.4" stroke="#06131c" stroke-width="2.5"/>
+<line x1="139.33333333333331" y1="182.4" x2="207.33333333333331" y2="182.4" stroke="#FFFFFF" stroke-width="2.5"/>
 <text class="svg-th" x="173.33333333333331" y="264" text-anchor="middle" font-size="15" fill="var(--ink)">Lần 1</text>
 <text class="svg-mono" x="173.33333333333331" y="284" text-anchor="middle" font-size="13" fill="var(--ink-soft)">σ = 545 · max = 2144</text>
 <line x1="380.0" y1="195.0" x2="380.0" y2="105.9" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <line x1="370.0" y1="105.9" x2="390.0" y2="105.9" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <line x1="370.0" y1="195.0" x2="390.0" y2="195.0" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <rect x="346.0" y="188.3" width="68" height="3.6" rx="4" fill="var(--accent-light)" opacity=".85"/>
-<line x1="346.0" y1="191.3" x2="414.0" y2="191.3" stroke="#06131c" stroke-width="2.5"/>
+<line x1="346.0" y1="191.3" x2="414.0" y2="191.3" stroke="#FFFFFF" stroke-width="2.5"/>
 <text class="svg-th" x="380.0" y="264" text-anchor="middle" font-size="15" fill="var(--ink)">Lần 2</text>
 <text class="svg-mono" x="380.0" y="284" text-anchor="middle" font-size="13" fill="var(--ink-soft)">σ = 145 · max = 1405</text>
 <line x1="586.6666666666666" y1="191.5" x2="586.6666666666666" y2="178.0" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <line x1="576.6666666666666" y1="178.0" x2="596.6666666666666" y2="178.0" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <line x1="576.6666666666666" y1="191.5" x2="596.6666666666666" y2="191.5" stroke="var(--ink-mute)" stroke-width="1.5"/>
 <rect x="552.6666666666666" y="181.2" width="68" height="4.5" rx="4" fill="var(--safe-light)" opacity=".85"/>
-<line x1="552.6666666666666" y1="184.3" x2="620.6666666666666" y2="184.3" stroke="#06131c" stroke-width="2.5"/>
+<line x1="552.6666666666666" y1="184.3" x2="620.6666666666666" y2="184.3" stroke="#FFFFFF" stroke-width="2.5"/>
 <text class="svg-th" x="586.6666666666666" y="264" text-anchor="middle" font-size="15" fill="var(--ink)">Lần 3</text>
 <text class="svg-mono" x="586.6666666666666" y="284" text-anchor="middle" font-size="13" fill="var(--ink-soft)">σ = 35 · max = 650</text>
 <line x1="70" y1="240" x2="690" y2="240" stroke="var(--ink-mute)"/>
@@ -1144,7 +1067,7 @@
     <section class="slide" data-section="Chế tạo & thử nghiệm">
       <div class="eyebrow">Báo cáo số liệu đo</div>
       <h2 class="slide-title">Bảng ADC trung bình <em>theo từng cặp góc</em></h2>
-      <div class="grid-3 heat-grid"><div class="heat-card"><h4>Nền, tắt laser</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(56,189,248,0.33)">982<span>±71</span></td><td class="" style="background:rgba(56,189,248,0.39)">1035<span>±220</span></td><td class="d90" style="background:rgba(56,189,248,0.58)">1204<span>±604</span></td><td class="" style="background:rgba(56,189,248,0.49)">1125<span>±650</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(56,189,248,0.10)">773<span>±20</span></td><td class="d0" style="background:rgba(56,189,248,0.09)">769<span>±9</span></td><td class="" style="background:rgba(56,189,248,0.32)">967<span>±314</span></td><td class="d90" style="background:rgba(56,189,248,0.30)">950<span>±148</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(56,189,248,0.36)">1003<span>±38</span></td><td class="" style="background:rgba(56,189,248,0.20)">860<span>±106</span></td><td class="d0" style="background:rgba(56,189,248,0.08)">757<span>±31</span></td><td class="" style="background:rgba(56,189,248,0.13)">800<span>±42</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(56,189,248,0.08)">756<span>±9</span></td><td class="d90" style="background:rgba(56,189,248,0.08)">760<span>±12</span></td><td class="" style="background:rgba(56,189,248,0.12)">790<span>±25</span></td><td class="d0" style="background:rgba(56,189,248,0.17)">838<span>±19</span></td></tr></tbody></table></div><div class="heat-card"><h4>Laser, lần 1</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(56,189,248,0.08)">666<span>±189</span></td><td class="" style="background:rgba(56,189,248,0.48)">1393<span>±100</span></td><td class="d90" style="background:rgba(56,189,248,0.58)">1570<span>±81</span></td><td class="" style="background:rgba(56,189,248,0.18)">846<span>±146</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(56,189,248,0.32)">1096<span>±32</span></td><td class="d0" style="background:rgba(56,189,248,0.37)">1189<span>±97</span></td><td class="" style="background:rgba(56,189,248,0.19)">868<span>±178</span></td><td class="d90" style="background:rgba(56,189,248,0.29)">1040<span>±58</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(56,189,248,0.20)">888<span>±84</span></td><td class="" style="background:rgba(56,189,248,0.18)">853<span>±72</span></td><td class="d0" style="background:rgba(56,189,248,0.24)">954<span>±104</span></td><td class="" style="background:rgba(56,189,248,0.35)">1159<span>±28</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(56,189,248,0.38)">1215<span>±13</span></td><td class="d90" style="background:rgba(56,189,248,0.40)">1252<span>±13</span></td><td class="" style="background:rgba(56,189,248,0.41)">1261<span>±11</span></td><td class="d0" style="background:rgba(56,189,248,0.36)">1179<span>±199</span></td></tr></tbody></table></div><div class="heat-card"><h4>Laser, lần 2</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(56,189,248,0.09)">516<span>±22</span></td><td class="" style="background:rgba(56,189,248,0.09)">516<span>±9</span></td><td class="d90" style="background:rgba(56,189,248,0.13)">562<span>±17</span></td><td class="" style="background:rgba(56,189,248,0.11)">535<span>±54</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(56,189,248,0.08)">504<span>±3</span></td><td class="d0" style="background:rgba(56,189,248,0.09)">510<span>±8</span></td><td class="" style="background:rgba(56,189,248,0.12)">544<span>±20</span></td><td class="d90" style="background:rgba(56,189,248,0.24)">681<span>±26</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(56,189,248,0.58)">1071<span>±459</span></td><td class="" style="background:rgba(56,189,248,0.16)">594<span>±12</span></td><td class="d0" style="background:rgba(56,189,248,0.14)">572<span>±15</span></td><td class="" style="background:rgba(56,189,248,0.16)">591<span>±29</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(56,189,248,0.16)">598<span>±8</span></td><td class="d90" style="background:rgba(56,189,248,0.17)">609<span>±12</span></td><td class="" style="background:rgba(56,189,248,0.16)">600<span>±7</span></td><td class="d0" style="background:rgba(56,189,248,0.16)">592<span>±7</span></td></tr></tbody></table></div></div>
+      <div class="grid-3 heat-grid"><div class="heat-card"><h4>Nền, tắt laser</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(36,86,214,0.20)">982<span>±71</span></td><td class="" style="background:rgba(36,86,214,0.24)">1035<span>±220</span></td><td class="d90" style="background:rgba(36,86,214,0.36)">1204<span>±604</span></td><td class="" style="background:rgba(36,86,214,0.30)">1125<span>±650</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(36,86,214,0.06)">773<span>±20</span></td><td class="d0" style="background:rgba(36,86,214,0.06)">769<span>±9</span></td><td class="" style="background:rgba(36,86,214,0.20)">967<span>±314</span></td><td class="d90" style="background:rgba(36,86,214,0.19)">950<span>±148</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(36,86,214,0.22)">1003<span>±38</span></td><td class="" style="background:rgba(36,86,214,0.12)">860<span>±106</span></td><td class="d0" style="background:rgba(36,86,214,0.05)">757<span>±31</span></td><td class="" style="background:rgba(36,86,214,0.08)">800<span>±42</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(36,86,214,0.05)">756<span>±9</span></td><td class="d90" style="background:rgba(36,86,214,0.05)">760<span>±12</span></td><td class="" style="background:rgba(36,86,214,0.07)">790<span>±25</span></td><td class="d0" style="background:rgba(36,86,214,0.11)">838<span>±19</span></td></tr></tbody></table></div><div class="heat-card"><h4>Laser, lần 1</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(36,86,214,0.05)">666<span>±189</span></td><td class="" style="background:rgba(36,86,214,0.30)">1393<span>±100</span></td><td class="d90" style="background:rgba(36,86,214,0.36)">1570<span>±81</span></td><td class="" style="background:rgba(36,86,214,0.11)">846<span>±146</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(36,86,214,0.20)">1096<span>±32</span></td><td class="d0" style="background:rgba(36,86,214,0.23)">1189<span>±97</span></td><td class="" style="background:rgba(36,86,214,0.12)">868<span>±178</span></td><td class="d90" style="background:rgba(36,86,214,0.18)">1040<span>±58</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(36,86,214,0.12)">888<span>±84</span></td><td class="" style="background:rgba(36,86,214,0.11)">853<span>±72</span></td><td class="d0" style="background:rgba(36,86,214,0.15)">954<span>±104</span></td><td class="" style="background:rgba(36,86,214,0.22)">1159<span>±28</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(36,86,214,0.24)">1215<span>±13</span></td><td class="d90" style="background:rgba(36,86,214,0.25)">1252<span>±13</span></td><td class="" style="background:rgba(36,86,214,0.25)">1261<span>±11</span></td><td class="d0" style="background:rgba(36,86,214,0.22)">1179<span>±199</span></td></tr></tbody></table></div><div class="heat-card"><h4>Laser, lần 2</h4><table class="heat"><thead><tr><th></th><th>0°</th><th>45°</th><th>90°</th><th>135°</th></tr></thead><tbody><tr><th>0°</th><td class="d0" style="background:rgba(36,86,214,0.06)">516<span>±22</span></td><td class="" style="background:rgba(36,86,214,0.06)">516<span>±9</span></td><td class="d90" style="background:rgba(36,86,214,0.08)">562<span>±17</span></td><td class="" style="background:rgba(36,86,214,0.07)">535<span>±54</span></td></tr><tr><th>45°</th><td class="" style="background:rgba(36,86,214,0.05)">504<span>±3</span></td><td class="d0" style="background:rgba(36,86,214,0.06)">510<span>±8</span></td><td class="" style="background:rgba(36,86,214,0.07)">544<span>±20</span></td><td class="d90" style="background:rgba(36,86,214,0.15)">681<span>±26</span></td></tr><tr><th>90°</th><td class="d90" style="background:rgba(36,86,214,0.36)">1071<span>±459</span></td><td class="" style="background:rgba(36,86,214,0.10)">594<span>±12</span></td><td class="d0" style="background:rgba(36,86,214,0.09)">572<span>±15</span></td><td class="" style="background:rgba(36,86,214,0.10)">591<span>±29</span></td></tr><tr><th>135°</th><td class="" style="background:rgba(36,86,214,0.10)">598<span>±8</span></td><td class="d90" style="background:rgba(36,86,214,0.11)">609<span>±12</span></td><td class="" style="background:rgba(36,86,214,0.10)">600<span>±7</span></td><td class="d0" style="background:rgba(36,86,214,0.10)">592<span>±7</span></td></tr></tbody></table></div></div>
       <p class="fig-caption" style="margin-top:12px;">Hàng là góc Alice, cột là góc Bob. Mỗi ô ghi trung bình ± độ lệch chuẩn của 20 lần đo (ADC). Ô viền xanh lá: hai góc trùng nhau. Ô viền đỏ: hai góc vuông nhau. Nền ô càng sáng thì ADC càng cao. Số liệu gốc: thư mục data, ngày 24/11/2026.</p>
       <div class="callout" style="margin-top:12px;">Nếu hệ hoạt động đúng như Malus, ô viền xanh lá phải thấp hơn ô viền đỏ trong cùng hàng. Lan2 đúng ở cả 4 hàng, nhưng hàng 135° chỉ chênh 17 điểm, nhỏ hơn nhiễu. Lan1 đúng ở 2 trong 4 hàng; bộ nền đúng ở 3 trong 4 hàng. Ô (90°, 0°) của lan2 có độ lệch chuẩn 459, là điểm nhiễu lớn nhất.</div>
     </section>
@@ -1218,15 +1141,15 @@
           <line x1="100" y1="30" x2="100" y2="180" stroke="var(--ink-mute)" stroke-width="1" />
           <line x1="100" y1="180" x2="580" y2="180" stroke="var(--ink-mute)" stroke-width="1" />
           <line x1="100" y1="80" x2="580" y2="80" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="6 4" />
-          <text class="svg-mono" x="588" y="84" font-size="13" fill="var(--danger)">11% ngưỡng</text>
+          <text class="svg-mono" x="588" y="84" font-size="11" fill="var(--danger)">ngưỡng 11%</text>
           <rect x="200" y="176" width="90" height="4" fill="var(--safe)" />
-          <text class="svg-mono" x="245" y="200" text-anchor="middle" font-size="14" fill="var(--ink)">kênh sạch</text>
-          <text class="svg-mono" x="245" y="164" text-anchor="middle" font-size="15" fill="var(--safe)"
+          <text class="svg-mono" x="245" y="200" text-anchor="middle" font-size="15.1" fill="var(--ink)">kênh sạch</text>
+          <text class="svg-mono" x="245" y="164" text-anchor="middle" font-size="16.2" fill="var(--safe)"
             font-weight="700">~0.0%</text>
           <rect x="390" y="45" width="90" height="135" fill="var(--danger)" />
-          <text class="svg-mono" x="435" y="200" text-anchor="middle" font-size="14" fill="var(--ink)">có Eve mô
+          <text class="svg-mono" x="435" y="200" text-anchor="middle" font-size="15.1" fill="var(--ink)">có Eve mô
             phỏng</text>
-          <text class="svg-mono" x="435" y="36" text-anchor="middle" font-size="15" fill="#FCA5A5"
+          <text class="svg-mono" x="435" y="36" text-anchor="middle" font-size="16.2" fill="var(--danger)"
             font-weight="700">~27%</text>
         </svg>
       </div>
@@ -1534,11 +1457,15 @@
   <script src="js/lightbox.js"></script>
   <script src="js/agenda.js"></script>
   <script src="js/fit.js"></script>
+  <script src="js/so-do.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/motion.js"></script>
   <script src="js/malus-demo.js"></script>
   <script src="js/sim-round.js"></script>
   <script src="js/qber-analytic.js"></script>
   <script src="js/xor-demo.js"></script>
+<script src="js/mo-hinh-data.js"></script>
+<script src="js/mo-hinh.js"></script>
 </body>
 
 </html>

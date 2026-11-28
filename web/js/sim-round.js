@@ -191,11 +191,14 @@
 
   function updateMetrics() {
     var n = aliceBits.length;
+    var countEl = document.getElementById("simKeyCount");
+    if (countEl) countEl.textContent = n + " bit";
 
     if (n === 0) {
       keyBitsEl.textContent = "—";
     } else {
-      keyBitsEl.textContent = bobBits.join("") + " (" + n + " bit)";
+      keyBitsEl.textContent = bobBits.join("");
+      keyBitsEl.scrollTop = keyBitsEl.scrollHeight; /* khung cố định, luôn thấy các bit mới nhất */
     }
 
     if (n < MIN_SAMPLE) {
@@ -214,7 +217,7 @@
     var qber = (errors / n) * 100;
     var lowConfidence = n < CONFIDENT_SAMPLE;
     var caveat = lowConfidence
-      ? " (mẫu còn nhỏ — " + n + " bit, chạy thêm vòng để chắc chắn hơn)"
+      ? " (mới " + n + " bit, nên chạy thêm)"
       : "";
 
     qberValueEl.innerHTML =
@@ -253,6 +256,8 @@
 
     logBody.innerHTML = "";
     keyBitsEl.textContent = "—";
+    var countEl = document.getElementById("simKeyCount");
+    if (countEl) countEl.textContent = "0 bit";
     qberValueEl.textContent = "—";
     qberFillEl.style.width = "0%";
     verdictEl.className = "verdict idle";

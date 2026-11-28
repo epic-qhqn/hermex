@@ -1,0 +1,10 @@
+.mo-hinh{background:#080B33;color:#fff;border-radius:28px;padding:14px;box-shadow:0 14px 30px -14px rgba(4,6,36,.55);text-align:center;width:100%}
+.mo-hinh canvas{display:block;width:100%;height:min(58vh,560px);min-height:240px;cursor:grab;touch-action:pan-y;border-radius:18px}
+.mo-hinh canvas:active{cursor:grabbing}
+.mo-hinh :focus-visible{outline:3px solid #FFD43B;outline-offset:2px}
+.mh-nut,.mh-nhom{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
+.mo-hinh button{font:600 .9rem 'Be Vietnam Pro',sans-serif;color:#fff;background:transparent;border:2px solid #5A63A8;border-radius:999px;min-height:40px;min-width:44px;padding:4px 14px;cursor:pointer}
+.mo-hinh button:hover{border-color:#fff}
+.mo-hinh button[aria-pressed=true]{background:#FFD43B;border-color:#FFD43B;color:#080B33}
+.mh-nhom button{font-weight:500}
+@media (max-width:700px){.mo-hinh canvas{height:260px;min-height:0}.mo-hinh button{font-size:.8rem;padding:4px 10px}}

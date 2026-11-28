@@ -29,14 +29,14 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  text-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+  text-shadow: 0 0 16px rgba(36, 86, 214, 0.35);
 }
 
 .logo .dial {
   width: 22px;
   height: 22px;
   color: var(--accent-deep);
-  filter: drop-shadow(0 0 6px rgba(6, 182, 212, 0.6));
+  filter: drop-shadow(0 0 6px rgba(36, 86, 214, 0.35));
 }
 
 .section-hint {
@@ -72,18 +72,18 @@
 }
 
 .ctrl-btn:hover {
-  background: rgba(6, 182, 212, 0.15);
+  background: rgba(36, 86, 214, 0.15);
   border-color: var(--accent);
   color: #FFFFFF;
-  box-shadow: 0 0 14px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 0 14px rgba(36, 86, 214, 0.25);
   transform: translateY(-1px);
 }
 
 .ctrl-btn.active {
   background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-  color: #080D1A;
+  color: #FFFFFF;
   border-color: var(--accent-light);
-  box-shadow: 0 0 18px rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 18px rgba(36, 86, 214, 0.35);
 }
 
 /* ============================== CHÂN TRANG ĐIỀU HƯỚNG (BOTTOM BAR) ============================== */
@@ -137,7 +137,7 @@
   height: 13px;
   border-radius: 50%;
   background: radial-gradient(circle, #FFFFFF 0%, var(--swatch-4) 55%, transparent 78%);
-  box-shadow: 0 0 9px 3px rgba(140, 170, 220, 0.85), 0 0 3px 1px #FFFFFF;
+  box-shadow: 0 0 9px 3px rgba(36, 86, 214, 0.35), 0 0 3px 1px #FFFFFF;
   animation: photonPulse 1.8s ease-in-out infinite;
 }
 
@@ -173,10 +173,10 @@
 
 .arrow-btn:hover {
   background: var(--accent);
-  color: #080D1A;
+  color: #FFFFFF;
   border-color: var(--accent-light);
   transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 0 16px rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 16px rgba(36, 86, 214, 0.35);
 }
 
 .arrow-btn:active {

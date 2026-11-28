@@ -7,16 +7,16 @@
   align-items: center;
   text-align: center;
   background:
-    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(6, 182, 212, 0.12) 0%, transparent 80%),
-    radial-gradient(circle at 85% 10%, rgba(14, 116, 144, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 10% 90%, rgba(14, 116, 144, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(36, 86, 214, 0.12) 0%, transparent 80%),
+    radial-gradient(circle at 85% 10%, rgba(36, 86, 214, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 10% 90%, rgba(36, 86, 214, 0.1) 0%, transparent 50%),
     var(--bg);
 }
 
 .cover-icon {
   margin-bottom: 12px;
   opacity: 0;
-  filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.4));
+  filter: drop-shadow(0 0 20px rgba(36, 86, 214, 0.35));
 }
 
 .cover-bg {
@@ -35,7 +35,7 @@
 
 .cover-needle {
   transform-origin: 100px 100px;
-  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.9));
+  filter: drop-shadow(0 0 10px rgba(36, 86, 214, 0.35));
   animation: needleGlow 2.4s ease-in-out infinite 0.9s;
 }
 
@@ -48,12 +48,12 @@
   font-weight: 600;
   font-size: 1.16rem;
   color: #FFFFFF;
-  border: 1.5px solid rgba(6, 182, 212, 0.5);
+  border: 1.5px solid rgba(36, 86, 214, 0.35);
   border-radius: 999px;
   padding: 12px 30px;
-  background: linear-gradient(135deg, rgba(6, 182, 212, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(36, 86, 214, 0.2) 0%, rgba(15, 23, 42, 0.8) 100%);
   backdrop-filter: blur(16px);
-  box-shadow: 0 0 30px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 0 30px rgba(36, 86, 214, 0.25);
   opacity: 0;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
   /* ghi đè width:100% mặc định từ ".slide > *" để nút bo sát nội dung, không kéo giãn hết chiều ngang */
@@ -65,14 +65,14 @@
 
 .cover-cta:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 40px rgba(6, 182, 212, 0.45);
+  box-shadow: 0 0 40px rgba(36, 86, 214, 0.35);
 }
 
 .cover-cta kbd {
   font-family: var(--font-mono);
-  background: rgba(6, 182, 212, 0.25);
+  background: rgba(36, 86, 214, 0.25);
   color: var(--accent-deep);
-  border: 1px solid rgba(103, 232, 249, 0.4);
+  border: 1px solid rgba(36, 86, 214, 0.35);
   border-radius: 6px;
   padding: 2px 9px;
   font-size: 1rem;
@@ -94,7 +94,7 @@
   font-size: 0.87rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  border: 1px solid rgba(103, 232, 249, 0.2);
+  border: 1px solid rgba(36, 86, 214, 0.2);
   border-radius: 999px;
   padding: 6px 16px;
   color: var(--ink-soft);
@@ -136,18 +136,18 @@
   font-weight: 600;
   font-size: 1.2rem;
   color: var(--accent-deep);
-  background: rgba(6, 182, 212, 0.12);
+  background: rgba(36, 86, 214, 0.12);
   border: 1.5px solid var(--accent);
   border-radius: 999px;
   padding: 14px 28px;
-  box-shadow: 0 10px 28px rgba(6, 182, 212, 0.15);
+  box-shadow: 0 10px 28px rgba(36, 86, 214, 0.15);
   backdrop-filter: blur(12px);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .thanks-badge:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(6, 182, 212, 0.3);
+  box-shadow: 0 16px 36px rgba(36, 86, 214, 0.3);
 }
 
 .thanks-card {
@@ -164,7 +164,7 @@
 
 .thanks-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.2);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(36, 86, 214, 0.2);
 }
 
 .thanks-caption {
@@ -314,7 +314,7 @@
 
 .xor-card:hover {
   transform: translateY(-6px) scale(1.015);
-  box-shadow: 0 20px 40px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 20px 40px rgba(36, 86, 214, 0.25);
   border-color: var(--accent);
 }
 
@@ -324,8 +324,8 @@
   font-family: var(--font-mono);
   font-size: 0.89rem;
   color: var(--accent-deep);
-  background: rgba(6, 182, 212, 0.12);
-  border: 1px solid rgba(103, 232, 249, 0.25);
+  background: rgba(36, 86, 214, 0.12);
+  border: 1px solid rgba(36, 86, 214, 0.25);
   padding: 4px 14px;
   border-radius: 999px;
 }
@@ -333,7 +333,7 @@
 /* ============================== KHUNG CHỨA SƠ ĐỒ VECTOR (DIAGRAM) ============================== */
 .diagram-frame {
   background: linear-gradient(180deg, rgba(11, 16, 28, 0.9) 0%, rgba(6, 9, 16, 0.95) 100%);
-  border: 1px solid rgba(103, 232, 249, 0.18);
+  border: 1px solid rgba(36, 86, 214, 0.18);
   border-radius: 20px;
   padding: 24px 28px 16px;
   box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
